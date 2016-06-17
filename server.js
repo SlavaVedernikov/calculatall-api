@@ -5,17 +5,18 @@ var http = require('http');
 //  fs.readFileSync('./data/test.json')
 //).test;
 
-const test = {
-		value1: 'some value',
-		value2: 'some other value'
-};
+//const test = {
+//		value1: 'some value',
+//		value2: 'some other value'
+//};
 
 http.createServer(function(request, response) {
 	if (request.method === 'GET' && request.url === '/test') {
 		var headers = request.headers;
 		var method = request.method;
 		var url = request.url;
-		var body = JSON.stringify(test);
+		//var body = JSON.stringify(test);
+		var body = 'Test body...';
 		
 		request.on('error', function(err) {
 			console.error(err);
