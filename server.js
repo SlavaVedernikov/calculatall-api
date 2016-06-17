@@ -1,9 +1,14 @@
 var fs = require("fs");
 var http = require('http');
 
-const test = JSON.parse(
-  fs.readFileSync('./data/test.json')
-).test;
+//const test = JSON.parse(
+//  fs.readFileSync('./data/test.json')
+//).test;
+
+const test = {
+		value1: 'some value',
+		value2: 'some other value'
+};
 
 http.createServer(function(request, response) {
 	if (request.method === 'GET' && request.url === '/test') {
