@@ -2,7 +2,7 @@ var http = require('http');
 var fs = require("fs");
 
 const datamodel = JSON.parse(
-  fs.readFileSync('../Test/datamodel.js')
+  fs.readFileSync('./data/datamodel.js')
 );
 
 http.createServer(function(request, response) {
