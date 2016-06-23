@@ -1,53 +1,32 @@
-var fs = require("fs");
 var http = require('http');
+var fs = require("fs");
 
-//const test = JSON.parse(
-//  fs.readFileSync('./data/test.json')
-//).test;
-
-//const test = {
-//		value1: 'some value',
-//		value2: 'some other value'
-//};
+const datamodel = JSON.parse(
+  fs.readFileSync('../Test/datamodel.js')
+);
 
 http.createServer(function(request, response) {
-	if (request.method === 'GET' && request.url === '/test') {
-		var headers = request.headers;
-		var method = request.method;
-		var url = request.url;
-		//var body = JSON.stringify(test);
-		var body = 'Test body...';
-		
-		request.on('error', function(err) {
-			console.error(err);
-		}).on('end', function() {
-			body = Buffer.concat(body).toString();
-			// BEGINNING OF NEW STUFF
-
-			response.on('error', function(err) {
-			  console.error(err);
-			});
-
-			response.statusCode = 200;
-			response.setHeader('Content-Type', 'application/json');
-			// Note: the 2 lines above could be replaced with this next one:
-			// response.writeHead(200, {'Content-Type': 'application/json'})
-
-			var responseBody = {
-			  headers: headers,
-			  method: method,
-			  url: url,
-			  body: body
-			};
-
-			response.write(JSON.stringify(responseBody));
-			response.end();
-			// Note: the 2 lines above could be replaced with this next one:
-			// response.end(JSON.stringify(responseBody))
-
-			// END OF NEW STUFF
-		});
-	}
-}).listen(process.env.PORT || 8080);
-
-
+  request.on('error', function(err) {
+    console.error(err);
+    response.statusCode = 400;
+    response.end();
+  });
+  response.on('error', function(err) {
+    console.error(err);
+  });
+  
+  
+  if (request.method === 'GET' && (request.url === '/data_types' || request.url === '/validation_rules' || request.url === '/object_types' || request.url === '/objects')) {
+	var body = JSON.stringify(datamodel[request.url.replace('/', '')]);
+	
+	response.setHeader('Content-Type', 'application/json');
+	response.statusCode = 200;	
+	
+	response.write(body);
+	response.end();
+  }
+  else {
+    response.statusCode = 404;
+    response.end();
+  }
+}).listen(8080);
