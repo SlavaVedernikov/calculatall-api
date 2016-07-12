@@ -1,0 +1,617 @@
+{
+	"system_object_types": [{
+		"name": "attribute",
+		"display_name": "Attribute",
+		"description": "Attribute object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Attribute name",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Attribute display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Attribute description",
+			"data_type": "string"
+		},
+		{
+			"name": "data_type",
+			"display_name": "Data type",
+			"description": "Attribute data type",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'data_type'"
+			},
+			"validation_rules": [{
+				"name": "value_is_in_query",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				}]
+			}]
+		},
+		{
+			"name": "validation_rules",
+			"display_name": "Validation rules",
+			"description": "Attribute validation rules",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'validation_rule' && supported_data_types.Contains({0})",
+				"parameters": [{
+					"name": "data_type",
+					"value_type": "Field value",
+					"value": "data_type"
+				}]
+			},
+			"validation_rules": [{
+				"name": "value_is_in_query",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				}]
+			}]
+		}]
+	},
+	{
+		"name": "parameter",
+		"display_name": "Parameter",
+		"description": "Parameter object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Parameter name",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Paremeter display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Paremeter description",
+			"data_type": "string"
+		},
+		{
+			"name": "data_type",
+			"display_name": "Data type",
+			"description": "Paremeter data type",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'data_type'"
+			},
+			"validation_rules": [{
+				"name": "value_is_in_query",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				}]
+			}]
+		},
+		{
+			"name": "is_internal",
+			"display_name": "Is internal",
+			"description": "Is parameter an internal",
+			"data_type": "boolean"
+		},
+		{
+			"name": "value_type",
+			"display_name": "Is internal",
+			"description": "Is parameter an internal",
+			"data_type": "value_lookup",
+			"value_source": [{
+				"name": "Field value"
+			},
+			{
+				"name": "Value"
+			},
+			{
+				"name": "Expression"
+			}]
+		},
+		{
+			"name": "value",
+			"display_name": "Value",
+			"description": "Parameter value",
+			"data_type": "string"
+		}]
+	},
+	{
+		"name": "lookup_query",
+		"display_name": "Validation rule",
+		"description": "Validation rule object type",
+		"fields": [{
+			"name": "query_expression",
+			"display_name": "Query expression",
+			"description": "Query expression",
+			"data_type": "string"
+		},
+		{
+			"name": "parameters",
+			"display_name": "Paremeters",
+			"description": "Query expression parameters",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "parameter"
+			}
+		}]
+	},
+	{
+		"name": "validation_rule",
+		"display_name": "Validation rule",
+		"description": "Validation rule object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Validation rule name",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Validation rule display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Validation rule description",
+			"data_type": "string"
+		},
+		{
+			"name": "message",
+			"display_name": "Message",
+			"description": "Validation rule message",
+			"data_type": "string"
+		},
+		{
+			"name": "expression",
+			"display_name": "Expression",
+			"description": "Validation rule expression",
+			"data_type": "string"
+		},
+		{
+			"name": "supported_data_types",
+			"display_name": "Supported data types",
+			"description": "Data types supported by validation rule",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'data_type'"
+			},
+			"validation_rules": [{
+				"name": "value_is_in_query",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				},
+				{
+					"name": "is_multi_value",
+					"value_type": "value",
+					"value": "true"
+				}]
+			}]
+		},
+		{
+			"name": "parameters",
+			"display_name": "Paremeters",
+			"description": "Validation rule parameters",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "parameter"
+			}
+		}]
+	},
+	{
+		"name": "relationship_definition",
+		"display_name": "Relationship definition",
+		"description": "Relationship definition object type",
+		"fields": [{
+			"name": "source_object_type",
+			"display_name": "Object type",
+			"description": "Main object type",
+			"data_type": "string"
+		},
+		{
+			"name": "destination_object_type",
+			"display_name": "Related object type",
+			"description": "Related object type",
+			"data_type": "string"
+		},
+		{
+			"name": "relationship_type",
+			"display_name": "Relationship type",
+			"description": "Relationship type",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'relationship_type'"
+			},
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				}]
+			}]
+		},
+		{
+			"name": "relationship_multiplicity",
+			"display_name": "Relationship multiplicity",
+			"description": "Relationship multiplicity",
+			"data_type": "query_lookup",
+			"value_source_query": {
+				"query_expression": "object_type = 'relationship_multiplicity'"
+			},
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "list_query",
+					"value_type": "Field value",
+					"value": "value_source_query"
+				}]
+			}]
+		}]
+	},
+	{
+		"name": "relationship",
+		"display_name": "Relationship",
+		"description": "Relationship object type",
+		"fields": [{
+			"name": "relationship_definition",
+			"display_name": "Relationship definition",
+			"description": "Relationship definition",
+			"data_type": "query_lookup"
+		},
+		{
+			"name": "source_object_id",
+			"display_name": "Object ID",
+			"description": "Main object ID",
+			"data_type": "string"
+		},
+		{
+			"name": "destination_object_id",
+			"display_name": "Related object ID",
+			"description": "Related object ID",
+			"data_type": "string"
+		}]
+	},
+	{
+		"name": "lookup_value",
+		"display_name": "Lookup value",
+		"description": "Lookup value object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Name of lookup value",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "value",
+			"display_name": "Value",
+			"description": "Value of lookup value",
+			"data_type": "integer"
+		},
+		{
+			"name": "icon",
+			"display_name": "Icon",
+			"description": "Icon of lookup value",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "color",
+			"display_name": "Color",
+			"description": "Color of lookup value",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 7
+				}]
+			}]
+		}]
+	},
+	{
+		"name": "data_type",
+		"display_name": "Data type",
+		"description": "Data type object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Name of Data type",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display Name",
+			"description": "Display Name of Data type",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Description of Data type",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 2000
+				}]
+			}]
+		},
+		{
+			"name": "value_source_query",
+			"display_name": "Value source query",
+			"description": "Value source query of Data type",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "lookup_query"
+			}
+		},
+		{
+			"name": "value_source",
+			"display_name": "Value source",
+			"description": "Value source of Data type",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "lookup_value"
+			}
+		},
+		{
+			"name": "validation_rules",
+			"display_name": "Validation rules",
+			"description": "Validation rules of Data type",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "validation_rule"
+			}
+		}]
+	},
+	{
+		"name": "custom_object_type",
+		"display_name": "Custom object type",
+		"description": "Custom object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Custom object type name",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Custom object type display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Custom object type description",
+			"data_type": "string"
+		}],
+		"attributes": {
+			"multiplicity": "many",
+			"object_type": "attribute"
+		}
+	},
+	{
+		"name": "application",
+		"display_name": "Application",
+		"description": "Application",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Application name",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Application display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Application description",
+			"data_type": "string"
+		}],
+		"pages": {
+			"multiplicity": "many",
+			"object_type": "page"
+		}
+	},
+	{
+		"name": "page",
+		"display_name": "Page",
+		"description": "Page",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Page name",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Page display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Page description",
+			"data_type": "string"
+		}],
+		"containers": {
+			"multiplicity": "many",
+			"object_type": "container"
+		}
+	},
+	{
+		"name": "container",
+		"display_name": "Container",
+		"description": "Container",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Container name",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Container display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Container description",
+			"data_type": "string"
+		}],
+		"containers": {
+			"multiplicity": "many",
+			"object_type": "container"
+		},
+		"controls": {
+			"multiplicity": "many",
+			"object_type": "control"
+		}
+	},
+	{
+		"name": "control",
+		"display_name": "Control",
+		"description": "Control",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Control name",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Control display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Control description",
+			"data_type": "string"
+		}],
+		"controls": {
+			"multiplicity": "many",
+			"object_type": "control"
+		}
+	}]
+}

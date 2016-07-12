@@ -1,0 +1,251 @@
+{
+	"objects": [{
+		"object_type": "data_type",
+		"name": "string",
+		"display_name": "Text",
+		"description": "Text data"
+	},
+	{
+		"object_type": "data_type",
+		"name": "integer",
+		"display_name": "Whole number",
+		"description": "A number without fractions (i.e. integer)",
+		"validation_rules": [{
+			"order": 1,
+			"name": "is_numeric",
+			"severity": "error"
+		},
+		{
+			"order": 2,
+			"name": "is_integer",
+			"severity": "error"
+		}]
+	},
+	{
+		"object_type": "data_type",
+		"name": "decimal",
+		"display_name": "Mixed number",
+		"description": "A number that has a fractional part separated from the integer part with a decimal separator (e.g. 11.25)",
+		"validation_rules": [{
+			"order": 1,
+			"name": "is_numeric",
+			"severity": "error"
+		},
+		{
+			"order": 2,
+			"name": "is_decimal",
+			"severity": "error"
+		}]
+	},
+	{
+		"object_type": "data_type",
+		"name": "value_lookup",
+		"display_name": "Value lookup",
+		"description": "Data value lookup",
+		"value_source": {
+			"multiplicity": "many",
+			"object_type": "lookup_value"
+		},
+		"validation_rules": [{
+			"name": "value_is_in_list",
+			"order": 1,
+			"severity": "error",
+			"parameters": [{
+				"name": "list",
+				"value_type": "Field value",
+				"value": "value_source"
+			}]
+		}]
+	},
+	{
+		"object_type": "data_type",
+		"name": "query_lookup",
+		"display_name": "Query lookup",
+		"description": "Data query lookup",
+		"value_source": {
+			"multiplicity": "one",
+			"object_type": "lookup_query"
+		},
+		"validation_rules": [{
+			"name": "value_is_in_query",
+			"order": 1,
+			"severity": "error",
+			"parameters": [{
+				"name": "list_query",
+				"value_type": "Field value",
+				"value": "value_source"
+			}]
+		}]
+	},
+	{
+		"object_type": "validation_rule",
+		"name": "is_not_empty",
+		"display_name": "Value is required",
+		"severity": "error",
+		"description": "Checks whether a value was provided for a field",
+		"message": "Field should not be empty",
+		"expression": "IsNotEmpty($)",
+		"supported_data_types": ["string",
+		"integer",
+		"decimal"]
+	},
+	{
+		"object_type": "validation_rule",
+		"name": "minimum_length",
+		"display_name": "Minimum length",
+		"description": "Validates minimum required length of the text value",
+		"message": "Text length cannot be smaller than {0}. The actual length is {1}",
+		"expression": "length($) >= {0}",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "length",
+			"display_name": "Length greater than or equal to",
+			"description": "Minimum required length of the text value",
+			"data_type": "integer",
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "size",
+			"display_name": "Size",
+			"description": "Actual size of the text value",
+			"data_type": "integer",
+			"is_internal": true,
+			"value_type": "Expression",
+			"value": "length($)"
+		}]
+	},
+	{
+		"object_type": "validation_rule",
+		"name": "maximum_length",
+		"display_name": "Maximum length",
+		"description": "Validates maximum allowed length of the text value",
+		"message": "Text length cannot be greater than {0}. The actual length is {1}",
+		"expression": "length($) <= {0}",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "length",
+			"display_name": "Length less than or equal to",
+			"description": "Maximum allowed length of the text value",
+			"data_type": "integer",
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "size",
+			"display_name": "Size",
+			"description": "Actual size of the text value",
+			"data_type": "integer",
+			"is_internal": true,
+			"value_type": "Expression",
+			"value": "length($)"
+		}]
+	},
+	{
+		"object_type": "validation_rule",
+		"name": "value_is_in_list",
+		"display_name": "Value is in list",
+		"description": "Checks that the value of the field is identical to one of the values in the list",
+		"scope": "field",
+		"message": "The value should be one of this {list}",
+		"expression": "IsIn($, {list}, {caseSensitive})",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "list",
+			"display_name": "List",
+			"description": "List of possible values",
+			"data_type": "stringArray",
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "is_multi_value",
+			"display_name": "Multi-Value",
+			"description": "Multiple values can be selected",
+			"data_type": "boolean",
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		},
+		{
+			"name": "is_case_sensitive",
+			"display_name": "Case Sensitive",
+			"description": "Values are case sensitive",
+			"data_type": "boolean",
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		}]
+	},
+	{
+		"object_type": "validation_rule",
+		"name": "value_is_in_query",
+		"display_name": "Value is in query list",
+		"description": "Checks that the value of the field is identical to one of the values in the list retured by a query",
+		"scope": "field",
+		"message": "The value should be one of this {list}",
+		"expression": "IsInQuery($, {list}, {caseSensitive})",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "list_query",
+			"display_name": "List query",
+			"description": "List query for possible values",
+			"data_type": "lookup_query",
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "is_multi_value",
+			"display_name": "Multi-Value",
+			"description": "Multiple values can be selected",
+			"data_type": "boolean",
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		},
+		{
+			"name": "is_case_sensitive",
+			"display_name": "Case Sensitive",
+			"description": "Values are case sensitive",
+			"data_type": "boolean",
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		}]
+	},
+	{
+		"object_type": "relationship_definition",
+		"name": "string",
+		"display_name": "Text",
+		"description": "Text data",
+		"source_object_type": "",
+		"destination_object_type": "",
+		"relationship_type": "",
+		"relationship_type": ""
+	},
+	{
+		"object_type": "application_component",
+		"name": "Application Component 1",
+		"description": "Application Component 1 description go here...",
+		"availability_characteristics": "Availability characteristics go here...",
+		"functional_quality": "High"
+	},
+	{
+		"object_type": "application_component",
+		"name": "Application Component 2",
+		"description": "Application Component 2 description go here...",
+		"availability_characteristics": "Availability characteristics go here...",
+		"functional_quality": "Medium"
+	},
+	{
+		"object_type": "application",
+		"name": "admin_application",
+		"display_name": "Admin",
+		"description": "Test admin application",
+		"pages": []
+	}]
+}

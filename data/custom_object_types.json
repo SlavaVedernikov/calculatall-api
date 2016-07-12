@@ -1,0 +1,80 @@
+{
+	"custom_object_types": [{
+		"system_object_type": "custom_object_type",
+		"name": "application_component",
+		"display_name": "Application Component",
+		"description": "Application Component object type",
+		"attributes": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Object name",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Object description",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 1000
+				}]
+			}]
+		},
+		{
+			"name": "availability_characteristics",
+			"display_name": "Availability characteristics",
+			"description": "Degree to which something is available for use",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 2000
+				}]
+			}]
+		},
+		{
+			"name": "functional_quality",
+			"display_name": "Functional quality",
+			"description": "What is the functional quality of the application?",
+			"data_type": "value_lookup",
+			"value_source": [{
+				"name": "High",
+				"value": 100,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			},
+			{
+				"name": "Medium",
+				"value": 50,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			},
+			{
+				"name": "Low",
+				"value": 0,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			}]
+		}]
+	}]
+}

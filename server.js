@@ -1,10 +1,6 @@
 var http = require('http');
 var fs = require("fs");
 
-const datamodel = JSON.parse(
-  fs.readFileSync('./data/datamodel.js')
-);
-
 http.createServer(function(request, response) {
   request.on('error', function(err) {
     console.error(err);
@@ -15,11 +11,18 @@ http.createServer(function(request, response) {
     console.error(err);
   });
   
+  var urlPath = request.url.split("?").shift();
   
-  if (request.method === 'GET' && (request.url === '/data_types' || request.url === '/validation_rules' || request.url === '/object_types' || request.url === '/objects')) {
-	var body = JSON.stringify(datamodel[request.url.replace('/', '')]);
+  if (request.method === 'GET' && (urlPath === '/system_object_types' || urlPath === '/custom_object_types' || urlPath === '/objects')) {
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync('./data' + urlPath + '.json')
+	);
+	var body = JSON.stringify(datamodel[urlPath.replace('/', '')]);
 	
 	response.setHeader('Content-Type', 'application/json');
+	response.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+	
 	response.statusCode = 200;	
 	
 	response.write(body);
@@ -29,4 +32,4 @@ http.createServer(function(request, response) {
     response.statusCode = 404;
     response.end();
   }
-}).listen(process.env.PORT || 8080);
+}).listen(process.env.PORT || 8181);
