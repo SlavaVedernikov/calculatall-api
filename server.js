@@ -22,6 +22,8 @@ http.createServer(function(request, response) {
 	
 	response.setHeader('Content-Type', 'application/json');
 	response.setHeader('Access-Control-Allow-Origin', 'http://127.0.0.1:8080');
+	response.setHeader('Access-Control-Allow-Origin', 'http://calculatall-app.herokuapp.com');
+	
 	
 	response.statusCode = 200;	
 	
