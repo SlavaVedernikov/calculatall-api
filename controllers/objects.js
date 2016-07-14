@@ -18,7 +18,7 @@ exports.findAll = function(req, res) {
 		data = JSON.stringify(datamodel.objects);
 	}
 	
-	res.header("Access-Control-Allow-Origin", "http://127.0.0.1:8080");
+	res.header("Access-Control-Allow-Origin", "https://calculatall-app.herokuapp.com");
 	res.send(data);
 };
 
@@ -33,7 +33,7 @@ exports.findById = function(req, res){
 	);
 	var data = JSONPath({json: datamodel, path: "$.[?(@.name=='" + id + "')]"});
 	var body = data[0];
-	res.header("Access-Control-Allow-Origin", "http://127.0.0.1:8080");
+	res.header("Access-Control-Allow-Origin", "https://calculatall-app.herokuapp.com");
 	res.send(body);
 };
 
