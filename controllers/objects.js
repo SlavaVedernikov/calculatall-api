@@ -18,7 +18,12 @@ exports.findAll = function(req, res) {
 		data = JSON.stringify(datamodel.objects);
 	}
 	
-	res.header("Access-Control-Allow-Origin", "https://calculatall-app.herokuapp.com");
+	var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
+  	var origin = req.headers.origin;
+  	if(allowedOrigins.indexOf(origin) > -1){
+       		res.header('Access-Control-Allow-Origin', origin);
+  	}
+  	
 	res.send(data);
 };
 
@@ -33,7 +38,13 @@ exports.findById = function(req, res){
 	);
 	var data = JSONPath({json: datamodel, path: "$.[?(@.name=='" + id + "')]"});
 	var body = data[0];
-	res.header("Access-Control-Allow-Origin", "https://calculatall-app.herokuapp.com");
+	
+	var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
+  	var origin = req.headers.origin;
+  	if(allowedOrigins.indexOf(origin) > -1){
+       		res.header('Access-Control-Allow-Origin', origin);
+  	}
+  	
 	res.send(body);
 };
 
