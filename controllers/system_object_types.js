@@ -12,14 +12,18 @@ exports.findAll = function(req, res) {
 	if(query != undefined)
 	{
 		data = JSONPath({json: datamodel, path: "$.[?(@." + query + ")]"});
-		//data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='system_object')]"});
 	}
 	else
 	{
 		data = JSON.stringify(datamodel.system_object_types);
 	}
 	
-	res.header("Access-Control-Allow-Origin", "https://calculatall-app.herokuapp.com");
+	var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
+  	var origin = req.headers.origin;
+  	if(allowedOrigins.indexOf(origin) > -1){
+       		res.header('Access-Control-Allow-Origin', origin);
+  	}
+  	
 	res.send(data);
 };
 
