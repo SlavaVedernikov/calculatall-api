@@ -230,6 +230,7 @@
 	{
 		"object_type": "application_component",
 		"name": "Application Component 1",
+		"display_name": "Application Component 1",
 		"description": "Application Component 1 description go here...",
 		"availability_characteristics": "Availability characteristics go here...",
 		"functional_quality": "High"
@@ -237,6 +238,7 @@
 	{
 		"object_type": "application_component",
 		"name": "Application Component 2",
+		"display_name": "Application Component 2",
 		"description": "Application Component 2 description go here...",
 		"availability_characteristics": "Availability characteristics go here...",
 		"functional_quality": "Medium"

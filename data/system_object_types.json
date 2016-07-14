@@ -1,12 +1,58 @@
 {
 	"system_object_types": [{
+		"name": "system_object",
+		"object_type": "system_object",
+		"display_name": "System object",
+		"description": "System object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "System object name",
+			"data_type": "string"
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "System object display name",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "System object description",
+			"data_type": "string"
+		},
+		{
+			"name": "fields",
+			"display_name": "Attributes",
+			"description": "Attributes of Custom object type",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "attribute"
+			}
+		}]
+	},
+	{
 		"name": "attribute",
+		"object_type": "system_object",
 		"display_name": "Attribute",
 		"description": "Attribute object type",
 		"fields": [{
 			"name": "name",
 			"display_name": "Name",
 			"description": "Attribute name",
+			"data_type": "string"
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
 			"data_type": "string"
 		},
 		{
@@ -27,7 +73,7 @@
 			"description": "Attribute data type",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'data_type'"
+				"query_expression": "object_type == 'data_type'"
 			},
 			"validation_rules": [{
 				"name": "value_is_in_query",
@@ -47,7 +93,7 @@
 			"description": "Attribute validation rules",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'validation_rule' && supported_data_types.Contains({0})",
+				"query_expression": "object_type == 'validation_rule' && supported_data_types.Contains({0})",
 				"parameters": [{
 					"name": "data_type",
 					"value_type": "Field value",
@@ -69,12 +115,19 @@
 	},
 	{
 		"name": "parameter",
+		"object_type": "system_object",
 		"display_name": "Parameter",
 		"description": "Parameter object type",
 		"fields": [{
 			"name": "name",
 			"display_name": "Name",
 			"description": "Parameter name",
+			"data_type": "string"
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
 			"data_type": "string"
 		},
 		{
@@ -95,7 +148,7 @@
 			"description": "Paremeter data type",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'data_type'"
+				"query_expression": "object_type == 'data_type'"
 			},
 			"validation_rules": [{
 				"name": "value_is_in_query",
@@ -139,6 +192,7 @@
 	},
 	{
 		"name": "lookup_query",
+		"object_type": "system_object",
 		"display_name": "Validation rule",
 		"description": "Validation rule object type",
 		"fields": [{
@@ -159,12 +213,19 @@
 	},
 	{
 		"name": "validation_rule",
+		"object_type": "system_object",
 		"display_name": "Validation rule",
 		"description": "Validation rule object type",
 		"fields": [{
 			"name": "name",
 			"display_name": "Name",
 			"description": "Validation rule name",
+			"data_type": "string"
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
 			"data_type": "string"
 		},
 		{
@@ -197,7 +258,7 @@
 			"description": "Data types supported by validation rule",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'data_type'"
+				"query_expression": "object_type == 'data_type'"
 			},
 			"validation_rules": [{
 				"name": "value_is_in_query",
@@ -228,6 +289,7 @@
 	},
 	{
 		"name": "relationship_definition",
+		"object_type": "system_object",
 		"display_name": "Relationship definition",
 		"description": "Relationship definition object type",
 		"fields": [{
@@ -248,7 +310,7 @@
 			"description": "Relationship type",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'relationship_type'"
+				"query_expression": "object_type == 'relationship_type'"
 			},
 			"validation_rules": [{
 				"name": "maximum_length",
@@ -268,7 +330,7 @@
 			"description": "Relationship multiplicity",
 			"data_type": "query_lookup",
 			"value_source_query": {
-				"query_expression": "object_type = 'relationship_multiplicity'"
+				"query_expression": "object_type == 'relationship_multiplicity'"
 			},
 			"validation_rules": [{
 				"name": "maximum_length",
@@ -285,6 +347,7 @@
 	},
 	{
 		"name": "relationship",
+		"object_type": "system_object",
 		"display_name": "Relationship",
 		"description": "Relationship object type",
 		"fields": [{
@@ -308,6 +371,7 @@
 	},
 	{
 		"name": "lookup_value",
+		"object_type": "system_object",
 		"display_name": "Lookup value",
 		"description": "Lookup value object type",
 		"fields": [{
@@ -325,6 +389,12 @@
 					"value": 250
 				}]
 			}]
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
 		},
 		{
 			"name": "value",
@@ -367,6 +437,7 @@
 	},
 	{
 		"name": "data_type",
+		"object_type": "system_object",
 		"display_name": "Data type",
 		"description": "Data type object type",
 		"fields": [{
@@ -384,6 +455,12 @@
 					"value": 250
 				}]
 			}]
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
 		},
 		{
 			"name": "display_name",
@@ -447,6 +524,7 @@
 	},
 	{
 		"name": "custom_object_type",
+		"object_type": "system_object",
 		"display_name": "Custom object type",
 		"description": "Custom object type",
 		"fields": [{
@@ -466,6 +544,12 @@
 			}]
 		},
 		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
+		},
+		{
 			"name": "display_name",
 			"display_name": "Display name",
 			"description": "Custom object type display name",
@@ -476,16 +560,112 @@
 			"display_name": "Description",
 			"description": "Custom object type description",
 			"data_type": "string"
-		}],
-		"attributes": {
-			"multiplicity": "many",
-			"object_type": "attribute"
-		}
+		},
+		{
+			"name": "fields",
+			"display_name": "Attributes",
+			"description": "Attributes of Custom object type",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "attribute"
+			}
+		}]
+	},
+	{
+		"name": "application_component",
+		"object_type": "custom_object_type",
+		"display_name": "Application Component",
+		"description": "Application Component object type",
+		"fields": [{
+			"name": "name",
+			"display_name": "Name",
+			"description": "Object name",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 250
+				}]
+			}]
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Object display name",
+			"data_type": "string"
+		},
+		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
+		},
+		{
+			"name": "description",
+			"display_name": "Description",
+			"description": "Object description",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 1000
+				}]
+			}]
+		},
+		{
+			"name": "availability_characteristics",
+			"display_name": "Availability characteristics",
+			"description": "Degree to which something is available for use",
+			"data_type": "string",
+			"validation_rules": [{
+				"name": "maximum_length",
+				"order": 1,
+				"severity": "error",
+				"condition": "true",
+				"parameters": [{
+					"name": "length",
+					"value": 2000
+				}]
+			}]
+		},
+		{
+			"name": "functional_quality",
+			"display_name": "Functional quality",
+			"description": "What is the functional quality of the application?",
+			"data_type": "value_lookup",
+			"value_source": [{
+				"name": "High",
+				"value": 100,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			},
+			{
+				"name": "Medium",
+				"value": 50,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			},
+			{
+				"name": "Low",
+				"value": 0,
+				"color": "#ffffff",
+				"icon": "icon_1"
+			}]
+		}]
 	},
 	{
 		"name": "application",
+		"object_type": "system_object",
 		"display_name": "Application",
-		"description": "Application",
+		"description": "Application object type",
 		"fields": [{
 			"name": "name",
 			"display_name": "Name",
@@ -503,6 +683,12 @@
 			}]
 		},
 		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
+		},
+		{
 			"name": "display_name",
 			"display_name": "Display name",
 			"description": "Application display name",
@@ -513,14 +699,20 @@
 			"display_name": "Description",
 			"description": "Application description",
 			"data_type": "string"
-		}],
-		"pages": {
-			"multiplicity": "many",
-			"object_type": "page"
-		}
+		},
+		{
+			"name": "pages",
+			"display_name": "Pages",
+			"description": "Pages of Application",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "page"
+			}
+		}]
 	},
 	{
 		"name": "page",
+		"object_type": "system_object",
 		"display_name": "Page",
 		"description": "Page",
 		"fields": [{
@@ -540,6 +732,12 @@
 			}]
 		},
 		{
+			"name": "object_type",
+			"display_name": "Object type",
+			"description": "Type of system object",
+			"data_type": "string"
+		},
+		{
 			"name": "display_name",
 			"display_name": "Display name",
 			"description": "Page display name",
@@ -550,68 +748,174 @@
 			"display_name": "Description",
 			"description": "Page description",
 			"data_type": "string"
-		}],
-		"containers": {
-			"multiplicity": "many",
-			"object_type": "container"
-		}
+		},
+		{
+			"name": "layout",
+			"display_name": "Layout",
+			"description": "Layout of Page",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "layout"
+			}
+		},
+		{
+			"name": "views",
+			"display_name": "Views",
+			"description": "Views of Layout",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "view"
+			}
+		}]
+	},
+	{
+		"name": "view",
+		"object_type": "system_object",
+		"display_name": "View",
+		"description": "View",
+		"fields": [{
+			"name": "id",
+			"display_name": "ID",
+			"description": "View ID",
+			"data_type": "string"
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "View display name",
+			"data_type": "string"
+		},
+		{
+			"name": "data_source",
+			"display_name": "Data source",
+			"description": "View data source",
+			"data_type": "string"
+		},
+		{
+			"name": "page_size",
+			"display_name": "Page size",
+			"description": "View page size",
+			"data_type": "string"
+		},
+		{
+			"name": "fields",
+			"display_name": "Fields",
+			"description": "Fields of View",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "view_field"
+			}
+		}]
+	},
+	{
+		"name": "layout",
+		"object_type": "system_object",
+		"display_name": "Layout",
+		"description": "Layout",
+		"fields": [{
+			"name": "rows",
+			"display_name": "Rows",
+			"description": "Rows of Layout",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "layout_row"
+			}
+		}]
+	},
+	{
+		"name": "layout_row",
+		"object_type": "system_object",
+		"display_name": "Layout row",
+		"description": "Layout row",
+		"fields": [{
+			"name": "columns",
+			"display_name": "Columns",
+			"description": "Columns of Row",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "layout_column"
+			}
+		}]
+	},
+	{
+		"name": "layout_column",
+		"object_type": "system_object",
+		"display_name": "Layout column",
+		"description": "Layout column",
+		"fields": [{
+			"name": "size",
+			"display_name": "Size",
+			"description": "Layout column size",
+			"data_type": "integer"
+		},
+		{
+			"name": "containers",
+			"display_name": "Containers",
+			"description": "Containers of Column",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "container"
+			}
+		}]
 	},
 	{
 		"name": "container",
+		"object_type": "system_object",
 		"display_name": "Container",
 		"description": "Container",
 		"fields": [{
-			"name": "name",
-			"display_name": "Name",
-			"description": "Container name",
-			"data_type": "string"
+			"name": "tabs",
+			"display_name": "Tabs",
+			"description": "Tabs of Container",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "container_tab"
+			}
 		},
 		{
-			"name": "display_name",
-			"display_name": "Display name",
-			"description": "Container display name",
-			"data_type": "string"
-		},
-		{
-			"name": "description",
-			"display_name": "Description",
-			"description": "Container description",
-			"data_type": "string"
-		}],
-		"containers": {
-			"multiplicity": "many",
-			"object_type": "container"
-		},
-		"controls": {
-			"multiplicity": "many",
-			"object_type": "control"
-		}
+			"name": "views",
+			"display_name": "Views",
+			"description": "Views of Container",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "container_view"
+			}
+		}]
 	},
 	{
-		"name": "control",
-		"display_name": "Control",
-		"description": "Control",
+		"name": "container_tab",
+		"object_type": "system_object",
+		"display_name": "Container tab",
+		"description": "Container tab",
 		"fields": [{
-			"name": "name",
-			"display_name": "Name",
-			"description": "Control name",
+			"name": "id",
+			"display_name": "ID",
+			"description": "Container tab ID",
 			"data_type": "string"
 		},
 		{
 			"name": "display_name",
 			"display_name": "Display name",
-			"description": "Control display name",
+			"description": "Container tab display name",
+			"data_type": "string"
+		}]
+	},
+	{
+		"name": "container_view",
+		"object_type": "system_object",
+		"display_name": "Container view",
+		"description": "Container view",
+		"fields": [{
+			"name": "id",
+			"display_name": "ID",
+			"description": "View ID",
 			"data_type": "string"
 		},
 		{
-			"name": "description",
-			"display_name": "Description",
-			"description": "Control description",
+			"name": "tab_id",
+			"display_name": "Tab ID",
+			"description": "Tab ID",
 			"data_type": "string"
-		}],
-		"controls": {
-			"multiplicity": "many",
-			"object_type": "control"
-		}
+		}]
 	}]
 }
