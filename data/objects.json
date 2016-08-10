@@ -42,10 +42,7 @@
 		"name": "value_lookup",
 		"display_name": "Value lookup",
 		"description": "Data value lookup",
-		"value_source": {
-			"multiplicity": "many",
-			"object_type": "lookup_value"
-		},
+		"value_source": [],
 		"validation_rules": [{
 			"name": "value_is_in_list",
 			"order": 1,
@@ -62,10 +59,7 @@
 		"name": "query_lookup",
 		"display_name": "Query lookup",
 		"description": "Data query lookup",
-		"value_source": {
-			"multiplicity": "one",
-			"object_type": "lookup_query"
-		},
+		"value_source": {},
 		"validation_rules": [{
 			"name": "value_is_in_query",
 			"order": 1,

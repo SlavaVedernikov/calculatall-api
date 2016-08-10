@@ -1,5 +1,6 @@
 {
-	"system_object_types": [{
+	"system_object_types": [
+	{
 		"name": "system_object",
 		"object_type": "system_object",
 		"display_name": "System object",
@@ -181,8 +182,7 @@
 				"multiplicity": "one",
 				"object_type": "boolean"
 			},
-			"default": false,
-			"required": true
+			"default": false
 		},
 		{
 			"name": "source_query",
@@ -313,8 +313,8 @@
 	{
 		"name": "lookup_query",
 		"object_type": "system_object",
-		"display_name": "Look up query",
-		"description": "Look up query object type",
+		"display_name": "Validation rule",
+		"description": "Validation rule object type",
 		"fields": [{
 			"name": "query_expression",
 			"display_name": "Query expression",
@@ -470,31 +470,6 @@
 				"multiplicity": "many",
 				"object_type": "parameter_value"
 			}
-		},
-		{
-			"name": "display_name",
-			"display_name": "Display name",
-			"description": "Validation rule display name",
-			"data_type": {
-				"object_type": "string",
-				"multiplicity": "one",
-				"association_type": "embed"
-			},
-			"required": true,
-			"default": ""
-		},
-		{
-			"name": "new_attribute",
-			"display_name": "New Attribute",
-			"description": "",
-			"data_type": {
-				"object_type": "string",
-				"multiplicity": "one",
-				"association_type": "embed"
-			},
-			"required": false,
-			"source_query": null,
-			"default": ""
 		}]
 	},
 	{

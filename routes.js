@@ -1,15 +1,22 @@
 module.exports = function(app){
     var system_object_types = require('./controllers/system_object_types');
-    app.get('/system_object_types', system_object_types.findAll);
-    app.get('/system_object_types/:id', system_object_types.findById);
-    app.post('/system_object_types', system_object_types.add);
-    app.put('/system_object_types/:id', system_object_types.update);
-    app.delete('/system_object_types/:id', system_object_types.delete);
+	app.all('*', function(req, res, next) {
+		var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
+		var origin = req.headers.origin;
+		if(allowedOrigins.indexOf(origin) > -1){
+			res.header('Access-Control-Allow-Origin', origin);
+		}
+       res.header("Access-Control-Allow-Headers", "X-Requested-With");
+       res.header('Access-Control-Allow-Headers', 'Content-Type');
+	   res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
+       next();
+	});
 	
-	var objects = require('./controllers/objects');
-    app.get('/objects', objects.findAll);
-    app.get('/objects/:id', objects.findById);
-    app.post('/objects', objects.add);
-    app.put('/objects/:id', objects.update);
-    app.delete('/objects/:id', objects.delete);
+	app.disable('etag');
+	
+    app.get('/:object_type', system_object_types.findAll);
+    app.get('/:object_type/:id', system_object_types.findById);
+    app.post('/:object_type', system_object_types.add);
+    app.put('/:object_type/:id', system_object_types.update);
+    app.delete('/:object_type/:id', system_object_types.delete);
 }

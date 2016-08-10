@@ -2,6 +2,7 @@ exports.findAll = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
 	
+	var object_type = req.params.object_type;
 	var query = req.query.query;
 	
 	var datamodel = JSON.parse(
@@ -9,20 +10,14 @@ exports.findAll = function(req, res) {
 	);
 	var data = {};
 	
-	if(query != undefined)
+	if(query != undefined && query != '')
 	{
-		data = JSONPath({json: datamodel, path: "$.[?(@." + query + ")]"});
+		data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "' && (" + query + "))]"});
 	}
 	else
 	{
-		data = JSON.stringify(datamodel.system_object_types);
+		data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "')]"});
 	}
-	
-	var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
-  	var origin = req.headers.origin;
-  	if(allowedOrigins.indexOf(origin) > -1){
-       		res.header('Access-Control-Allow-Origin', origin);
-  	}
   	
 	res.send(data);
 };
@@ -31,31 +26,109 @@ exports.findById = function(req, res){
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
 	
+	var object_type = req.params.object_type;
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
-	var data = JSONPath({json: datamodel, path: "$.[?(@.name=='" + id + "')]"});
+	var data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "' && (@.name=='" + id + "'))]"});
 	var body = data[0];
-	
-	var allowedOrigins = ['http://127.0.0.1:8080', 'http://calculatall-app.herokuapp.com', 'https://calculatall-app.herokuapp.com'];
-  	var origin = req.headers.origin;
-  	if(allowedOrigins.indexOf(origin) > -1){
-       		res.header('Access-Control-Allow-Origin', origin);
-  	}
   	
 	res.send(body);
 };
 
-exports.add = function() {
+exports.add = function(req, res) {
+var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var object_type = req.params.object_type;
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
 
+	var newObject = req.body;
+	
+	datamodel.system_object_types.push(newObject);
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Object created!' });
 };
 
-exports.update = function() {
+exports.update = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var object_type = req.params.object_type;
+	var id = req.params.id;
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
 
+	var newObject = req.body;
+	
+	for(var i = 0; i < datamodel.system_object_types.length; i++)
+	{
+		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].name == id)
+		{
+			datamodel.system_object_types[i] = newObject;
+			break;
+		}
+	}
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Object updated!' });
 };
 
-exports.delete = function() {
-
+exports.delete = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var object_type = req.params.object_type;
+	var id = req.params.id;
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
+	
+	for(var i = 0; i < datamodel.system_object_types.length; i++)
+	{
+		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].name == id)
+		{
+			datamodel.system_object_types[i].splice(i, 1);
+			break;
+		}
+	}
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Object updated!' });
 };
