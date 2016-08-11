@@ -12,11 +12,11 @@ exports.findAll = function(req, res) {
 	
 	if(query != undefined && query != '')
 	{
-		data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "' && (" + query + "))]"});
+		data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && (" + query + "))]"});
 	}
 	else
 	{
-		data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "')]"});
+		data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "')]"});
 	}
   	
 	res.send(data);
@@ -32,7 +32,7 @@ exports.findById = function(req, res){
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
-	var data = JSONPath({json: datamodel, path: "$.[?(@.object_type=='" + object_type + "' && (@.name=='" + id + "'))]"});
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && (@.name=='" + id + "'))]"});
 	var body = data[0];
   	
 	res.send(body);

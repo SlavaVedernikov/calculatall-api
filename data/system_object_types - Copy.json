@@ -1,6 +1,5 @@
 {
-	"system_object_types": [
-	{
+	"system_object_types": [{
 		"name": "system_object",
 		"object_type": "system_object",
 		"display_name": "System object",
@@ -182,7 +181,8 @@
 				"multiplicity": "one",
 				"object_type": "boolean"
 			},
-			"default": false
+			"default": false,
+			"required": true
 		},
 		{
 			"name": "source_query",
@@ -290,8 +290,8 @@
 		},
 		{
 			"name": "value_type",
-			"display_name": "Is internal",
-			"description": "Is parameter an internal",
+			"display_name": "Value type",
+			"description": "Parameter value type",
 			"data_type": {
 				"multiplicity": "one",
 				"object_type": "string"
@@ -313,8 +313,8 @@
 	{
 		"name": "lookup_query",
 		"object_type": "system_object",
-		"display_name": "Validation rule",
-		"description": "Validation rule object type",
+		"display_name": "Look up query",
+		"description": "Look up query object type",
 		"fields": [{
 			"name": "query_expression",
 			"display_name": "Query expression",
@@ -416,6 +416,177 @@
 		}]
 	},
 	{
+		"name": "is_not_empty",
+		"object_type": "validation_rule_definition",
+		"display_name": "Value is required",
+		"severity": "error",
+		"description": "Checks whether a value was provided for a field",
+		"message": "Field should not be empty",
+		"expression": "IsNotEmpty($)",
+		"supported_data_types": ["string",
+		"integer",
+		"decimal"]
+	},
+	{
+		"name": "minimum_length",
+		"object_type": "validation_rule_definition",
+		"display_name": "Minimum length",
+		"description": "Validates minimum required length of the text value",
+		"message": "Text length cannot be smaller than {0}. The actual length is {1}",
+		"expression": "length($) >= {0}",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "length",
+			"display_name": "Length greater than or equal to",
+			"description": "Minimum required length of the text value",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "integer"
+			},
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "size",
+			"display_name": "Size",
+			"description": "Actual size of the text value",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "integer"
+			},
+			"is_internal": true,
+			"value_type": "Expression",
+			"value": "length($)"
+		}]
+	},
+	{
+		"name": "maximum_length",
+		"object_type": "validation_rule_definition",
+		"display_name": "Maximum length",
+		"description": "Validates maximum allowed length of the text value",
+		"message": "Text length cannot be greater than {0}. The actual length is {1}",
+		"expression": "length($) <= {0}",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "length",
+			"display_name": "Length less than or equal to",
+			"description": "Maximum allowed length of the text value",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "integer"
+			},
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "size",
+			"display_name": "Size",
+			"description": "Actual size of the text value",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "integer"
+			},
+			"is_internal": true,
+			"value_type": "Expression",
+			"value": "length($)"
+		}]
+	},
+	{
+		"name": "value_is_in_list",
+		"object_type": "validation_rule_definition",
+		"display_name": "Value is in list",
+		"description": "Checks that the value of the field is identical to one of the values in the list",
+		"scope": "field",
+		"message": "The value should be one of this {list}",
+		"expression": "IsIn($, {list}, {caseSensitive})",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "list",
+			"display_name": "List",
+			"description": "List of possible values",
+			"data_type": {
+				"multiplicity": "many",
+				"object_type": "string"
+			},
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "is_multi_value",
+			"display_name": "Multi-Value",
+			"description": "Multiple values can be selected",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "boolean"
+			},
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		},
+		{
+			"name": "is_case_sensitive",
+			"display_name": "Case Sensitive",
+			"description": "Values are case sensitive",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "boolean"
+			},
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		}]
+	},
+	{
+		"name": "value_is_in_query",
+		"object_type": "validation_rule_definition",
+		"name": "value_is_in_query",
+		"display_name": "Value is in query list",
+		"description": "Checks that the value of the field is identical to one of the values in the list retured by a query",
+		"scope": "field",
+		"message": "The value should be one of this {list}",
+		"expression": "IsInQuery($, {list}, {caseSensitive})",
+		"supported_data_types": ["string"],
+		"parameters": [{
+			"name": "list_query",
+			"display_name": "List query",
+			"description": "List query for possible values",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "lookup_query"
+			},
+			"is_internal": false,
+			"value_type": "Value"
+		},
+		{
+			"name": "is_multi_value",
+			"display_name": "Multi-Value",
+			"description": "Multiple values can be selected",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "boolean"
+			},
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		},
+		{
+			"name": "is_case_sensitive",
+			"display_name": "Case Sensitive",
+			"description": "Values are case sensitive",
+			"data_type": {
+				"multiplicity": "one",
+				"object_type": "boolean"
+			},
+			"is_internal": false,
+			"value_type": "Value",
+			"is_optional": true,
+			"default_value": false
+		}]
+	},
+	{
 		"name": "validation_rule",
 		"object_type": "system_object",
 		"display_name": "Validation rule",
@@ -429,6 +600,18 @@
 				"object_type": "validation_rule_definition",
 				"association_type": "link"
 			}
+		},
+		{
+			"name": "display_name",
+			"display_name": "Display name",
+			"description": "Validation rule display name",
+			"data_type": {
+				"object_type": "string",
+				"multiplicity": "one",
+				"association_type": "embed"
+			},
+			"required": true,
+			"default": ""
 		},
 		{
 			"name": "order",
@@ -714,12 +897,14 @@
 				"object_type": "string"
 			},
 			"validation_rules": [{
+				"display_name": "Maximum length (250)",
 				"rule": "maximum_length",
 				"order": 1,
 				"severity": "error",
 				"condition": "true",
 				"parameters": [{
 					"name": "length",
+					"display_name": "Length",
 					"value": "250"
 				}]
 			}]
