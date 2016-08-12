@@ -39,7 +39,7 @@ exports.findById = function(req, res){
 };
 
 exports.add = function(req, res) {
-var fs = require("fs");
+	var fs = require("fs");
 	var JSONPath = require('JSONPath');
 	
 	var fileName = './data/system_object_types.json';
@@ -50,6 +50,8 @@ var fs = require("fs");
 	);
 
 	var newObject = req.body;
+	
+	console.log(JSON.stringify(newObject));
 	
 	datamodel.system_object_types.push(newObject);
 	

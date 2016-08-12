@@ -47,7 +47,8 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "attribute"
-			}
+			},
+			"required": true
 		},
 		{
 			"name": "validation_rules",
@@ -56,14 +57,6 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "validation_rule"
-			},
-			"source_query": {
-				"query_expression": "object_type == 'validation_rule' && supported_data_types.Contains({0})",
-				"parameters": [{
-					"name": "data_type",
-					"value_type": "Field value",
-					"value": "name"
-				}]
 			}
 		}]
 	},
@@ -218,14 +211,6 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "validation_rule"
-			},
-			"source_query": {
-				"query_expression": "object_type == 'validation_rule' && supported_data_types.Contains({0})",
-				"parameters": [{
-					"name": "data_type",
-					"value_type": "Field value",
-					"value": "data_type.object_type"
-				}]
 			}
 		}]
 	},
@@ -541,7 +526,6 @@
 	{
 		"name": "value_is_in_query",
 		"object_type": "validation_rule_definition",
-		"name": "value_is_in_query",
 		"display_name": "Value is in query list",
 		"description": "Checks that the value of the field is identical to one of the values in the list retured by a query",
 		"scope": "field",
@@ -894,7 +878,8 @@
 			"description": "Application name",
 			"data_type": {
 				"multiplicity": "one",
-				"object_type": "string"
+				"object_type": "string",
+				"association_type": "embed"
 			},
 			"validation_rules": [{
 				"display_name": "Maximum length (250)",
@@ -1056,7 +1041,7 @@
 			"description": "View page size",
 			"data_type": {
 				"multiplicity": "one",
-				"object_type": "string"
+				"object_type": "integer"
 			}
 		},
 		{

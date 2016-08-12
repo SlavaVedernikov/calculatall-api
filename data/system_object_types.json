@@ -47,7 +47,8 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "attribute"
-			}
+			},
+			"required": true
 		},
 		{
 			"name": "validation_rules",
@@ -56,14 +57,6 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "validation_rule"
-			},
-			"source_query": {
-				"query_expression": "object_type == 'validation_rule' && supported_data_types.Contains({0})",
-				"parameters": [{
-					"name": "data_type",
-					"value_type": "Field value",
-					"value": "name"
-				}]
 			}
 		}]
 	},
@@ -218,14 +211,6 @@
 			"data_type": {
 				"multiplicity": "many",
 				"object_type": "validation_rule"
-			},
-			"source_query": {
-				"query_expression": "object_type == 'validation_rule' && supported_data_types.Contains({0})",
-				"parameters": [{
-					"name": "data_type",
-					"value_type": "Field value",
-					"value": "data_type.object_type"
-				}]
 			}
 		}]
 	},
