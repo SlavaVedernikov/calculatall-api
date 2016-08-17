@@ -14,9 +14,9 @@ module.exports = function(app){
 	
 	app.disable('etag');
 	
-    app.get('/:object_type', system_object_types.findAll);
-    app.get('/:object_type/:id', system_object_types.findById);
-    app.post('/:object_type', system_object_types.add);
-    app.put('/:object_type/:id', system_object_types.update);
-    app.delete('/:object_type/:id', system_object_types.delete);
+    app.get('/:owner/:application/:tenant/:object_type', system_object_types.findAll);
+    app.get('/:owner/:application/:tenant/:object_type/:id', system_object_types.findById);
+    app.post('/:owner/:application/:tenant/:object_type', system_object_types.add);
+    app.put('/:owner/:application/:tenant/:object_type/:id', system_object_types.update);
+    app.delete('/:owner/:application/:tenant/:object_type/:id', system_object_types.delete);
 }

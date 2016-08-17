@@ -1,24 +1,34 @@
 exports.findAll = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
+	var uuid = require('node-uuid');
 	
 	var object_type = req.params.object_type;
+	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
 	var query = req.query.query;
 	
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
-	var data = {};
+	var data;
 	
-	if(query != undefined && query != '')
+	if(object_type == 'uuid')
 	{
-		data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && (" + query + "))]"});
+		var id = uuid.v4();
+		data = {id: id};
 	}
 	else
 	{
-		data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "')]"});
+		if(query != undefined && query != '')
+		{
+			data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "' && (" + query + "))]"});
+		}
+		else
+		{
+			data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "')]"});
+		}
 	}
-  	
+	
 	res.send(data);
 };
 
@@ -27,12 +37,14 @@ exports.findById = function(req, res){
 	var JSONPath = require('JSONPath');
 	
 	var object_type = req.params.object_type;
+	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
-	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && (@.name=='" + id + "'))]"});
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "' && (@.id=='" + id + "'))]"});
+	
 	var body = data[0];
   	
 	res.send(body);
@@ -41,6 +53,7 @@ exports.findById = function(req, res){
 exports.add = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
+	var uuid = require('node-uuid');
 	
 	var fileName = './data/system_object_types.json';
 	var object_type = req.params.object_type;
@@ -50,8 +63,61 @@ exports.add = function(req, res) {
 	);
 
 	var newObject = req.body;
+	//assign a new unique ID
+	newObject.id = uuid.v4();
 	
-	console.log(JSON.stringify(newObject));
+	//assign a namespace
+	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
+	newObject.namespace = namespace
+	
+	//TODO: validate object type i.e. newObject.object_type == object_type
+	
+	if(object_type == 'system_object')
+	{
+		newObject.fields.push({
+			name: 'object_type',
+			display_name: 'Object type',
+			description: 'Object type',
+			data_type: {
+				object_type: 'string',
+				multiplicity: 'one',
+				association_type: 'embed'
+			},
+			required: true,
+			hidded: true,
+			read_only: true,
+			default: newObject.name
+		});
+		
+		newObject.fields.push({
+			name: 'namespace',
+			display_name: 'Object namespace',
+			description: 'Object namespace',
+			data_type: {
+				object_type: 'string',
+				multiplicity: 'one',
+				association_type: 'embed'
+			},
+			required: true,
+			hidded: true,
+			read_only: true,
+			default: namespace
+		});
+
+		newObject.fields.push({
+			name: 'id',
+			display_name: 'Object ID',
+			description: 'Object ID',
+			data_type: {
+				object_type: 'string',
+				multiplicity: 'one',
+				association_type: 'embed'
+			},
+			required: true,
+			hidded: true,
+			read_only: true
+		});
+	}
 	
 	datamodel.system_object_types.push(newObject);
 	
@@ -73,6 +139,7 @@ exports.update = function(req, res) {
 	
 	var fileName = './data/system_object_types.json';
 	var object_type = req.params.object_type;
+	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
@@ -83,7 +150,7 @@ exports.update = function(req, res) {
 	
 	for(var i = 0; i < datamodel.system_object_types.length; i++)
 	{
-		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].name == id)
+		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].namespace == namespace && datamodel.system_object_types[i].id == id)
 		{
 			datamodel.system_object_types[i] = newObject;
 			break;
@@ -108,6 +175,7 @@ exports.delete = function(req, res) {
 	
 	var fileName = './data/system_object_types.json';
 	var object_type = req.params.object_type;
+	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
@@ -116,9 +184,9 @@ exports.delete = function(req, res) {
 	
 	for(var i = 0; i < datamodel.system_object_types.length; i++)
 	{
-		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].name == id)
+		if (datamodel.system_object_types[i].object_type == object_type && datamodel.system_object_types[i].namespace == namespace && datamodel.system_object_types[i].id == id)
 		{
-			datamodel.system_object_types[i].splice(i, 1);
+			datamodel.system_object_types.splice(i, 1);
 			break;
 		}
 	}
