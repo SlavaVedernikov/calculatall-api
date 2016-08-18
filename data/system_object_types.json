@@ -2,7 +2,7 @@
 	"system_object_types": [
 	{
 		"id": "7e22d35d-0ed1-47c4-9f56-973335195176",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "system_object",
 		"object_type": "system_object",
 		"display_name": "System object",
@@ -85,7 +85,7 @@
 	},
 	{
 		"id": "16b8aa98-d9df-4899-84f0-d31652487abe",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "string",
 		"object_type": "system_object",
 		"display_name": "Text",
@@ -93,7 +93,7 @@
 	},
 	{
 		"id": "42cbbb31-2bc3-42d4-a695-786920141a5f",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "integer",
 		"object_type": "system_object",
 		"display_name": "Whole number",
@@ -111,7 +111,7 @@
 	},
 	{
 		"id": "9498606b-28ad-4c6b-a73e-1b009e2ab734",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "boolean",
 		"object_type": "system_object",
 		"display_name": "Boolean",
@@ -119,7 +119,7 @@
 	},
 	{
 		"id": "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "parameter_value",
 		"object_type": "system_object",
 		"display_name": "Parameter value",
@@ -157,7 +157,7 @@
 	},
 	{
 		"id": "19746085-4c08-4cd6-895c-73405a1e6ea2",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "attribute",
 		"object_type": "system_object",
 		"display_name": "Attribute",
@@ -272,7 +272,7 @@
 	},
 	{
 		"id": "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "parameter",
 		"object_type": "system_object",
 		"display_name": "Parameter",
@@ -346,7 +346,7 @@
 	},
 	{
 		"id": "73eeb041-4c1b-41f1-8702-e064785c697c",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "lookup_query",
 		"object_type": "system_object",
 		"display_name": "Look up query",
@@ -372,7 +372,7 @@
 	},
 	{
 		"id": "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "validation_rule_definition",
 		"object_type": "system_object",
 		"display_name": "Validation rule definition",
@@ -473,7 +473,7 @@
 	},
 	{
 		"id": "d53b7dfd-1302-4bcf-9655-ef30ea698ccc",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "is_not_empty",
 		"object_type": "validation_rule_definition",
 		"display_name": "Value is required",
@@ -487,7 +487,7 @@
 	},
 	{
 		"id": "4101fdc8-d472-4db2-bb6c-793baa908b8f",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "minimum_length",
 		"object_type": "validation_rule_definition",
 		"display_name": "Minimum length",
@@ -521,7 +521,7 @@
 	},
 	{
 		"id": "03b9573d-d76b-43d0-b322-62df513f5e82",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "maximum_length",
 		"object_type": "validation_rule_definition",
 		"display_name": "Maximum length",
@@ -555,7 +555,7 @@
 	},
 	{
 		"id": "436fa06c-849c-4973-a96f-9a79ac135ed7",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "value_is_in_list",
 		"object_type": "validation_rule_definition",
 		"display_name": "Value is in list",
@@ -604,7 +604,7 @@
 	},
 	{
 		"id": "4e113ea8-faa2-482d-bee9-935a99c8c625",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "value_is_in_query",
 		"object_type": "validation_rule_definition",
 		"display_name": "Value is in query list",
@@ -653,7 +653,7 @@
 	},
 	{
 		"id": "02eb5e15-61b0-4644-b75f-be84edc03cd9",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "validation_rule",
 		"object_type": "system_object",
 		"display_name": "Validation rule",
@@ -724,7 +724,7 @@
 	},
 	{
 		"id": "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "lookup_value",
 		"object_type": "system_object",
 		"display_name": "Lookup value",
@@ -798,7 +798,7 @@
 	},
 	{
 		"id": "fed333c3-eeef-4008-a940-c3a4f7c84669",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "data_type",
 		"object_type": "system_object",
 		"display_name": "Data type",
@@ -844,7 +844,7 @@
 	},
 	{
 		"id": "c25f8365-d17e-4f0f-b727-c121b8bd6a1f",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "application_component",
 		"object_type": "system_object",
 		"display_name": "Application Component",
@@ -972,7 +972,7 @@
 	},
 	{
 		"id": "9cd5bb49-2534-4754-bc37-91a519ca0c21",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "application",
 		"object_type": "system_object",
 		"display_name": "Application",
@@ -1062,7 +1062,7 @@
 	},
 	{
 		"id": "75458276-7818-4fff-a170-7b3e25cd99c2",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "page",
 		"object_type": "system_object",
 		"display_name": "Page",
@@ -1170,7 +1170,7 @@
 	},
 	{
 		"id": "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "view",
 		"object_type": "system_object",
 		"display_name": "View",
@@ -1234,7 +1234,7 @@
 	},
 	{
 		"id": "84237e46-b707-40ae-b030-1247fec2549d",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "layout",
 		"object_type": "system_object",
 		"display_name": "Layout",
@@ -1252,7 +1252,7 @@
 	},
 	{
 		"id": "405d94ce-bffb-45a2-9cf1-1b36345477ab",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "layout_row",
 		"object_type": "system_object",
 		"display_name": "Layout row",
@@ -1282,7 +1282,7 @@
 	},
 	{
 		"id": "57d6a998-7eb6-4345-9964-aa82046cedb9",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "layout_column",
 		"object_type": "system_object",
 		"display_name": "Layout column",
@@ -1322,7 +1322,7 @@
 	},
 	{
 		"id": "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "container",
 		"object_type": "system_object",
 		"display_name": "Container",
@@ -1364,7 +1364,7 @@
 	},
 	{
 		"id": "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "container_tab",
 		"object_type": "system_object",
 		"display_name": "Container tab",
@@ -1390,7 +1390,7 @@
 	},
 	{
 		"id": "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "container_view",
 		"object_type": "system_object",
 		"display_name": "Container view",
@@ -1416,7 +1416,7 @@
 	},
 	{
 		"id": "38afea11-e925-4d4d-b014-335c84f008a4",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "object_types",
 		"object_type": "page",
 		"display_name": "Object Types",
@@ -1464,7 +1464,7 @@
 	},
 	{
 		"id": "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "validation_rules",
 		"object_type": "page",
 		"display_name": "Validation rules",
@@ -1511,7 +1511,7 @@
 	},
 	{
 		"id": "f721099f-5828-4af6-9820-8e017971b36d",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "pages",
 		"object_type": "page",
 		"display_name": "Pages",
@@ -1559,7 +1559,7 @@
 	},
 	{
 		"id": "6634166e-617c-4866-af4f-5db62808f215",
-		"namespace": "system/projects/system",
+		"namespace": "system/projects",
 		"name": "project",
 		"object_type": "system_object",
 		"display_name": "Project",
@@ -1618,7 +1618,7 @@
 	},
 	{
 		"id": "d8c873c4-d103-448e-bcee-6ba9afcefb07",
-		"namespace": "system/projects/system",
+		"namespace": "system/projects",
 		"name": "task",
 		"object_type": "system_object",
 		"display_name": "Task",
@@ -1689,7 +1689,7 @@
 	},
 	{
 		"id": "9729347b-af22-4df8-be38-f275e465c943",
-		"namespace": "system/projects/system",
+		"namespace": "system/projects",
 		"name": "tasks",
 		"object_type": "page",
 		"display_name": "Tasks",
@@ -1731,7 +1731,7 @@
 	},
 	{
 		"id": "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "view_field",
 		"object_type": "system_object",
 		"display_name": "View field",
@@ -1763,7 +1763,7 @@
 	},
 	{
 		"id": "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
-		"namespace": "system/projects/system",
+		"namespace": "system/projects",
 		"name": "Projects",
 		"object_type": "page",
 		"display_name": "Projects",
@@ -1829,7 +1829,7 @@
 	{
 		"object_type": "page",
 		"id": "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "applications",
 		"display_name": "Applications",
 		"description": "Applications",
@@ -1873,7 +1873,7 @@
 	{
 		"object_type": "page",
 		"id": "4767eced-9819-49bd-b186-587ef5a6ec2a",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "accounts",
 		"display_name": "Accounts",
 		"description": "Accounts",
@@ -1917,7 +1917,7 @@
 	{
 		"object_type": "system_object",
 		"id": "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "account",
 		"display_name": "Account",
 		"description": "Account",
@@ -1991,14 +1991,14 @@
 		"name": "system",
 		"object_type": "account",
 		"id": "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"display_name": "System",
 		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
 		"object_type": "application",
 		"id": "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-		"namespace": "system/app_builder/system",
+		"namespace": "system/app_builder",
 		"name": "app_builder",
 		"display_name": "App builder",
 		"description": "Application builder App",

@@ -3,14 +3,25 @@ exports.findAll = function(req, res) {
 	var JSONPath = require('JSONPath');
 	var uuid = require('node-uuid');
 	
-	var object_type = req.params.object_type;
-	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
+	var object_type = req.params.object_type;	
 	var query = req.query.query;
 	
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
 	var data;
+	
+	var tenant = req.params.tenant;
+	var application = req.params.owner + '/' +req.params.application;
+	var namespace = ''
+	if(tenant != '*')
+	{
+		namespace = application + '/' + tenant;
+	}
+	else
+	{
+		namespace = application
+	}
 	
 	if(object_type == 'uuid')
 	{
@@ -19,14 +30,25 @@ exports.findAll = function(req, res) {
 	}
 	else
 	{
-		if(query != undefined && query != '')
+		var pathQuery = "@.object_type=='" + object_type + "'";
+	
+		if(namespace == application)
 		{
-			data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "' && (" + query + "))]"});
+			pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='*')";
 		}
 		else
 		{
-			data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "')]"});
+			pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='" + namespace + "')";
 		}
+		
+		if(query != undefined && query != '')
+		{
+			pathQuery += " && (" + query + ")";
+		}
+		
+		console.log(pathQuery);
+		
+		data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	}
 	
 	res.send(data);
@@ -37,13 +59,37 @@ exports.findById = function(req, res){
 	var JSONPath = require('JSONPath');
 	
 	var object_type = req.params.object_type;
-	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
 	var id = req.params.id;
+	var tenant = req.params.tenant;
+	var application = req.params.owner + '/' +req.params.application;
+	var namespace = ''
+	if(tenant != '*')
+	{
+		namespace = application + '/' + tenant;
+	}
+	else
+	{
+		namespace = application
+	}
 	
+	var pathQuery = "@.object_type=='" + object_type + "'";
+	
+	if(namespace == application)
+	{
+		pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='*')";
+	}
+	else
+	{
+		pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='" + namespace + "')";
+	}
+		
+	pathQuery += " && @.id=='" + id + "'";
+		
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
-	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + object_type + "' && @.namespace=='" + namespace + "' && (@.id=='" + id + "'))]"});
+		
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	
 	var body = data[0];
   	
@@ -66,8 +112,18 @@ exports.add = function(req, res) {
 	//assign a new unique ID
 	newObject.id = uuid.v4();
 	
-	//assign a namespace
-	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
+	var tenant = req.params.tenant;
+	var application = req.params.owner + '/' +req.params.application;
+	var namespace = ''
+	if(tenant != '*')
+	{
+		namespace = application + '/' + tenant;
+	}
+	else
+	{
+		namespace = application
+	}
+	
 	newObject.namespace = namespace
 	
 	//TODO: validate object type i.e. newObject.object_type == object_type
@@ -139,7 +195,18 @@ exports.update = function(req, res) {
 	
 	var fileName = './data/system_object_types.json';
 	var object_type = req.params.object_type;
-	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
+	var tenant = req.params.tenant;
+	var application = req.params.owner + '/' +req.params.application;
+	var namespace = ''
+	if(tenant != '*')
+	{
+		namespace = application + '/' + tenant;
+	}
+	else
+	{
+		namespace = application
+	}
+	
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
@@ -175,7 +242,18 @@ exports.delete = function(req, res) {
 	
 	var fileName = './data/system_object_types.json';
 	var object_type = req.params.object_type;
-	var namespace = req.params.owner + '/' + req.params.application + '/' + req.params.tenant;
+	var tenant = req.params.tenant;
+	var application = req.params.owner + '/' +req.params.application;
+	var namespace = ''
+	if(tenant != '*')
+	{
+		namespace = application + '/' + tenant;
+	}
+	else
+	{
+		namespace = application
+	}
+	
 	var id = req.params.id;
 	
 	var datamodel = JSON.parse(
