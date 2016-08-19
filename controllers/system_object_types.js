@@ -1,7 +1,68 @@
+exports.getId = function(req, res) {
+	var uuid = require('node-uuid');
+	
+	var data = {id: uuid.v4()};
+		
+	res.send(data);
+};
+
+exports.findAllObjectTypes = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+		
+	var query = req.query.query;
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync('./data/system_object_types.json')
+	);
+	
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	var application = getObjectByName(datamodel, 'application', req.params.application);
+	var systemObjectType = getObjectByName(datamodel, 'system_object', 'system_object');
+	var systemApplication = getObjectByName(datamodel, 'application', 'app_builder');
+	
+	var pathQuery = "(@.sys_object_type=='" + systemObjectType + "' && @.sys_application=='" + systemApplication.id + "' && @.sys_tenant=='" + application.owner_account + "' && @.application=='" + application.id + "')";
+	
+	pathQuery += " || (@.sys_object_type=='" + systemObjectType + "' && @.sys_application=='" + systemApplication.id + "' && @.sys_tenant=='" + tenant.id + "'" + ((query != undefined && query != "") ? " && (" + query + ")" : "") + ")";
+	
+	console.log(pathQuery);
+	
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
+	
+	res.send(data);
+};
+
+exports.findObjectTypeById = function(req, res){
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var id = req.params.id;
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	var application = getObjectByName(datamodel, 'application', req.params.application);
+	var systemObjectType = getObjectByName(datamodel, 'system_object', 'system_object');
+	var systemApplication = getObjectByName(datamodel, 'application', 'app_builder');
+	
+	var pathQuery = "((@.sys_object_type=='" + systemObjectType + "' && @.sys_application=='" + systemApplication.id + "' && @.sys_tenant=='" + application.owner_account + "' && @.application=='" + application.id + "')";
+	
+	pathQuery += " || (@.sys_object_type=='" + systemObjectType + "' && @.sys_application=='" + systemApplication.id + "' && @.sys_tenant=='" + tenant.id + "'))";
+	
+		
+	pathQuery += " && @.id=='" + id + "'";
+		
+	var datamodel = JSON.parse(
+	  fs.readFileSync('./data/system_object_types.json')
+	);
+		
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
+	
+	var body = data[0];
+  	
+	res.send(body);
+};
+
 exports.findAll = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
-	var uuid = require('node-uuid');
 	
 	var object_type = req.params.object_type;	
 	var query = req.query.query;
@@ -9,47 +70,25 @@ exports.findAll = function(req, res) {
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
 	);
+	
 	var data;
 	
-	var tenant = req.params.tenant;
-	var application = req.params.owner + '/' +req.params.application;
-	var namespace = ''
-	if(tenant != '*')
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	var application = getObjectByName(datamodel, 'application', req.params.application);
+	
+	var pathQuery = "(@.sys_object_type=='" + object_type + "')";
+
+	pathQuery += " && (@.sys_application=='" + application.id + "' && @.sys_tenant=='" + tenant.id + "')";
+	
+	if(query != undefined && query != '')
 	{
-		namespace = application + '/' + tenant;
-	}
-	else
-	{
-		namespace = application
+		pathQuery += " && (" + query + ")";
 	}
 	
-	if(object_type == 'uuid')
-	{
-		var id = uuid.v4();
-		data = {id: id};
-	}
-	else
-	{
-		var pathQuery = "@.object_type=='" + object_type + "'";
+	console.log(pathQuery);
 	
-		if(namespace == application)
-		{
-			pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='*')";
-		}
-		else
-		{
-			pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='" + namespace + "')";
-		}
-		
-		if(query != undefined && query != '')
-		{
-			pathQuery += " && (" + query + ")";
-		}
-		
-		console.log(pathQuery);
-		
-		data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
-	}
+	data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
+
 	
 	res.send(data);
 };
@@ -60,30 +99,14 @@ exports.findById = function(req, res){
 	
 	var object_type = req.params.object_type;
 	var id = req.params.id;
-	var tenant = req.params.tenant;
-	var application = req.params.owner + '/' +req.params.application;
-	var namespace = ''
-	if(tenant != '*')
-	{
-		namespace = application + '/' + tenant;
-	}
-	else
-	{
-		namespace = application
-	}
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
-	var pathQuery = "@.object_type=='" + object_type + "'";
-	
-	if(namespace == application)
-	{
-		pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='*')";
-	}
-	else
-	{
-		pathQuery += " && (@.namespace=='" + application + "' || @.namespace=='" + namespace + "')";
-	}
+	var pathQuery = "(@.sys_object_type=='" + object_type + "')";
+
+	pathQuery += " && (@.sys_application=='" + application.id + "' && @.sys_tenant=='" + tenant.id + "')";
 		
-	pathQuery += " && @.id=='" + id + "'";
+	pathQuery += " && (@.id=='" + id + "')";
 		
 	var datamodel = JSON.parse(
 	  fs.readFileSync('./data/system_object_types.json')
@@ -107,31 +130,21 @@ exports.add = function(req, res) {
 	var datamodel = JSON.parse(
 	  fs.readFileSync(fileName)
 	);
-
+	
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	var application = getObjectByName(datamodel, 'application', req.params.application);
+	
 	var newObject = req.body;
 	//assign a new unique ID
-	newObject.id = uuid.v4();
-	
-	var tenant = req.params.tenant;
-	var application = req.params.owner + '/' +req.params.application;
-	var namespace = ''
-	if(tenant != '*')
-	{
-		namespace = application + '/' + tenant;
-	}
-	else
-	{
-		namespace = application
-	}
-	
-	newObject.namespace = namespace
-	
-	//TODO: validate object type i.e. newObject.object_type == object_type
+	newObject.sys_id = uuid.v4();
+	newObject.sys_tenant = tenant.id;
+	newObject.sys_application = application.id
+	//TODO: validate object type i.e. newObject.object_type == req.params.object_type
 	
 	if(object_type == 'system_object')
 	{
 		newObject.fields.push({
-			name: 'object_type',
+			name: 'sys_object_type',
 			display_name: 'Object type',
 			description: 'Object type',
 			data_type: {
@@ -146,9 +159,9 @@ exports.add = function(req, res) {
 		});
 		
 		newObject.fields.push({
-			name: 'namespace',
-			display_name: 'Object namespace',
-			description: 'Object namespace',
+			name: 'sys_id',
+			display_name: 'Object ID',
+			description: 'Object ID',
 			data_type: {
 				object_type: 'string',
 				multiplicity: 'one',
@@ -156,18 +169,32 @@ exports.add = function(req, res) {
 			},
 			required: true,
 			hidded: true,
-			read_only: true,
-			default: namespace
+			read_only: true
 		});
-
+		
 		newObject.fields.push({
-			name: 'id',
-			display_name: 'Object ID',
-			description: 'Object ID',
+			name: 'sys_application',
+			display_name: 'Application that owns the Object',
+			description: 'Application that owns the Object',
 			data_type: {
-				object_type: 'string',
+				object_type: 'application',
 				multiplicity: 'one',
-				association_type: 'embed'
+				association_type: 'link'
+			},
+			required: true,
+			hidded: true,
+			read_only: true,
+			default: application.id
+		});
+		
+		newObject.fields.push({
+			name: 'sys_tenant',
+			display_name: 'Tenant that owns the Object',
+			description: 'Tenant that owns the Object',
+			data_type: {
+				object_type: 'account',
+				multiplicity: 'one',
+				association_type: 'link'
 			},
 			required: true,
 			hidded: true,
@@ -280,3 +307,17 @@ exports.delete = function(req, res) {
   	
 	res.send({ message: 'Object updated!' });
 };
+
+function getObjectByName(datamodel, objectType, name)
+{
+	var queryResultSet = JSONPath({json: datamodel, path: "$.system_object_types[?(@.object_type=='" + objectType + "' && @.name=='" + name + "')]"});
+	
+	var result;
+	
+	if(queryResultSet.length == 1)
+	{
+		result = queryResultSet[0];
+	}
+	
+	return result;
+}

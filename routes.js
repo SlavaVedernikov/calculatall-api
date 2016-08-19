@@ -13,7 +13,9 @@ module.exports = function(app){
 	});
 	
 	app.disable('etag');
-	
+	app.get('/uuid', system_object_types.getId);
+	app.get('/:owner/:application/:tenant/object_types', system_object_types.findAllObjectTypes);
+	app.get('/:owner/:application/:tenant/object_types/:id', system_object_types.findObjectTypeById);
     app.get('/:owner/:application/:tenant/:object_type', system_object_types.findAll);
     app.get('/:owner/:application/:tenant/:object_type/:id', system_object_types.findById);
     app.post('/:owner/:application/:tenant/:object_type', system_object_types.add);
