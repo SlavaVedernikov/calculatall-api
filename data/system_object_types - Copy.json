@@ -1,9 +1,9 @@
 {
 	"system_object_types": [
 	{
-		"sys_id": "7e22d35d-0ed1-47c4-9f56-973335195176",
+		"_id": "7e22d35d-0ed1-47c4-9f56-973335195176",
 		"name": "system_object",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "System object",
 		"description": "System object type",
 		"fields": [{
@@ -95,16 +95,16 @@
 		}]
 	},
 	{
-		"sys_id": "16b8aa98-d9df-4899-84f0-d31652487abe",
+		"_id": "16b8aa98-d9df-4899-84f0-d31652487abe",
 		"name": "string",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Text",
 		"description": "Text data"
 	},
 	{
-		"sys_id": "42cbbb31-2bc3-42d4-a695-786920141a5f",
+		"_id": "42cbbb31-2bc3-42d4-a695-786920141a5f",
 		"name": "integer",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Whole number",
 		"description": "A number without fractions (i.e. integer)",
 		"validation_rules": [{
@@ -119,16 +119,16 @@
 		}]
 	},
 	{
-		"sys_id": "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+		"_id": "9498606b-28ad-4c6b-a73e-1b009e2ab734",
 		"name": "boolean",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Boolean",
 		"description": "Boolean data"
 	},
 	{
-		"sys_id": "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
+		"_id": "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
 		"name": "parameter_value",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Parameter value",
 		"description": "Parameter value object type",
 		"fields": [{
@@ -163,9 +163,9 @@
 		}]
 	},
 	{
-		"sys_id": "19746085-4c08-4cd6-895c-73405a1e6ea2",
+		"_id": "19746085-4c08-4cd6-895c-73405a1e6ea2",
 		"name": "attribute",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Attribute",
 		"description": "Attribute object type",
 		"fields": [{
@@ -277,9 +277,9 @@
 		}]
 	},
 	{
-		"sys_id": "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+		"_id": "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
 		"name": "parameter",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Parameter",
 		"description": "Parameter object type",
 		"fields": [{
@@ -350,9 +350,9 @@
 		}]
 	},
 	{
-		"sys_id": "73eeb041-4c1b-41f1-8702-e064785c697c",
+		"_id": "73eeb041-4c1b-41f1-8702-e064785c697c",
 		"name": "lookup_query",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Look up query",
 		"description": "Look up query object type",
 		"fields": [{
@@ -375,9 +375,9 @@
 		}]
 	},
 	{
-		"sys_id": "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+		"_id": "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
 		"name": "validation_rule_definition",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Validation rule definition",
 		"description": "Validation rule definition object type",
 		"fields": [{
@@ -475,9 +475,9 @@
 		}]
 	},
 	{
-		"sys_id": "d53b7dfd-1302-4bcf-9655-ef30ea698ccc",
+		"_id": "d53b7dfd-1302-4bcf-9655-ef30ea698ccc",
 		"name": "is_not_empty",
-		"sys_object_type": "validation_rule_definition",
+		"_object_type": "validation_rule_definition",
 		"display_name": "Value is required",
 		"severity": "error",
 		"description": "Checks whether a value was provided for a field",
@@ -488,9 +488,9 @@
 		"decimal"]
 	},
 	{
-		"sys_id": "4101fdc8-d472-4db2-bb6c-793baa908b8f",
+		"_id": "4101fdc8-d472-4db2-bb6c-793baa908b8f",
 		"name": "minimum_length",
-		"sys_object_type": "validation_rule_definition",
+		"_object_type": "validation_rule_definition",
 		"display_name": "Minimum length",
 		"description": "Validates minimum required length of the text value",
 		"message": "Text length cannot be smaller than {0}. The actual length is {1}",
@@ -521,9 +521,9 @@
 		}]
 	},
 	{
-		"sys_id": "03b9573d-d76b-43d0-b322-62df513f5e82",
+		"_id": "03b9573d-d76b-43d0-b322-62df513f5e82",
 		"name": "maximum_length",
-		"sys_object_type": "validation_rule_definition",
+		"_object_type": "validation_rule_definition",
 		"display_name": "Maximum length",
 		"description": "Validates maximum allowed length of the text value",
 		"message": "Text length cannot be greater than {0}. The actual length is {1}",
@@ -554,9 +554,9 @@
 		}]
 	},
 	{
-		"sys_id": "436fa06c-849c-4973-a96f-9a79ac135ed7",
+		"_id": "436fa06c-849c-4973-a96f-9a79ac135ed7",
 		"name": "value_is_in_list",
-		"sys_object_type": "validation_rule_definition",
+		"_object_type": "validation_rule_definition",
 		"display_name": "Value is in list",
 		"description": "Checks that the value of the field is identical to one of the values in the list",
 		"scope": "field",
@@ -602,9 +602,9 @@
 		}]
 	},
 	{
-		"sys_id": "4e113ea8-faa2-482d-bee9-935a99c8c625",
+		"_id": "4e113ea8-faa2-482d-bee9-935a99c8c625",
 		"name": "value_is_in_query",
-		"sys_object_type": "validation_rule_definition",
+		"_object_type": "validation_rule_definition",
 		"display_name": "Value is in query list",
 		"description": "Checks that the value of the field is identical to one of the values in the list retured by a query",
 		"scope": "field",
@@ -650,9 +650,9 @@
 		}]
 	},
 	{
-		"sys_id": "02eb5e15-61b0-4644-b75f-be84edc03cd9",
+		"_id": "02eb5e15-61b0-4644-b75f-be84edc03cd9",
 		"name": "validation_rule",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Validation rule",
 		"description": "Validation rule object type",
 		"fields": [{
@@ -720,9 +720,9 @@
 		}]
 	},
 	{
-		"sys_id": "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
+		"_id": "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
 		"name": "lookup_value",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Lookup value",
 		"description": "Lookup value object type",
 		"fields": [{
@@ -793,9 +793,9 @@
 		}]
 	},
 	{
-		"sys_id": "fed333c3-eeef-4008-a940-c3a4f7c84669",
+		"_id": "fed333c3-eeef-4008-a940-c3a4f7c84669",
 		"name": "data_type",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Data type",
 		"description": "Data type object type",
 		"fields": [{
@@ -838,9 +838,9 @@
 		}]
 	},
 	{
-		"sys_id": "c25f8365-d17e-4f0f-b727-c121b8bd6a1f",
+		"_id": "c25f8365-d17e-4f0f-b727-c121b8bd6a1f",
 		"name": "application_component",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Application Component",
 		"description": "Application Component object type",
 		"fields": [{
@@ -965,9 +965,9 @@
 		}]
 	},
 	{
-		"sys_id": "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+		"_id": "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 		"name": "application",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Application",
 		"description": "Application object type",
 		"fields": [{
@@ -1039,7 +1039,7 @@
 			}
 		},
 		{
-			"name": "owner_account",
+			"name": "_tenant",
 			"display_name": "Owner account",
 			"description": "Account that owns application",
 			"data_type": {
@@ -1054,9 +1054,9 @@
 		}]
 	},
 	{
-		"sys_id": "75458276-7818-4fff-a170-7b3e25cd99c2",
+		"_id": "75458276-7818-4fff-a170-7b3e25cd99c2",
 		"name": "page",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Page",
 		"description": "Page",
 		"fields": [{
@@ -1146,7 +1146,7 @@
 			"required": true
 		},
 		{
-			"name": "host_application",
+			"name": "_application",
 			"display_name": "Host application",
 			"description": "Application hosting page",
 			"data_type": {
@@ -1161,9 +1161,9 @@
 		}]
 	},
 	{
-		"sys_id": "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+		"_id": "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
 		"name": "view",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "View",
 		"description": "View",
 		"fields": [{
@@ -1224,9 +1224,9 @@
 		}]
 	},
 	{
-		"sys_id": "84237e46-b707-40ae-b030-1247fec2549d",
+		"_id": "84237e46-b707-40ae-b030-1247fec2549d",
 		"name": "layout",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Layout",
 		"description": "Layout",
 		"fields": [{
@@ -1241,9 +1241,9 @@
 		}]
 	},
 	{
-		"sys_id": "405d94ce-bffb-45a2-9cf1-1b36345477ab",
+		"_id": "405d94ce-bffb-45a2-9cf1-1b36345477ab",
 		"name": "layout_row",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Layout row",
 		"description": "Layout row",
 		"fields": [{
@@ -1270,9 +1270,9 @@
 		}]
 	},
 	{
-		"sys_id": "57d6a998-7eb6-4345-9964-aa82046cedb9",
+		"_id": "57d6a998-7eb6-4345-9964-aa82046cedb9",
 		"name": "layout_column",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Layout column",
 		"description": "Layout column",
 		"fields": [{
@@ -1309,9 +1309,9 @@
 		}]
 	},
 	{
-		"sys_id": "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
+		"_id": "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
 		"name": "container",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Container",
 		"description": "Container",
 		"fields": [{
@@ -1350,9 +1350,9 @@
 		}]
 	},
 	{
-		"sys_id": "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
+		"_id": "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
 		"name": "container_tab",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Container tab",
 		"description": "Container tab",
 		"fields": [{
@@ -1375,9 +1375,9 @@
 		}]
 	},
 	{
-		"sys_id": "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
+		"_id": "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
 		"name": "container_view",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Container view",
 		"description": "Container view",
 		"fields": [{
@@ -1400,9 +1400,9 @@
 		}]
 	},
 	{
-		"sys_id": "38afea11-e925-4d4d-b014-335c84f008a4",
+		"_id": "38afea11-e925-4d4d-b014-335c84f008a4",
 		"name": "object_types",
-		"sys_object_type": "page",
+		"_object_type": "page",
 		"display_name": "Object Types",
 		"layout": {
 			"rows": [{
@@ -1444,12 +1444,12 @@
 				"source_name": "description"
 			}]
 		}],
-		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		"_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
-		"sys_id": "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
+		"_id": "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
 		"name": "validation_rules",
-		"sys_object_type": "page",
+		"_object_type": "page",
 		"display_name": "Validation rules",
 		"layout": {
 			"rows": [{
@@ -1493,9 +1493,9 @@
 		}]
 	},
 	{
-		"sys_id": "f721099f-5828-4af6-9820-8e017971b36d",
+		"_id": "f721099f-5828-4af6-9820-8e017971b36d",
 		"name": "pages",
-		"sys_object_type": "page",
+		"_object_type": "page",
 		"display_name": "Pages",
 		"layout": {
 			"rows": [{
@@ -1537,12 +1537,12 @@
 				"source_name": "description"
 			}]
 		}],
-		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		"_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
-		"sys_id": "6634166e-617c-4866-af4f-5db62808f215",
+		"_id": "6634166e-617c-4866-af4f-5db62808f215",
 		"name": "project",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Project",
 		"description": "Project object",
 		"fields": [{
@@ -1598,9 +1598,9 @@
 		}]
 	},
 	{
-		"sys_id": "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+		"_id": "d8c873c4-d103-448e-bcee-6ba9afcefb07",
 		"name": "task",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "Task",
 		"description": "",
 		"fields": [{
@@ -1668,9 +1668,9 @@
 		}]
 	},
 	{
-		"sys_id": "9729347b-af22-4df8-be38-f275e465c943",
+		"_id": "9729347b-af22-4df8-be38-f275e465c943",
 		"name": "tasks",
-		"sys_object_type": "page",
+		"_object_type": "page",
 		"display_name": "Tasks",
 		"description": "",
 		"views": [{
@@ -1709,9 +1709,9 @@
 		}
 	},
 	{
-		"sys_id": "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
+		"_id": "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
 		"name": "view_field",
-		"sys_object_type": "system_object",
+		"_object_type": "system_object",
 		"display_name": "View field",
 		"description": "",
 		"fields": [{
@@ -1740,9 +1740,9 @@
 		}]
 	},
 	{
-		"sys_id": "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
+		"_id": "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
 		"name": "Projects",
-		"sys_object_type": "page",
+		"_object_type": "page",
 		"display_name": "Projects",
 		"description": "",
 		"layout": {
@@ -1781,14 +1781,14 @@
 		}]
 	},
 	{
-		"sys_id": "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+		"_id": "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 		"display_name": "App creator",
-		"sys_object_type": "project",
+		"_object_type": "project",
 		"name": "app_creator"
 	},
 	{
-		"sys_id": "9f888461-a4e9-4157-ae4e-15ec194ea3e3",
-		"sys_object_type": "task",
+		"_id": "9f888461-a4e9-4157-ae4e-15ec194ea3e3",
+		"_object_type": "task",
 		"project": "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 		"title": "Add auto generated ID to all objects",
 		"description": "Add auto generated ID (e.g. GUID) to all objects including object types. Use ID in link association types"
@@ -1797,12 +1797,12 @@
 		"project": "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 		"title": "xxx",
 		"description": "sss",
-		"sys_object_type": "task",
-		"sys_id": "a29e9d17-9c5f-4ca9-8ab1-5e48cbc759c1"
+		"_object_type": "task",
+		"_id": "a29e9d17-9c5f-4ca9-8ab1-5e48cbc759c1"
 	},
 	{
-		"sys_object_type": "page",
-		"sys_id": "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
+		"_object_type": "page",
+		"_id": "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
 		"name": "applications",
 		"display_name": "Applications",
 		"description": "Applications",
@@ -1841,11 +1841,11 @@
 				"source_name": "display_name"
 			}]
 		}],
-		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		"_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
-		"sys_object_type": "page",
-		"sys_id": "4767eced-9819-49bd-b186-587ef5a6ec2a",
+		"_object_type": "page",
+		"_id": "4767eced-9819-49bd-b186-587ef5a6ec2a",
 		"name": "accounts",
 		"display_name": "Accounts",
 		"description": "Accounts",
@@ -1884,11 +1884,11 @@
 				"source_name": "display_name"
 			}]
 		}],
-		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		"_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
-		"sys_object_type": "system_object",
-		"sys_id": "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+		"_object_type": "system_object",
+		"_id": "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
 		"name": "account",
 		"display_name": "Account",
 		"description": "Account",
@@ -1944,7 +1944,7 @@
 			"required": true
 		},
 		{
-			"name": "host_application",
+			"name": "_application",
 			"display_name": "Host application",
 			"description": "Application hosting an account as a tenant",
 			"data_type": {
@@ -1960,25 +1960,25 @@
 	},
 	{
 		"name": "system",
-		"sys_object_type": "account",
-		"sys_id": "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+		"_object_type": "account",
+		"_id": "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 		"display_name": "System",
-		"host_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		"_application": "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 	},
 	{
-		"sys_object_type": "application",
-		"sys_id": "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+		"_object_type": "application",
+		"_id": "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 		"name": "app_builder",
 		"display_name": "App builder",
 		"description": "Application builder App",
-		"owner_account": "e2a44387-06a6-4738-939f-8fb6eb5165e7"
+		"_tenant": "e2a44387-06a6-4738-939f-8fb6eb5165e7"
 	},
 	{
-		"sys_object_type": "application",
-		"sys_id": "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+		"_object_type": "application",
+		"_id": "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
 		"name": "projects",
 		"display_name": "Projects",
 		"description": "Projects App",
-		"owner_account": "e2a44387-06a6-4738-939f-8fb6eb5165e7"
+		"_tenant": "e2a44387-06a6-4738-939f-8fb6eb5165e7"
 	}]
 }
