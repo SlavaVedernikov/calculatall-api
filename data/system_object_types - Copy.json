@@ -1956,7 +1956,7 @@
 			"views" : [{
 					"name" : "accounts",
 					"display_name" : "Accounts",
-					"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+					"source_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
 					"query" : "",
 					"page_size" : "10",
 					"fields" : [{
@@ -2026,8 +2026,8 @@
 					"required" : true
 				}, {
 					"name" : "_application",
-					"display_name" : "Host application",
-					"description" : "Application hosting an account as a tenant",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
 					"data_type" : {
 						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 						"multiplicity" : "one",

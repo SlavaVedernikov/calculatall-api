@@ -1956,7 +1956,7 @@
 			"views" : [{
 					"name" : "accounts",
 					"display_name" : "Accounts",
-					"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+					"source_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
 					"query" : "",
 					"page_size" : "10",
 					"fields" : [{
@@ -2008,12 +2008,12 @@
 					"display_name" : "Object type",
 					"description" : "Object type",
 					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "link"
 					},
 					"required" : true,
-					"default" : "account"
+					"default" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae"
 				}, {
 					"name" : "_id",
 					"display_name" : "Object ID",
@@ -2026,8 +2026,8 @@
 					"required" : true
 				}, {
 					"name" : "_application",
-					"display_name" : "Host application",
-					"description" : "Application hosting an account as a tenant",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
 					"data_type" : {
 						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 						"multiplicity" : "one",
@@ -2064,6 +2064,20 @@
 			"description" : "Projects App",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+		}, {
+			"name" : "some_other_account",
+			"display_name" : "Some other account",
+			"_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"_id" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7"
+		}, {
+			"name" : "yet_another_account",
+			"display_name" : "Yet another account",
+			"_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"_id" : "37a658fc-dc2f-4362-a459-01a758bfe914",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7"
 		}
 	]
 }

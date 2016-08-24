@@ -150,11 +150,11 @@ exports.add = function(req, res) {
 	var JSONPath = require('JSONPath');
 	var uuid = require('node-uuid');
 	
+	var fileName = './data/system_object_types.json';
 	var datamodel = JSON.parse(
 	  fs.readFileSync(fileName)
 	);
 	
-	var fileName = './data/system_object_types.json';
 	var object_type = getObjectByName(datamodel, 'system_object', req.params.object_type);
 	var object_type_string = getObjectByName(datamodel, 'system_object', 'string');
 	var object_type_application = getObjectByName(datamodel, 'system_object', 'application');
@@ -258,6 +258,7 @@ exports.update = function(req, res) {
 	
 	var object_type = getObjectByName(datamodel, 'system_object', req.params.object_type);
 	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	//TODO: validate that tenant != undefined as all update request must set tenant
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
 	var id = req.params.id;
