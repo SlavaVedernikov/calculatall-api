@@ -88,13 +88,16 @@ exports.findAll = function(req, res) {
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
 	var pathQuery = "(@._object_type=='" + object_type._id + "')";
-
-	pathQuery += " && (@._application=='" + application._id + "')"; 
 	
-	if(tenant != undefined)
+	if(tenant == undefined)
 	{
-		pathQuery += " && (@._tenant=='" + tenant._id + "')";
+		pathQuery += " && (@._application=='" + application._id + "')";
 	}
+	else
+	{
+		pathQuery += " && (@._application=='" + application._id + "' && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "')))";
+	}
+	
 	
 	if(query != undefined && query != '')
 	{
@@ -129,11 +132,13 @@ exports.findById = function(req, res){
 	
 	var pathQuery = "(@._object_type=='" + object_type._id + "')";
 
-	pathQuery += " && (@._application=='" + application._id + "')"; 
-	
 	if(tenant != undefined)
 	{
-		pathQuery += " && (@._tenant=='" + tenant._id + "')";
+		pathQuery += " && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "') || (@._scope=='global'))";
+	}
+	else
+	{
+		pathQuery += " && (@._application=='" + application._id + "')";
 	}
 		
 	pathQuery += " && (@._id=='" + id + "')";
@@ -161,18 +166,28 @@ exports.add = function(req, res) {
 	var object_type_account = getObjectByName(datamodel, 'system_object', 'account');
 	
 	
-	
 	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
 	var newObject = req.body;
 	//assign a new unique ID
 	newObject._id = uuid.v4();
-	newObject._tenant = tenant._id;
-	newObject._application = application._id
-	//TODO: validate object type i.e. newObject._object_type == req.params.object_type
+	//TODO: validate that tenant != undefined
+	if(tenant)
+	{
+		newObject._tenant = tenant._id;
+		newObject._scope = 'tenant';
+	}
+	else
+	{
+		newObject._tenant = application._tenant;
+		newObject._scope = 'application';
+	}
 	
-	if(object_type.name == 'system_object')
+	newObject._application = application._id
+	//TODO: validate object type i.e. newObject._object_type == object_type._id
+	
+	if(object_type.name == 'system_object' && newObject.fields)
 	{
 		newObject.fields.push({
 			name: '_object_type',
@@ -205,7 +220,7 @@ exports.add = function(req, res) {
 		
 		newObject.fields.push({
 			name: '_application',
-			display_name: 'Application that owns the Object',
+			display_name: 'Application',
 			description: 'Application that owns the Object',
 			data_type: {
 				object_type: object_type_application._id,
@@ -220,13 +235,29 @@ exports.add = function(req, res) {
 		
 		newObject.fields.push({
 			name: '_tenant',
-			display_name: 'Tenant that owns the Object',
+			display_name: 'Tenant',
 			description: 'Tenant that owns the Object',
 			data_type: {
 				object_type: object_type_account._id,
 				multiplicity: 'one',
 				association_type: 'link'
 			},
+			required: true,
+			hidded: true,
+			read_only: true
+		});
+		
+		newObject.fields.push({
+			name: '_scope',
+			display_name: 'Scope',
+			description: 'Scope of the Object',
+			data_type : {
+				object_type : object_type_string._id,
+				multiplicity : 'one',
+				association_type : 'embed'
+			},
+			source : ['owner', 'application', 'tenant'],
+			default : 'tenant',
 			required: true,
 			hidded: true,
 			read_only: true
@@ -269,7 +300,7 @@ exports.update = function(req, res) {
 	{
 		if (datamodel.system_object_types[i]._object_type == object_type._id &&
 			datamodel.system_object_types[i]._application == application._id &&
-			datamodel.system_object_types[i]._tenant == tenant._id &&
+			datamodel.system_object_types[i]._tenant == (tenant ? tenant._id : application._tenant) &&
 			datamodel.system_object_types[i]._id == id)
 		{
 			datamodel.system_object_types[i] = newObject;
@@ -368,7 +399,7 @@ function getObjectByName(datamodel, objectType, name)
 	
 	return result;
 }
-
+/*
 exports.patchApplicationId = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
@@ -512,3 +543,74 @@ exports.patchObjectType = function(req, res) {
 	res.send({ message: 'Object types patched!' });
 };
 
+exports.patchObjectTypeScope = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
+	var systen_object = getObjectByName(datamodel, 'system_object', 'system_object');
+	var object_type_string = getObjectByName(datamodel, 'system_object', 'string');
+	for(var i = 0; i < datamodel.system_object_types.length; i++)
+	{
+		if(datamodel.system_object_types[i]._object_type == systen_object._id && datamodel.system_object_types[i].fields)
+		{
+			datamodel.system_object_types[i].fields.push({
+				name: '_scope',
+				display_name: 'Scope',
+				description: 'Scope of the Object',
+				data_type : {
+					object_type : object_type_string._id,
+					multiplicity : 'one',
+					association_type : 'embed'
+				},
+				source : ['owner', 'application', 'tenant'],
+				default : 'tenant',
+				required: true,
+				hidded: true,
+				read_only: true
+			});
+		}
+	}
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Object type scope patched!' });
+};
+
+exports.patchScope = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
+	
+	for(var i = 0; i < datamodel.system_object_types.length; i++)
+	{
+		datamodel.system_object_types[i]._scope = 'tenant';
+	}
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Scope patched!' });
+};
+
+*/

@@ -14,8 +14,7 @@ module.exports = function(app){
 	
 	app.disable('etag');
 	app.get('/uuid', system_object_types.getId);
-	app.get('/patchDataType', system_object_types.patchDataType);
-	app.get('/patchObjectType', system_object_types.patchObjectType);
+	
 	app.get('/:owner/:application/:tenant/object_types', system_object_types.findAllObjectTypes);
 	app.get('/:owner/:application/:tenant/object_types/:id', system_object_types.findObjectTypeById);
     app.get('/:owner/:application/:tenant/:object_type', system_object_types.findAll);
