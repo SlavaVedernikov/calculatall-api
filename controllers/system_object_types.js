@@ -73,7 +73,7 @@ exports.findAll = function(req, res) {
 	
 	var object_type = getObjectByName(datamodel, 'system_object', req.params.object_type);
 	var query = req.query.query;
-	
+	var view = req.query.view;
 	
 	
 	var data;
@@ -91,7 +91,7 @@ exports.findAll = function(req, res) {
 	
 	if(tenant == undefined)
 	{
-		pathQuery += " && (@._application=='" + application._id + "')";
+		pathQuery += " && (@._application=='" + application._id + "' || @._scope=='global')";
 	}
 	else
 	{
@@ -108,8 +108,46 @@ exports.findAll = function(req, res) {
 	
 	data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 
-	
-	res.send(data);
+	console.log(view);
+	var view_fields = [];
+	if(view != undefined)
+	{
+		var fields = view.split(",");
+		
+		if(fields && fields.length > 0)
+		{
+			for(var i = 0; i < fields.length; i++)
+			{
+				var fieldAttributes = fields[i].split("|");
+				if(fieldAttributes && fieldAttributes.length == 2)
+				{
+					view_fields.push({
+						source_path: fieldAttributes[0].split("."),
+						alias: fieldAttributes[1]
+					})
+				}
+			}
+		}
+	}
+	console.log('view: ' + view);
+	//console.log(view_fields);
+
+	if(view_fields.length > 0)
+	{
+		var view_data = [];
+		
+		for(var i = 0; i < data.length; i++)
+		{
+			var view_data_item = getViewObject(datamodel, data[i], object_type, view_fields);
+			view_data.push(view_data_item);
+		}
+		
+		res.send(view_data);
+	}
+	else
+	{
+		res.send(data);
+	}
 };
 
 exports.findById = function(req, res){
@@ -132,13 +170,13 @@ exports.findById = function(req, res){
 	
 	var pathQuery = "(@._object_type=='" + object_type._id + "')";
 
-	if(tenant != undefined)
+	if(tenant == undefined)
 	{
-		pathQuery += " && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "') || (@._scope=='global'))";
+		pathQuery += " && (@._application=='" + application._id + "' || @._scope=='global')";
 	}
 	else
 	{
-		pathQuery += " && (@._application=='" + application._id + "')";
+		pathQuery += " && (@._application=='" + application._id + "' && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "')))";
 	}
 		
 	pathQuery += " && (@._id=='" + id + "')";
@@ -256,7 +294,7 @@ exports.add = function(req, res) {
 				multiplicity : 'one',
 				association_type : 'embed'
 			},
-			source : ['owner', 'application', 'tenant'],
+			source : ['global', 'owner', 'application', 'tenant'],
 			default : 'tenant',
 			required: true,
 			hidded: true,
@@ -395,6 +433,67 @@ function getObjectByName(datamodel, objectType, name)
 	if(queryResultSet.length == 1)
 	{
 		result = queryResultSet[0];
+	}
+	
+	return result;
+}
+
+function getObjectById(datamodel, id)
+{
+	var result;
+	//console.log('getObjectByName -> objectType: ' + objectType + ', name: ' + name);
+	var JSONPath = require('JSONPath');
+	
+	var pathQuery = "(@._id=='" + id + "')";
+	
+	var queryResultSet = JSONPath({json: datamodel, path: "$.system_object_types[?" + pathQuery + "]"});
+	
+	if(queryResultSet.length == 1)
+	{
+		result = queryResultSet[0];
+	}
+	
+	return result;
+}
+
+function getByName(data, name){		
+	for (var i = 0; i < data.length; i++) {
+		if(data[i].name == name) return data[i];
+	}
+}
+
+function getViewObject(datamodel, object, object_type, view_fields)
+{
+	var result = {};
+	
+	result['_id'] = object._id;
+	
+	for(var i = 0; i < view_fields.length; i++)
+	{
+		var value = object;
+		var value_type = object_type;
+		
+		console.log(view_fields[i].source_path);
+		for(var j = 0; j < view_fields[i].source_path.length; j++)
+		{
+			var field = getByName(value_type.fields, view_fields[i].source_path[j]);
+			console.log(field.name);
+			if(field)
+			{
+				if(field.data_type.association_type == 'embed')
+				{
+					value = value[view_fields[i].source_path[j]];
+				}
+				else if(field.data_type.association_type == 'link')
+				{
+					value = getObjectById(datamodel, value[view_fields[i].source_path[j]]);	
+				}
+				
+				value_type = getObjectById(datamodel, field.data_type.object_type);	
+			}
+		}
+		
+		result[view_fields[i].alias] = value;
 	}
 	
 	return result;
