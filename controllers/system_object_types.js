@@ -29,7 +29,7 @@ exports.findAllObjectTypes = function(req, res) {
 		pathQuery += " && (" + query + ")";
 	}
 	
-	//console.log(pathQuery);
+	console.log(pathQuery);
 	
 	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	
@@ -78,26 +78,11 @@ exports.findAll = function(req, res) {
 	
 	var data;
 	
-	var tenant;
-	
-	if(req.params.tenant != '*')
-	{
-		tenant = getObjectByName(datamodel, 'account', req.params.tenant);
-	}
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
 	
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
-	var pathQuery = "(@._object_type=='" + object_type._id + "')";
-	
-	if(tenant == undefined)
-	{
-		pathQuery += " && (@._application=='" + application._id + "' || @._scope=='global')";
-	}
-	else
-	{
-		pathQuery += " && (@._application=='" + application._id + "' && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "')))";
-	}
-	
+	var pathQuery = "@._object_type=='" + object_type._id + "'  && (@._scope=='global' || (@._application=='" + application._id + "' && (@._scope=='application' || (@._scope=='tenant' && @._tenant=='" + tenant._id + "'))))";
 	
 	if(query != undefined && query != '')
 	{
@@ -108,7 +93,7 @@ exports.findAll = function(req, res) {
 	
 	data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 
-	console.log(view);
+	//console.log(view);
 	var view_fields = [];
 	if(view != undefined)
 	{
@@ -129,7 +114,7 @@ exports.findAll = function(req, res) {
 			}
 		}
 	}
-	console.log('view: ' + view);
+	//console.log('view: ' + view);
 	//console.log(view_fields);
 
 	if(view_fields.length > 0)
@@ -160,24 +145,11 @@ exports.findById = function(req, res){
 	
 	var object_type = getObjectByName(datamodel, 'system_object', req.params.object_type);
 	var id = req.params.id;
-	var tenant;
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
 	
-	if(req.params.tenant != '*')
-	{
-		tenant = getObjectByName(datamodel, 'account', req.params.tenant);
-	}
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
-	var pathQuery = "(@._object_type=='" + object_type._id + "')";
-
-	if(tenant == undefined)
-	{
-		pathQuery += " && (@._application=='" + application._id + "' || @._scope=='global')";
-	}
-	else
-	{
-		pathQuery += " && (@._application=='" + application._id + "' && ((@._scope=='tenant' && @._tenant=='" + tenant._id + "') || (@._scope=='application' && @._application=='" + application._id + "')))";
-	}
+	var pathQuery = "@._object_type=='" + object_type._id + "'  && (@._scope=='global'|| (@._application=='" + application._id + "' && (@._scope=='application' || (@._scope=='tenant' && @._tenant=='" + tenant._id + "'))))";
 		
 	pathQuery += " && (@._id=='" + id + "')";
 		
@@ -208,6 +180,7 @@ exports.add = function(req, res) {
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
 	var newObject = req.body;
+	newObject._object_type = object_type._id;
 	//assign a new unique ID
 	newObject._id = uuid.v4();
 	//TODO: validate that tenant != undefined
@@ -337,8 +310,8 @@ exports.update = function(req, res) {
 	for(var i = 0; i < datamodel.system_object_types.length; i++)
 	{
 		if (datamodel.system_object_types[i]._object_type == object_type._id &&
-			datamodel.system_object_types[i]._application == application._id &&
-			datamodel.system_object_types[i]._tenant == (tenant ? tenant._id : application._tenant) &&
+			//datamodel.system_object_types[i]._application == application._id &&
+			datamodel.system_object_types[i]._tenant == tenant._id &&
 			datamodel.system_object_types[i]._id == id)
 		{
 			datamodel.system_object_types[i] = newObject;
@@ -473,11 +446,11 @@ function getViewObject(datamodel, object, object_type, view_fields)
 		var value = object;
 		var value_type = object_type;
 		
-		console.log(view_fields[i].source_path);
+		//console.log(view_fields[i].source_path);
 		for(var j = 0; j < view_fields[i].source_path.length; j++)
 		{
 			var field = getByName(value_type.fields, view_fields[i].source_path[j]);
-			console.log(field.name);
+			//console.log(field.name);
 			if(field)
 			{
 				if(field.data_type.association_type == 'embed')
