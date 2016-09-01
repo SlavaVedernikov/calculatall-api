@@ -58,9 +58,25 @@ exports.findObjectTypeById = function(req, res){
 		
 	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	
-	var body = data[0];
+	var object_type = data[0];
   	
-	res.send(body);
+	var view = req.query.view;
+	var view_fields = getViewFields(view);
+	
+	console.log('view: ' + view);
+	console.log(view_fields);
+	
+	if(view_fields && view_fields.length > 0)
+	{
+		var view_object_type = getViewObjectType(datamodel, object_type, view_fields);
+		
+		res.send(view_object_type);
+	}
+	else
+	{
+		res.send(object_type);
+	}
+	
 };
 
 exports.findAll = function(req, res) {
@@ -94,30 +110,12 @@ exports.findAll = function(req, res) {
 	data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 
 	//console.log(view);
-	var view_fields = [];
-	if(view != undefined)
-	{
-		var fields = view.split(",");
-		
-		if(fields && fields.length > 0)
-		{
-			for(var i = 0; i < fields.length; i++)
-			{
-				var fieldAttributes = fields[i].split("|");
-				if(fieldAttributes && fieldAttributes.length == 2)
-				{
-					view_fields.push({
-						source_path: fieldAttributes[0].split("."),
-						alias: fieldAttributes[1]
-					})
-				}
-			}
-		}
-	}
+	var view_fields = getViewFields(view);
+	
 	//console.log('view: ' + view);
 	//console.log(view_fields);
 
-	if(view_fields.length > 0)
+	if(view_fields && view_fields.length > 0)
 	{
 		var view_data = [];
 		
@@ -267,7 +265,24 @@ exports.add = function(req, res) {
 				multiplicity : 'one',
 				association_type : 'embed'
 			},
-			source : ['global', 'owner', 'application', 'tenant'],
+			source : [{
+							display_name : 'Global',
+							value : 'global',
+							icon : '',
+							color : ''
+						},
+						{
+							display_name : 'Application',
+							value : 'application',
+							icon : '',
+							color : ''
+						},
+						{
+							display_name : 'Tenant',
+							value : 'tenant',
+							icon : '',
+							color : ''
+						}],
 			default : 'tenant',
 			required: true,
 			hidded: true,
@@ -370,6 +385,34 @@ exports.delete = function(req, res) {
 	res.send({ message: 'Object updated!' });
 };
 
+function getViewFields(view)
+{
+	
+	var result;
+	if(view != undefined)
+	{
+		result = [];
+		var fields = view.split(",");
+		
+		if(fields && fields.length > 0)
+		{
+			for(var i = 0; i < fields.length; i++)
+			{
+				var fieldAttributes = fields[i].split("|");
+				if(fieldAttributes && fieldAttributes.length == 2)
+				{
+					result.push({
+						source_path: fieldAttributes[0].split("."),
+						alias: fieldAttributes[1]
+					})
+				}
+			}
+		}
+	}
+	
+	return result;
+}
+
 function getObjectByName(datamodel, objectType, name)
 {
 	//console.log('getObjectByName -> objectType: ' + objectType + ', name: ' + name);
@@ -433,6 +476,39 @@ function getByName(data, name){
 	for (var i = 0; i < data.length; i++) {
 		if(data[i].name == name) return data[i];
 	}
+}
+
+function getViewObjectType(datamodel, object_type, view_fields)
+{
+	var result = {fields : []};
+	
+	for(var i = 0; i < view_fields.length; i++)
+	{
+		var value_type = object_type;
+		var field = null;
+		var source_path = '';
+		//console.log(view_fields[i].source_path);
+		for(var j = 0; j < view_fields[i].source_path.length; j++)
+		{
+			field = getByName(value_type.fields, view_fields[i].source_path[j]);
+			
+			if(source_path != '')
+			{
+				source_path += '.';
+			}
+			
+			//console.log(field.name);
+			if(field)
+			{		
+				field.name = source_path;
+				value_type = getObjectById(datamodel, field.data_type.object_type);	
+			}
+		}
+		
+		result.fields.push(field);
+	}
+	
+	return result;
 }
 
 function getViewObject(datamodel, object, object_type, view_fields)

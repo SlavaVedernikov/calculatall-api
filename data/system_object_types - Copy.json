@@ -60,7 +60,24 @@
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -124,7 +141,7 @@
 			"description" : "Text data",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "global"
 		}, {
 			"_id" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
 			"name" : "integer",
@@ -143,7 +160,7 @@
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "global"
 		}, {
 			"_id" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
 			"name" : "boolean",
@@ -152,7 +169,7 @@
 			"description" : "Boolean data",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"_id" : "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
 			"name" : "parameter_value",
@@ -186,13 +203,24 @@
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					},
-					"source" : ["Value", "Field value"],
-					"default" : "Value"
+					"source" : [{
+							"display_name" : "Value",
+							"value" : "value",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Field value",
+							"value" : "field value",
+							"icon" : "",
+							"color" : ""
+						}],
+					"default" : "value"
 				}
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "global"
 		}, {
 			"_id" : "19746085-4c08-4cd6-895c-73405a1e6ea2",
 			"name" : "attribute",
@@ -284,7 +312,7 @@
 					"description" : "Data source",
 					"data_type" : {
 						"multiplicity" : "many",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"object_type" : "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
 						"association_type" : "embed"
 					}
 				}, {
@@ -370,7 +398,24 @@
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					},
-					"source" : ["Field value", "Value", "Expression"]
+					"source" : [{
+							"display_name" : "Value",
+							"value" : "value",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Field value",
+							"value" : "field value",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Expression",
+							"value" : "expression",
+							"icon" : "",
+							"color" : ""
+						}]
 				}, {
 					"name" : "value",
 					"display_name" : "Value",
@@ -384,7 +429,7 @@
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "global"
 		}, {
 			"_id" : "73eeb041-4c1b-41f1-8702-e064785c697c",
 			"name" : "lookup_query",
@@ -741,7 +786,24 @@
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					},
-					"source" : ["information", "warning", "error"],
+					"source" : [{
+							"display_name" : "Information",
+							"value" : "information",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Warning",
+							"value" : "warning",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Error",
+							"value" : "error",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "error"
 				}, {
 					"name" : "condition",
@@ -769,14 +831,14 @@
 			"_scope" : "tenant"
 		}, {
 			"_id" : "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
-			"name" : "lookup_value",
+			"name" : "value_lookup",
 			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Lookup value",
-			"description" : "Lookup value object type",
+			"display_name" : "Value lookup",
+			"description" : "Value lookup object type",
 			"fields" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Name of lookup value",
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Display name of lookup value",
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
@@ -849,7 +911,7 @@
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "global"
 		}, {
 			"_id" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
 			"name" : "data_type",
@@ -876,7 +938,18 @@
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					},
-					"source" : ["one", "many"],
+					"source" : [{
+							"display_name" : "One",
+							"value" : "one",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Many",
+							"value" : "many",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "one"
 				}, {
 					"name" : "association_type",
@@ -887,7 +960,18 @@
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					},
-					"source" : ["embed", "link"],
+					"source" : [{
+							"display_name" : "Embed",
+							"value" : "embed",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Link",
+							"value" : "link",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "embed"
 				}
 			],
@@ -1007,17 +1091,17 @@
 					},
 					"source" : [{
 							"name" : "High",
-							"value" : 100,
+							"value" : "10",
 							"color" : "#ffffff",
 							"icon" : "icon_1"
 						}, {
 							"name" : "Medium",
-							"value" : 50,
+							"value" : "50",
 							"color" : "#ffffff",
 							"icon" : "icon_1"
 						}, {
 							"name" : "Low",
-							"value" : 0,
+							"value" : "100",
 							"color" : "#ffffff",
 							"icon" : "icon_1"
 						}
@@ -1068,7 +1152,6 @@
 					"required" : false,
 					"hidded" : false,
 					"read_only" : false,
-					"source" : [""],
 					"default" : ""
 				}, {
 					"name" : "_object_type",
@@ -1138,7 +1221,24 @@
 					"required" : true,
 					"hidded" : true,
 					"read_only" : true,
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant"
 				}, {
 					"name" : "_application",
@@ -1152,7 +1252,6 @@
 					"required" : true,
 					"hidded" : true,
 					"read_only" : true,
-					"source" : [""],
 					"default" : ""
 				}
 			],
@@ -1215,7 +1314,6 @@
 					"required" : true,
 					"hidded" : true,
 					"read_only" : true,
-					"source" : [""],
 					"default" : ""
 				}, {
 					"name" : "_scope",
@@ -1229,7 +1327,24 @@
 					"required" : true,
 					"hidded" : true,
 					"read_only" : true,
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant"
 				}, {
 					"name" : "name",
@@ -1587,7 +1702,7 @@
 					"name" : "system_object_types",
 					"display_name" : "System object types",
 					"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-					"query" : "",
+					"query" : "@._application=='{context.appId}'",
 					"page_size" : 10,
 					"fields" : [{
 							"display_name" : "Name",
@@ -1598,6 +1713,9 @@
 						}, {
 							"display_name" : "Description",
 							"source_path" : "description"
+						}, {
+							"display_name" : "Application",
+							"source_path" : "_application.display_name"
 						}
 					]
 				}
@@ -1833,6 +1951,32 @@
 					},
 					"required" : true,
 					"default" : ""
+				}, {
+					"name" : "task_type",
+					"display_name" : "Task type",
+					"description" : "Type of task",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidded" : false,
+					"read_only" : false,
+					"source" : [{
+							"display_name" : "Story",
+							"value" : "story",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Bug",
+							"value" : "story",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "story"
 				}
 			],
 			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
@@ -2030,7 +2174,7 @@
 					"name" : "applications",
 					"display_name" : "Applications",
 					"source_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
-					"query" : "",
+					"query" : "@._id=='{context.appId}'",
 					"page_size" : "10",
 					"fields" : [{
 							"display_name" : "Name",
@@ -2244,8 +2388,26 @@
 			"display_name" : "To-Do",
 			"description" : "To Do Lists",
 			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
-			"_scope" : "tenant",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+			"_scope" : "global",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"navigation" : {
+				"_object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
+				"_id" : "",
+				"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+				"_tenant" : "",
+				"_scope" : "tenant",
+				"menu_items" : [{
+						"display_name" : "To-Do lists",
+						"page" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}
+				],
+				"display_name" : "Default navigation"
+			}
 		}, {
 			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
 			"_id" : "696421ff-97de-4c43-911a-554a82ffc7ba",
@@ -2314,7 +2476,24 @@
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2512,7 +2691,24 @@
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2543,7 +2739,7 @@
 										"display_name" : "Container 1",
 										"tabs" : [{
 												"name" : "subscriptions",
-												"display_name" : "Container tab 1"
+												"display_name" : "Subscriptions"
 											}
 										]
 									}
@@ -2679,7 +2875,24 @@
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2754,7 +2967,24 @@
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"source" : ["global", "application", "tenant"],
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2796,6 +3026,409 @@
 			"application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
 			"display_name" : "Free",
 			"description" : "Free plan"
+		}, {
+			"account" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"subscription_plan" : "229eb680-254d-4af8-b926-e1e1de275c9b",
+			"_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_id" : "5a65b8f6-36fe-4eb2-b34f-0121fd74e2e6",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "b4e05929-6587-4011-b8ec-9087b812b62b",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "sub_task",
+			"description" : "Sub-task",
+			"display_name" : "Sub-task of a main task",
+			"fields" : [{
+					"name" : "title",
+					"display_name" : "Title",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "main_task",
+					"display_name" : "Main task",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "b4e05929-6587-4011-b8ec-9087b812b62b"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "tenant",
+			"name" : "todo_list",
+			"description" : "List of to-do items",
+			"display_name" : "To-do list",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name of To-Do list",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "tenant",
+			"name" : "todo_item",
+			"description" : "To-Do item",
+			"display_name" : "To-Do item",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "To-Do item name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "todo_list",
+					"display_name" : "To-Do list",
+					"description" : "To-Do list",
+					"data_type" : {
+						"object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						},
+						{
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_id" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "application",
+			"name" : "todo_lists",
+			"display_name" : "To-Do lists",
+			"description" : "To-Do lists",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "todo_lists",
+												"tab" : "todo_lists"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "todo_lists",
+												"display_name" : "To-Do lists"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "todo_lists",
+					"display_name" : "To-Do lists",
+					"query" : "",
+					"page_size" : "10",
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}
+					],
+					"source_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
+				}
+			]
+		}, {
+			"name" : "Work",
+			"_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+			"_id" : "04ab91cb-cfaa-4a29-a1d7-1629ecd2c553",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
 		}
 	]
 }

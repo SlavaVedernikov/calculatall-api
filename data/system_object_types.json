@@ -1,1 +1,3458 @@
-{"system_object_types":[{"_id":"7e22d35d-0ed1-47c4-9f56-973335195176","name":"system_object","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"System object","description":"System object type","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"System object application","data_type":{"multiplicity":"one","object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","association_type":"link"},"required":true,"read_only":true},{"name":"_tenant","display_name":"Tenant","description":"System object tenant that owns the object","data_type":{"multiplicity":"one","object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","association_type":"link"},"required":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true},{"name":"name","display_name":"Name","description":"System object name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"System object description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"System object display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"fields","display_name":"Attributes","description":"Attributes of System object type","data_type":{"multiplicity":"many","object_type":"19746085-4c08-4cd6-895c-73405a1e6ea2","association_type":"embed"},"required":true},{"name":"validation_rules","display_name":"Validation rules","description":"System object validation rules","data_type":{"multiplicity":"many","object_type":"02eb5e15-61b0-4644-b75f-be84edc03cd9","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"16b8aa98-d9df-4899-84f0-d31652487abe","name":"string","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Text","description":"Text data","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_id":"42cbbb31-2bc3-42d4-a695-786920141a5f","name":"integer","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Whole number","description":"A number without fractions (i.e. integer)","validation_rules":[{"order":1,"rule":"is_numeric","severity":"error"},{"order":2,"rule":"is_integer","severity":"error"}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_id":"9498606b-28ad-4c6b-a73e-1b009e2ab734","name":"boolean","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Boolean","description":"Boolean data","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_id":"6ae8ec22-a622-42b3-9e9f-2e85b714d07a","name":"parameter_value","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Parameter value","description":"Parameter value object type","fields":[{"name":"name","display_name":"Name","description":"Name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"value","display_name":"Value","description":"Value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"value_type","display_name":"Value type","description":"Value type","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source":["Value","Field value"],"default":"Value"}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_id":"19746085-4c08-4cd6-895c-73405a1e6ea2","name":"attribute","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Attribute","description":"Attribute object type","fields":[{"name":"name","display_name":"Name","description":"Attribute name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"Attribute display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Attribute description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"data_type","display_name":"Data type","description":"Attribute data type","data_type":{"multiplicity":"one","object_type":"fed333c3-eeef-4008-a940-c3a4f7c84669","association_type":"embed"},"required":true},{"name":"required","display_name":"Required","description":"Required","data_type":{"multiplicity":"one","object_type":"9498606b-28ad-4c6b-a73e-1b009e2ab734","association_type":"embed"},"default":false,"required":true},{"name":"hidded","display_name":"Hidden","description":"Hidden","data_type":{"multiplicity":"one","object_type":"9498606b-28ad-4c6b-a73e-1b009e2ab734","association_type":"embed"},"default":false,"required":true},{"name":"read_only","display_name":"Read only","description":"Read only","data_type":{"multiplicity":"one","object_type":"9498606b-28ad-4c6b-a73e-1b009e2ab734","association_type":"embed"},"default":false,"required":true},{"name":"source_query","display_name":"Source query","description":"Data source query","data_type":{"multiplicity":"one","object_type":"73eeb041-4c1b-41f1-8702-e064785c697c","association_type":"embed"}},{"name":"source","display_name":"Source","description":"Data source","data_type":{"multiplicity":"many","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"default","display_name":"Default value","description":"Default value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"validation_rules","display_name":"Validation rules","description":"Attribute validation rules","data_type":{"multiplicity":"many","object_type":"02eb5e15-61b0-4644-b75f-be84edc03cd9","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f","name":"parameter","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Parameter","description":"Parameter object type","fields":[{"name":"name","display_name":"Name","description":"Parameter name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"Paremeter display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Paremeter description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"data_type","display_name":"Data type","description":"Paremeter data type","data_type":{"multiplicity":"one","object_type":"fed333c3-eeef-4008-a940-c3a4f7c84669","association_type":"embed"}},{"name":"is_internal","display_name":"Is internal","description":"Is parameter an internal","data_type":{"multiplicity":"one","object_type":"9498606b-28ad-4c6b-a73e-1b009e2ab734","association_type":"embed"}},{"name":"value_type","display_name":"Value type","description":"Parameter value type","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source":["Field value","Value","Expression"]},{"name":"value","display_name":"Value","description":"Parameter value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_id":"73eeb041-4c1b-41f1-8702-e064785c697c","name":"lookup_query","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Look up query","description":"Look up query object type","fields":[{"name":"query_expression","display_name":"Query expression","description":"Query expression","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"parameters","display_name":"Paremeters","description":"Query expression parameters","data_type":{"multiplicity":"many","object_type":"5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","name":"validation_rule_definition","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Validation rule definition","description":"Validation rule definition object type","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"7e1410fe-fa99-4c73-b818-d6630b27b4c7"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"name","display_name":"Name","description":"Validation rule name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"Validation rule display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Validation rule description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"message","display_name":"Message","description":"Validation rule message","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"expression","display_name":"Expression","description":"Validation rule expression","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"supported_data_types","display_name":"Supported data types","description":"Data types supported by validation rule","data_type":{"multiplicity":"many","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source_query":{"query_expression":"object_type == 'system_object'"}},{"name":"parameters","display_name":"Paremeters","description":"Validation rule parameters","data_type":{"multiplicity":"many","object_type":"5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"d53b7dfd-1302-4bcf-9655-ef30ea698ccc","name":"is_not_empty","_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","display_name":"Value is required","severity":"error","description":"Checks whether a value was provided for a field","message":"Field should not be empty","expression":"IsNotEmpty($)","supported_data_types":["string","integer","decimal"],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"4101fdc8-d472-4db2-bb6c-793baa908b8f","name":"minimum_length","_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","display_name":"Minimum length","description":"Validates minimum required length of the text value","message":"Text length cannot be smaller than {0}. The actual length is {1}","expression":"length($) >= {0}","supported_data_types":["string"],"parameters":[{"name":"length","display_name":"Length greater than or equal to","description":"Minimum required length of the text value","data_type":{"multiplicity":"one","object_type":"integer"},"is_internal":false,"value_type":"Value"},{"name":"size","display_name":"Size","description":"Actual size of the text value","data_type":{"multiplicity":"one","object_type":"integer"},"is_internal":true,"value_type":"Expression","value":"length($)"}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"03b9573d-d76b-43d0-b322-62df513f5e82","name":"maximum_length","_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","display_name":"Maximum length","description":"Validates maximum allowed length of the text value","message":"Text length cannot be greater than {0}. The actual length is {1}","expression":"length($) <= {0}","supported_data_types":["string"],"parameters":[{"name":"length","display_name":"Length less than or equal to","description":"Maximum allowed length of the text value","data_type":{"multiplicity":"one","object_type":"integer"},"is_internal":false,"value_type":"Value"},{"name":"size","display_name":"Size","description":"Actual size of the text value","data_type":{"multiplicity":"one","object_type":"integer"},"is_internal":true,"value_type":"Expression","value":"length($)"}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"436fa06c-849c-4973-a96f-9a79ac135ed7","name":"value_is_in_list","_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","display_name":"Value is in list","description":"Checks that the value of the field is identical to one of the values in the list","scope":"field","message":"The value should be one of this {list}","expression":"IsIn($, {list}, {caseSensitive})","supported_data_types":["string"],"parameters":[{"name":"list","display_name":"List","description":"List of possible values","data_type":{"multiplicity":"many","object_type":"string"},"is_internal":false,"value_type":"Value"},{"name":"is_multi_value","display_name":"Multi-Value","description":"Multiple values can be selected","data_type":{"multiplicity":"one","object_type":"boolean"},"is_internal":false,"value_type":"Value","is_optional":true,"default_value":false},{"name":"is_case_sensitive","display_name":"Case Sensitive","description":"Values are case sensitive","data_type":{"multiplicity":"one","object_type":"boolean"},"is_internal":false,"value_type":"Value","is_optional":true,"default_value":false}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"4e113ea8-faa2-482d-bee9-935a99c8c625","name":"value_is_in_query","_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","display_name":"Value is in query list","description":"Checks that the value of the field is identical to one of the values in the list retured by a query","scope":"field","message":"The value should be one of this {list}","expression":"IsInQuery($, {list}, {caseSensitive})","supported_data_types":["string"],"parameters":[{"name":"list_query","display_name":"List query","description":"List query for possible values","data_type":{"multiplicity":"one","object_type":"lookup_query"},"is_internal":false,"value_type":"Value"},{"name":"is_multi_value","display_name":"Multi-Value","description":"Multiple values can be selected","data_type":{"multiplicity":"one","object_type":"boolean"},"is_internal":false,"value_type":"Value","is_optional":true,"default_value":false},{"name":"is_case_sensitive","display_name":"Case Sensitive","description":"Values are case sensitive","data_type":{"multiplicity":"one","object_type":"boolean"},"is_internal":false,"value_type":"Value","is_optional":true,"default_value":false}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"02eb5e15-61b0-4644-b75f-be84edc03cd9","name":"validation_rule","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Validation rule","description":"Validation rule object type","fields":[{"name":"rule","display_name":"Rule","description":"Rule name","data_type":{"multiplicity":"one","object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","association_type":"link"}},{"name":"display_name","display_name":"Display name","description":"Validation rule display name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""},{"name":"order","display_name":"Order","description":"Rule order","data_type":{"multiplicity":"one","object_type":"42cbbb31-2bc3-42d4-a695-786920141a5f","association_type":"embed"}},{"name":"severity","display_name":"Severity","description":"Rule severity","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source":["information","warning","error"],"default":"error"},{"name":"condition","display_name":"Condition","description":"Rule condition","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"default":"true"},{"name":"parameters","display_name":"Parameters","description":"Rule parameters","data_type":{"multiplicity":"many","object_type":"6ae8ec22-a622-42b3-9e9f-2e85b714d07a","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9","name":"lookup_value","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Lookup value","description":"Lookup value object type","fields":[{"name":"name","display_name":"Name","description":"Name of lookup value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"250"}]}]},{"name":"value","display_name":"Value","description":"Value of lookup value","data_type":{"multiplicity":"one","object_type":"42cbbb31-2bc3-42d4-a695-786920141a5f","association_type":"embed"}},{"name":"icon","display_name":"Icon","description":"Icon of lookup value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"250"}]}]},{"name":"color","display_name":"Color","description":"Color of lookup value","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"7"}]}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"fed333c3-eeef-4008-a940-c3a4f7c84669","name":"data_type","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Data type","description":"Data type object type","fields":[{"name":"object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"default":"16b8aa98-d9df-4899-84f0-d31652487abe"},{"name":"multiplicity","display_name":"Object multiplicity","description":"Object multiplicity","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source":["one","many"],"default":"one"},{"name":"association_type","display_name":"Association type","description":"Association type","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"source":["embed","link"],"default":"embed"}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"c25f8365-d17e-4f0f-b727-c121b8bd6a1f","name":"application_component","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Application Component","description":"Application Component object type","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"c25f8365-d17e-4f0f-b727-c121b8bd6a1f"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"name","display_name":"Name","description":"Object name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"250"}]}]},{"name":"display_name","display_name":"Display name","description":"Object display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Object description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"1000"}]}]},{"name":"availability_characteristics","display_name":"Availability characteristics","description":"Degree to which something is available for use","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"2000"}]}]},{"name":"functional_quality","display_name":"Functional quality","description":"What is the functional quality of the application?","data_type":{"multiplicity":"one","object_type":"value_lookup"},"source":[{"name":"High","value":100,"color":"#ffffff","icon":"icon_1"},{"name":"Medium","value":50,"color":"#ffffff","icon":"icon_1"},{"name":"Low","value":0,"color":"#ffffff","icon":"icon_1"}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"9cd5bb49-2534-4754-bc37-91a519ca0c21","name":"application","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Application","description":"Application object type","fields":[{"name":"name","display_name":"Name","description":"Application name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"display_name":"Maximum length (250)","rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","display_name":"Length","value":"250"}]}]},{"name":"navigation","display_name":"Navigation","description":"","data_type":{"object_type":"eb58bacc-00a9-4d5f-8653-7e05d06c691a","multiplicity":"one","association_type":"embed"},"required":false,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"9cd5bb49-2534-4754-bc37-91a519ca0c21"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"display_name","display_name":"Display name","description":"Application display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Application description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"_tenant","display_name":"Tenant","description":"Tenant account that owns application","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"source":["global","application","tenant"],"default":"tenant"},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"75458276-7818-4fff-a170-7b3e25cd99c2","name":"page","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Page","description":"Page","fields":[{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"75458276-7818-4fff-a170-7b3e25cd99c2"},{"name":"_application","display_name":"Application","description":"Application hosting page","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":""},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"source":["global","application","tenant"],"default":"tenant"},{"name":"name","display_name":"Name","description":"Page name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"},"validation_rules":[{"rule":"maximum_length","order":1,"severity":"error","condition":"true","parameters":[{"name":"length","value":"250"}]}]},{"name":"display_name","display_name":"Display name","description":"Page display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"description","display_name":"Description","description":"Page description","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"layout","display_name":"Layout","description":"Layout of Page","data_type":{"multiplicity":"one","object_type":"84237e46-b707-40ae-b030-1247fec2549d","association_type":"embed"},"required":true},{"name":"views","display_name":"Views","description":"Views of Layout","data_type":{"multiplicity":"many","object_type":"c8bed3ae-38cf-43b0-983e-a984e74cd41e","association_type":"embed"},"required":true}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"c8bed3ae-38cf-43b0-983e-a984e74cd41e","name":"view","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"View","description":"View","fields":[{"name":"name","display_name":"Name","description":"View name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"View display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"source_object_type","display_name":"Source object type","description":"Source object type","data_type":{"multiplicity":"one","object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","association_type":"link"}},{"name":"query","display_name":"Query","description":"View query","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"page_size","display_name":"Page size","description":"View page size","data_type":{"multiplicity":"one","object_type":"42cbbb31-2bc3-42d4-a695-786920141a5f","association_type":"embed"}},{"name":"fields","display_name":"Fields","description":"Fields of View","data_type":{"multiplicity":"many","object_type":"f5eecf29-8fba-4d29-b24a-2e253d0813e8","association_type":"embed"},"required":true}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"84237e46-b707-40ae-b030-1247fec2549d","name":"layout","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Layout","description":"Layout","fields":[{"name":"rows","display_name":"Rows","description":"Rows of Layout","data_type":{"multiplicity":"many","object_type":"405d94ce-bffb-45a2-9cf1-1b36345477ab","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"405d94ce-bffb-45a2-9cf1-1b36345477ab","name":"layout_row","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Layout row","description":"Layout row","fields":[{"name":"columns","display_name":"Columns","description":"Columns of Row","data_type":{"multiplicity":"many","object_type":"57d6a998-7eb6-4345-9964-aa82046cedb9","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":false,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"57d6a998-7eb6-4345-9964-aa82046cedb9","name":"layout_column","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Layout column","description":"Layout column","fields":[{"name":"size","display_name":"Size","description":"Layout column size","data_type":{"multiplicity":"one","object_type":"42cbbb31-2bc3-42d4-a695-786920141a5f","association_type":"embed"}},{"name":"containers","display_name":"Containers","description":"Containers of Column","data_type":{"multiplicity":"many","object_type":"0ad106f8-6b2b-4d55-a91a-32c8a5f46077","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":false,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"0ad106f8-6b2b-4d55-a91a-32c8a5f46077","name":"container","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Container","description":"Container","fields":[{"name":"tabs","display_name":"Tabs","description":"Tabs of Container","data_type":{"multiplicity":"many","object_type":"522ebc3c-d6c1-4394-ba07-64f4528fd6e8","association_type":"embed"},"required":false},{"name":"views","display_name":"Views","description":"Views of Container","data_type":{"multiplicity":"many","object_type":"b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5","association_type":"embed"},"required":true},{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":false,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"522ebc3c-d6c1-4394-ba07-64f4528fd6e8","name":"container_tab","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Container tab","description":"Container tab","fields":[{"name":"name","display_name":"Name","description":"Container tab name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"display_name","display_name":"Display name","description":"Container tab display name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5","name":"container_view","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Container view","description":"Container view","fields":[{"name":"view","display_name":"View","description":"View name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}},{"name":"tab","display_name":"Tab","description":"Tab name","data_type":{"multiplicity":"one","object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","association_type":"embed"}}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"38afea11-e925-4d4d-b014-335c84f008a4","name":"object_types","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","display_name":"Object Types","layout":{"rows":[{"display_name":"Row 1","columns":[{"display_name":"Column 1","size":12,"containers":[{"display_name":"Container 1","tabs":[{"name":"system_object_types","display_name":"System object types"}],"views":[{"display_name":"System object types","view":"system_object_types","tab":"system_object_types"}]}]}]}]},"views":[{"name":"system_object_types","display_name":"System object types","source_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","query":"@._application=='{context.appId}'","page_size":10,"fields":[{"display_name":"Name","source_path":"name"},{"display_name":"Display name","source_path":"display_name"},{"display_name":"Description","source_path":"description"},{"display_name":"Application","source_path":"_application.display_name"}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"f7e21fc2-48bd-4753-9b78-4f6bcb14705c","name":"validation_rule_definitions","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","display_name":"Validation rule definitions","layout":{"rows":[{"display_name":"Row 1","columns":[{"display_name":"Column 1","size":12,"containers":[{"display_name":"Container 1","tabs":[{"name":"validation_rules","display_name":"Validation rules"}],"views":[{"display_name":"Validation rules","view":"validation_rules","tab":"validation_rules"}]}]}]}]},"views":[{"name":"validation_rules","display_name":"Validation rules","source_object_type":"7e1410fe-fa99-4c73-b818-d6630b27b4c7","query":"","page_size":10,"fields":[{"display_name":"Name","source_path":"name"},{"display_name":"Display name","source_path":"display_name"},{"display_name":"Description","source_path":"description"}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"f721099f-5828-4af6-9820-8e017971b36d","name":"pages","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","display_name":"Pages","layout":{"rows":[{"columns":[{"display_name":"Column 1","size":12,"containers":[{"display_name":"Container 1","tabs":[{"name":"modules","display_name":"Modules"}],"views":[{"display_name":"Modules","view":"modules","tab":"modules"}]}]}],"display_name":""}]},"views":[{"name":"modules","display_name":"Pages","source_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","query":"","page_size":"25","fields":[{"display_name":"Name","source_path":"name"},{"display_name":"Display name","source_path":"display_name"},{"display_name":"Scope","source_path":"_scope"}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"6634166e-617c-4866-af4f-5db62808f215","name":"project","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Project","description":"Project object","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"6634166e-617c-4866-af4f-5db62808f215"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""},{"name":"name","display_name":"Name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""}],"_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"d8c873c4-d103-448e-bcee-6ba9afcefb07","name":"task","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"Task","description":"","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true,"default":"d8c873c4-d103-448e-bcee-6ba9afcefb07"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"project","display_name":"Project","description":"","data_type":{"object_type":"6634166e-617c-4866-af4f-5db62808f215","multiplicity":"one","association_type":"link"},"required":true,"default":""},{"name":"title","display_name":"Title","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""},{"name":"description","display_name":"Description","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""}],"_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"9729347b-af22-4df8-be38-f275e465c943","name":"tasks","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","display_name":"Tasks","description":"","views":[{"name":"tasks","display_name":"Tasks","source_object_type":"d8c873c4-d103-448e-bcee-6ba9afcefb07","page_size":"10","fields":[{"display_name":"Title","source_path":"title"},{"display_name":"Description","source_path":"description"}]}],"layout":{"rows":[{"display_name":"Row 1","columns":[{"size":"12","display_name":"Column 1","containers":[{"display_name":"Container 1","tabs":[{"name":"tasks","display_name":"Tasks"}],"views":[{"view":"tasks","tab":"tasks"}]}]}]}]},"_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"f5eecf29-8fba-4d29-b24a-2e253d0813e8","name":"view_field","_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","display_name":"View field","description":"","fields":[{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":false,"default":""},{"name":"source_path","display_name":"Source field path","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d","name":"Projects","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","display_name":"Projects","description":"","layout":{"rows":[{"display_name":"","columns":[{"size":"12","display_name":"","containers":[{"views":[{"view":"projects","tab":"projects"}],"display_name":"Projects","tabs":[{"name":"projects","display_name":"Projects"}]}]}]}]},"views":[{"name":"projects","display_name":"Projects","source_object_type":"6634166e-617c-4866-af4f-5db62808f215","page_size":"10","fields":[{"display_name":"Name","source_path":"name"},{"display_name":"Display name","source_path":"display_name"}]}],"_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_id":"2a13349a-c6d0-4820-aa40-6b625878a8ab","display_name":"App creator","_object_type":"6634166e-617c-4866-af4f-5db62808f215","name":"app_creator","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_id":"9f888461-a4e9-4157-ae4e-15ec194ea3e3","_object_type":"d8c873c4-d103-448e-bcee-6ba9afcefb07","project":"2a13349a-c6d0-4820-aa40-6b625878a8ab","title":"Add auto generated ID to all objects","description":"Add auto generated ID (e.g. GUID) to all objects including object types. Use ID in link association types","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"project":"2a13349a-c6d0-4820-aa40-6b625878a8ab","title":"xxx","description":"sss","_object_type":"d8c873c4-d103-448e-bcee-6ba9afcefb07","_id":"a29e9d17-9c5f-4ca9-8ab1-5e48cbc759c1","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","_id":"c88ac157-6191-4b4d-9ee3-e636d263eaa6","name":"applications","display_name":"Applications","description":"Applications","layout":{"rows":[{"display_name":"Row 1","columns":[{"size":"12","display_name":"Column1","containers":[{"views":[{"view":"applications","tab":"applications"}],"display_name":"Container 1","tabs":[{"name":"applications","display_name":"Applications"}]}]}]}]},"views":[{"name":"applications","display_name":"Applications","source_object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","query":"@._id=='{context.appId}'","page_size":"10","fields":[{"display_name":"Name","source_path":"name"},{"display_name":"Display name","source_path":"display_name"}]}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","name":"account","display_name":"Account","description":"Account","fields":[{"name":"name","display_name":"Name","description":"Name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"display_name","display_name":"Display name","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"default":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""}],"_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"name":"system","_object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","_id":"e2a44387-06a6-4738-939f-8fb6eb5165e7","display_name":"System","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","_id":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","name":"app_builder","display_name":"App builder","description":"Application builder App","navigation":{"menu_items":[{"display_name":"Applications","page":"c88ac157-6191-4b4d-9ee3-e636d263eaa6","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"application"},{"display_name":"Subscription plans","page":"ac4552d1-a96c-419e-93d0-59b995b72082","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"},{"display_name":"Subscriptions","page":"622e8f43-e9bf-4689-8e5b-771f38424d70","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"application"},{"display_name":"Object types","page":"38afea11-e925-4d4d-b014-335c84f008a4","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"},{"display_name":"Validation rule definitions","page":"f7e21fc2-48bd-4753-9b78-4f6bcb14705c","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"},{"display_name":"Pages","page":"f721099f-5828-4af6-9820-8e017971b36d","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"}],"display_name":"Default navigation"},"_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_scope":"global"},{"_object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","_id":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","name":"projects","display_name":"Projects","description":"Projects App","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_scope":"global","navigation":{"_object_type":"eb58bacc-00a9-4d5f-8653-7e05d06c691a","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant","menu_items":[{"display_name":"Projects","page":"1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"},{"display_name":"Tasks","page":"9729347b-af22-4df8-be38-f275e465c943","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"}],"display_name":"Default navigation"}},{"name":"some_other_account","display_name":"Some other account","_object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","_id":"af0c47cb-5537-4baa-bebf-a025d8499513","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"name":"yet_another_account","display_name":"Yet another account","_object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","_id":"37a658fc-dc2f-4362-a459-01a758bfe914","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"global"},{"_object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","_id":"761aa09f-84c8-4409-90d0-bbab14b223a6","name":"todo","display_name":"To-Do","description":"To Do Lists","_tenant":"af0c47cb-5537-4baa-bebf-a025d8499513","_scope":"global","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","navigation":{"_object_type":"eb58bacc-00a9-4d5f-8653-7e05d06c691a","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant","menu_items":[{"display_name":"To-Do lists","page":"0b9751f5-c6b5-4c05-922a-30b9f2440dee","_object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_id":"","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"","_scope":"tenant"}],"display_name":"Default navigation"}},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"696421ff-97de-4c43-911a-554a82ffc7ba","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"subscription_plan","display_name":"Subscription plan","description":"Application subscription plan","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"696421ff-97de-4c43-911a-554a82ffc7ba"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"3309424d-b1f7-41cc-97cc-66b8cbf40cab"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true},{"name":"application","display_name":"Application","description":"Application, which the subscription plan is for","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":true,"default":""},{"name":"display_name","display_name":"Display name","description":"Display name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"description","display_name":"Description","description":"Description","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":false,"hidded":false,"read_only":false,"default":""}]},{"_id":"ac4552d1-a96c-419e-93d0-59b995b72082","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"subscription_plans","display_name":"Subscription plans","description":"Application subscription plans","layout":{"rows":[{"display_name":"Row 1","columns":[{"size":"12","display_name":"Column 1","containers":[{"views":[{"view":"subscription_plans","tab":"subscription_plans"}],"display_name":"Container 1","tabs":[{"name":"subscription_plans","display_name":"Subscription plans"}]}]}]}]},"views":[{"name":"subscription_plans","display_name":"Subscription plans","query":"","page_size":"5","fields":[{"display_name":"Display name","source_path":"display_name"},{"display_name":"Description","source_path":"description"}],"source_object_type":"696421ff-97de-4c43-911a-554a82ffc7ba"}]},{"_object_type":"696421ff-97de-4c43-911a-554a82ffc7ba","_id":"f5af75b4-04f0-4c55-aa4c-f14b5f59e763","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","display_name":"Free","description":"Free plan"},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"c9a2bbb9-2706-485f-9052-229364326d13","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"subscription","display_name":"Subscription","description":"Subscription object type","fields":[{"name":"account","display_name":"Account","description":"Account that owns the subscription","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"subscription_plan","display_name":"Plan","description":"Subscription plan","data_type":{"object_type":"696421ff-97de-4c43-911a-554a82ffc7ba","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"c9a2bbb9-2706-485f-9052-229364326d13"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"3309424d-b1f7-41cc-97cc-66b8cbf40cab"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true}]},{"_id":"622e8f43-e9bf-4689-8e5b-771f38424d70","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"subscriptions","display_name":"Subscriptions","description":"Application subscriptions","layout":{"rows":[{"display_name":"Row 1","columns":[{"size":"12","display_name":"Column 1","containers":[{"views":[{"view":"subscriptions","tab":"subscriptions"}],"display_name":"Container 1","tabs":[{"name":"subscriptions","display_name":"Subscriptions"}]}]}]}]},"views":[{"name":"subscriptions","display_name":"Subscriptions","query":"","page_size":"25","fields":[{"display_name":"Account","source_path":"account.display_name"},{"display_name":"Plan","source_path":"subscription_plan.display_name"}],"source_object_type":"c9a2bbb9-2706-485f-9052-229364326d13"}]},{"account":"af0c47cb-5537-4baa-bebf-a025d8499513","subscription_plan":"f5af75b4-04f0-4c55-aa4c-f14b5f59e763","_object_type":"c9a2bbb9-2706-485f-9052-229364326d13","_id":"d2b0a4e7-cf20-4b66-8d8a-0cc21fb28ec2","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"account":"e2a44387-06a6-4738-939f-8fb6eb5165e7","subscription_plan":"f5af75b4-04f0-4c55-aa4c-f14b5f59e763","_object_type":"c9a2bbb9-2706-485f-9052-229364326d13","_id":"a64eee9a-dcb3-4b14-a778-3cfde1b6d88e","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application"},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"navigation_menu","display_name":"Navigation menu","description":"Application navigation menu","fields":[{"name":"display_name","display_name":"Display name","description":"Menu display name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"page","display_name":"Page","description":"Page","data_type":{"object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"3309424d-b1f7-41cc-97cc-66b8cbf40cab"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true}]},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"eb58bacc-00a9-4d5f-8653-7e05d06c691a","_application":"3309424d-b1f7-41cc-97cc-66b8cbf40cab","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"navigation","display_name":"Navigation","description":"Application navigation","fields":[{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"eb58bacc-00a9-4d5f-8653-7e05d06c691a"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"3309424d-b1f7-41cc-97cc-66b8cbf40cab"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true},{"name":"menu_items","display_name":"Menu items","description":"Navigation menu items","data_type":{"object_type":"72c4ef42-79bc-485f-b15d-bc88cbe2c10e","multiplicity":"many","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"display_name","display_name":"Display name","description":"Display name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""}]},{"_object_type":"696421ff-97de-4c43-911a-554a82ffc7ba","_id":"229eb680-254d-4af8-b926-e1e1de275c9b","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant","application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","display_name":"Free","description":"Free plan"},{"account":"e2a44387-06a6-4738-939f-8fb6eb5165e7","subscription_plan":"229eb680-254d-4af8-b926-e1e1de275c9b","_object_type":"c9a2bbb9-2706-485f-9052-229364326d13","_id":"5a65b8f6-36fe-4eb2-b34f-0121fd74e2e6","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"b4e05929-6587-4011-b8ec-9087b812b62b","_application":"bfed23a2-f1bf-4896-9fff-e59114e3af5f","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"application","name":"sub_task","description":"Sub-task","display_name":"Sub-task of a main task","fields":[{"name":"title","display_name":"Title","description":"","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"main_task","display_name":"Main task","description":"","data_type":{"object_type":"d8c873c4-d103-448e-bcee-6ba9afcefb07","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"b4e05929-6587-4011-b8ec-9087b812b62b"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"bfed23a2-f1bf-4896-9fff-e59114e3af5f"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","owner","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true}]},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"e4b5868d-07b1-424a-84e1-2f04fef1c5b7","_application":"761aa09f-84c8-4409-90d0-bbab14b223a6","_tenant":"af0c47cb-5537-4baa-bebf-a025d8499513","_scope":"tenant","name":"todo_list","description":"List of to-do items","display_name":"To-do list","fields":[{"name":"name","display_name":"Name","description":"Name of To-Do list","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"e4b5868d-07b1-424a-84e1-2f04fef1c5b7"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"761aa09f-84c8-4409-90d0-bbab14b223a6"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","owner","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true}]},{"_object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","_id":"3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f","_application":"761aa09f-84c8-4409-90d0-bbab14b223a6","_tenant":"af0c47cb-5537-4baa-bebf-a025d8499513","_scope":"tenant","name":"todo_item","description":"To-Do item","display_name":"To-Do item","fields":[{"name":"name","display_name":"Name","description":"To-Do item name","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"todo_list","display_name":"To-Do list","description":"To-Do list","data_type":{"object_type":"e4b5868d-07b1-424a-84e1-2f04fef1c5b7","multiplicity":"one","association_type":"link"},"required":true,"hidded":false,"read_only":false,"default":""},{"name":"_object_type","display_name":"Object type","description":"Object type","data_type":{"object_type":"7e22d35d-0ed1-47c4-9f56-973335195176","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f"},{"name":"_id","display_name":"Object ID","description":"Object ID","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"required":true,"hidded":true,"read_only":true},{"name":"_application","display_name":"Application","description":"Application that owns the Object","data_type":{"object_type":"9cd5bb49-2534-4754-bc37-91a519ca0c21","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true,"default":"761aa09f-84c8-4409-90d0-bbab14b223a6"},{"name":"_tenant","display_name":"Tenant","description":"Tenant that owns the Object","data_type":{"object_type":"71e3d58b-c9e6-43aa-9b76-ec85c35e36ae","multiplicity":"one","association_type":"link"},"required":true,"hidded":true,"read_only":true},{"name":"_scope","display_name":"Scope","description":"Scope of the Object","data_type":{"object_type":"16b8aa98-d9df-4899-84f0-d31652487abe","multiplicity":"one","association_type":"embed"},"source":["global","owner","application","tenant"],"default":"tenant","required":true,"hidded":true,"read_only":true}]},{"_id":"0b9751f5-c6b5-4c05-922a-30b9f2440dee","_object_type":"75458276-7818-4fff-a170-7b3e25cd99c2","_application":"761aa09f-84c8-4409-90d0-bbab14b223a6","_tenant":"af0c47cb-5537-4baa-bebf-a025d8499513","_scope":"application","name":"todo_lists","display_name":"To-Do lists","description":"To-Do lists","layout":{"rows":[{"display_name":"Row 1","columns":[{"size":"12","display_name":"Column 1","containers":[{"views":[{"view":"todo_lists","tab":"todo_lists"}],"display_name":"Container 1","tabs":[{"name":"todo_lists","display_name":"To-Do lists"}]}]}]}]},"views":[{"name":"todo_lists","display_name":"To-Do lists","query":"","page_size":"10","fields":[{"display_name":"Name","source_path":"name"}],"source_object_type":"e4b5868d-07b1-424a-84e1-2f04fef1c5b7"}]},{"name":"Work","_object_type":"e4b5868d-07b1-424a-84e1-2f04fef1c5b7","_id":"04ab91cb-cfaa-4a29-a1d7-1629ecd2c553","_application":"761aa09f-84c8-4409-90d0-bbab14b223a6","_tenant":"e2a44387-06a6-4738-939f-8fb6eb5165e7","_scope":"tenant"}]}
+{
+	"system_object_types" : [{
+			"_id" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"name" : "system_object",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "System object",
+			"description" : "System object type",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "System object application",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"read_only" : true
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "System object tenant that owns the object",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "System object name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "System object description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "System object display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "fields",
+					"display_name" : "Attributes",
+					"description" : "Attributes of System object type",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "19746085-4c08-4cd6-895c-73405a1e6ea2",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}, {
+					"name" : "validation_rules",
+					"display_name" : "Validation rules",
+					"description" : "System object validation rules",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "02eb5e15-61b0-4644-b75f-be84edc03cd9",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+			"name" : "string",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Text",
+			"description" : "Text data",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+			"name" : "integer",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Whole number",
+			"description" : "A number without fractions (i.e. integer)",
+			"validation_rules" : [{
+					"order" : 1,
+					"rule" : "is_numeric",
+					"severity" : "error"
+				}, {
+					"order" : 2,
+					"rule" : "is_integer",
+					"severity" : "error"
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+			"name" : "boolean",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Boolean",
+			"description" : "Boolean data",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
+			"name" : "parameter_value",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Parameter value",
+			"description" : "Parameter value object type",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "value",
+					"display_name" : "Value",
+					"description" : "Value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "value_type",
+					"display_name" : "Value type",
+					"description" : "Value type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Value",
+							"value" : "value",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Field value",
+							"value" : "field value",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "value"
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "19746085-4c08-4cd6-895c-73405a1e6ea2",
+			"name" : "attribute",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Attribute",
+			"description" : "Attribute object type",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Attribute name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Attribute display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Attribute description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "data_type",
+					"display_name" : "Data type",
+					"description" : "Attribute data type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}, {
+					"name" : "required",
+					"display_name" : "Required",
+					"description" : "Required",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+						"association_type" : "embed"
+					},
+					"default" : false,
+					"required" : true
+				}, {
+					"name" : "hidded",
+					"display_name" : "Hidden",
+					"description" : "Hidden",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+						"association_type" : "embed"
+					},
+					"default" : false,
+					"required" : true
+				}, {
+					"name" : "read_only",
+					"display_name" : "Read only",
+					"description" : "Read only",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+						"association_type" : "embed"
+					},
+					"default" : false,
+					"required" : true
+				}, {
+					"name" : "source_query",
+					"display_name" : "Source query",
+					"description" : "Data source query",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "73eeb041-4c1b-41f1-8702-e064785c697c",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "source",
+					"display_name" : "Source",
+					"description" : "Data source",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "default",
+					"display_name" : "Default value",
+					"description" : "Default value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "validation_rules",
+					"display_name" : "Validation rules",
+					"description" : "Attribute validation rules",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "02eb5e15-61b0-4644-b75f-be84edc03cd9",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+			"name" : "parameter",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Parameter",
+			"description" : "Parameter object type",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Parameter name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Paremeter display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Paremeter description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "data_type",
+					"display_name" : "Data type",
+					"description" : "Paremeter data type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "is_internal",
+					"display_name" : "Is internal",
+					"description" : "Is parameter an internal",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "value_type",
+					"display_name" : "Value type",
+					"description" : "Parameter value type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Value",
+							"value" : "value",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Field value",
+							"value" : "field value",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Expression",
+							"value" : "expression",
+							"icon" : "",
+							"color" : ""
+						}
+					]
+				}, {
+					"name" : "value",
+					"display_name" : "Value",
+					"description" : "Parameter value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "73eeb041-4c1b-41f1-8702-e064785c697c",
+			"name" : "lookup_query",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Look up query",
+			"description" : "Look up query object type",
+			"fields" : [{
+					"name" : "query_expression",
+					"display_name" : "Query expression",
+					"description" : "Query expression",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "parameters",
+					"display_name" : "Paremeters",
+					"description" : "Query expression parameters",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"name" : "validation_rule_definition",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Validation rule definition",
+			"description" : "Validation rule definition object type",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Validation rule name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Validation rule display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Validation rule description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "message",
+					"display_name" : "Message",
+					"description" : "Validation rule message",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "expression",
+					"display_name" : "Expression",
+					"description" : "Validation rule expression",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "supported_data_types",
+					"display_name" : "Supported data types",
+					"description" : "Data types supported by validation rule",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source_query" : {
+						"query_expression" : "object_type == 'system_object'"
+					}
+				}, {
+					"name" : "parameters",
+					"display_name" : "Paremeters",
+					"description" : "Validation rule parameters",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "d53b7dfd-1302-4bcf-9655-ef30ea698ccc",
+			"name" : "is_not_empty",
+			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"display_name" : "Value is required",
+			"severity" : "error",
+			"description" : "Checks whether a value was provided for a field",
+			"message" : "Field should not be empty",
+			"expression" : "IsNotEmpty($)",
+			"supported_data_types" : ["string", "integer", "decimal"],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "4101fdc8-d472-4db2-bb6c-793baa908b8f",
+			"name" : "minimum_length",
+			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"display_name" : "Minimum length",
+			"description" : "Validates minimum required length of the text value",
+			"message" : "Text length cannot be smaller than {0}. The actual length is {1}",
+			"expression" : "length($) >= {0}",
+			"supported_data_types" : ["string"],
+			"parameters" : [{
+					"name" : "length",
+					"display_name" : "Length greater than or equal to",
+					"description" : "Minimum required length of the text value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "integer"
+					},
+					"is_internal" : false,
+					"value_type" : "Value"
+				}, {
+					"name" : "size",
+					"display_name" : "Size",
+					"description" : "Actual size of the text value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "integer"
+					},
+					"is_internal" : true,
+					"value_type" : "Expression",
+					"value" : "length($)"
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "03b9573d-d76b-43d0-b322-62df513f5e82",
+			"name" : "maximum_length",
+			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"display_name" : "Maximum length",
+			"description" : "Validates maximum allowed length of the text value",
+			"message" : "Text length cannot be greater than {0}. The actual length is {1}",
+			"expression" : "length($) <= {0}",
+			"supported_data_types" : ["string"],
+			"parameters" : [{
+					"name" : "length",
+					"display_name" : "Length less than or equal to",
+					"description" : "Maximum allowed length of the text value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "integer"
+					},
+					"is_internal" : false,
+					"value_type" : "Value"
+				}, {
+					"name" : "size",
+					"display_name" : "Size",
+					"description" : "Actual size of the text value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "integer"
+					},
+					"is_internal" : true,
+					"value_type" : "Expression",
+					"value" : "length($)"
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "436fa06c-849c-4973-a96f-9a79ac135ed7",
+			"name" : "value_is_in_list",
+			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"display_name" : "Value is in list",
+			"description" : "Checks that the value of the field is identical to one of the values in the list",
+			"scope" : "field",
+			"message" : "The value should be one of this {list}",
+			"expression" : "IsIn($, {list}, {caseSensitive})",
+			"supported_data_types" : ["string"],
+			"parameters" : [{
+					"name" : "list",
+					"display_name" : "List",
+					"description" : "List of possible values",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "string"
+					},
+					"is_internal" : false,
+					"value_type" : "Value"
+				}, {
+					"name" : "is_multi_value",
+					"display_name" : "Multi-Value",
+					"description" : "Multiple values can be selected",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "boolean"
+					},
+					"is_internal" : false,
+					"value_type" : "Value",
+					"is_optional" : true,
+					"default_value" : false
+				}, {
+					"name" : "is_case_sensitive",
+					"display_name" : "Case Sensitive",
+					"description" : "Values are case sensitive",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "boolean"
+					},
+					"is_internal" : false,
+					"value_type" : "Value",
+					"is_optional" : true,
+					"default_value" : false
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "4e113ea8-faa2-482d-bee9-935a99c8c625",
+			"name" : "value_is_in_query",
+			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"display_name" : "Value is in query list",
+			"description" : "Checks that the value of the field is identical to one of the values in the list retured by a query",
+			"scope" : "field",
+			"message" : "The value should be one of this {list}",
+			"expression" : "IsInQuery($, {list}, {caseSensitive})",
+			"supported_data_types" : ["string"],
+			"parameters" : [{
+					"name" : "list_query",
+					"display_name" : "List query",
+					"description" : "List query for possible values",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "lookup_query"
+					},
+					"is_internal" : false,
+					"value_type" : "Value"
+				}, {
+					"name" : "is_multi_value",
+					"display_name" : "Multi-Value",
+					"description" : "Multiple values can be selected",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "boolean"
+					},
+					"is_internal" : false,
+					"value_type" : "Value",
+					"is_optional" : true,
+					"default_value" : false
+				}, {
+					"name" : "is_case_sensitive",
+					"display_name" : "Case Sensitive",
+					"description" : "Values are case sensitive",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "boolean"
+					},
+					"is_internal" : false,
+					"value_type" : "Value",
+					"is_optional" : true,
+					"default_value" : false
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "02eb5e15-61b0-4644-b75f-be84edc03cd9",
+			"name" : "validation_rule",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Validation rule",
+			"description" : "Validation rule object type",
+			"fields" : [{
+					"name" : "rule",
+					"display_name" : "Rule",
+					"description" : "Rule name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+						"association_type" : "link"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Validation rule display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}, {
+					"name" : "order",
+					"display_name" : "Order",
+					"description" : "Rule order",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "severity",
+					"display_name" : "Severity",
+					"description" : "Rule severity",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Information",
+							"value" : "information",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Warning",
+							"value" : "warning",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Error",
+							"value" : "error",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "error"
+				}, {
+					"name" : "condition",
+					"display_name" : "Condition",
+					"description" : "Rule condition",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"default" : "true"
+				}, {
+					"name" : "parameters",
+					"display_name" : "Parameters",
+					"description" : "Rule parameters",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "6ae8ec22-a622-42b3-9e9f-2e85b714d07a",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "a63a91de-cdb4-48c2-a8fe-7d9cec4a56d9",
+			"name" : "value_lookup",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Value lookup",
+			"description" : "Value lookup object type",
+			"fields" : [{
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Display name of lookup value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "250"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "value",
+					"display_name" : "Value",
+					"description" : "Value of lookup value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "icon",
+					"display_name" : "Icon",
+					"description" : "Icon of lookup value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "250"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "color",
+					"display_name" : "Color",
+					"description" : "Color of lookup value",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "7"
+								}
+							]
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_id" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
+			"name" : "data_type",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Data type",
+			"description" : "Data type object type",
+			"fields" : [{
+					"name" : "object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"default" : "16b8aa98-d9df-4899-84f0-d31652487abe"
+				}, {
+					"name" : "multiplicity",
+					"display_name" : "Object multiplicity",
+					"description" : "Object multiplicity",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "One",
+							"value" : "one",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Many",
+							"value" : "many",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "one"
+				}, {
+					"name" : "association_type",
+					"display_name" : "Association type",
+					"description" : "Association type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Embed",
+							"value" : "embed",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Link",
+							"value" : "link",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "embed"
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "c25f8365-d17e-4f0f-b727-c121b8bd6a1f",
+			"name" : "application_component",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Application Component",
+			"description" : "Application Component object type",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "c25f8365-d17e-4f0f-b727-c121b8bd6a1f"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Object name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "250"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Object display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Object description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "1000"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "availability_characteristics",
+					"display_name" : "Availability characteristics",
+					"description" : "Degree to which something is available for use",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "2000"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "functional_quality",
+					"display_name" : "Functional quality",
+					"description" : "What is the functional quality of the application?",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "value_lookup"
+					},
+					"source" : [{
+							"name" : "High",
+							"value" : "10",
+							"color" : "#ffffff",
+							"icon" : "icon_1"
+						}, {
+							"name" : "Medium",
+							"value" : "50",
+							"color" : "#ffffff",
+							"icon" : "icon_1"
+						}, {
+							"name" : "Low",
+							"value" : "100",
+							"color" : "#ffffff",
+							"icon" : "icon_1"
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+			"name" : "application",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Application",
+			"description" : "Application object type",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Application name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"display_name" : "Maximum length (250)",
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"display_name" : "Length",
+									"value" : "250"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "navigation",
+					"display_name" : "Navigation",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "9cd5bb49-2534-4754-bc37-91a519ca0c21"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Application display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Application description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant account that owns application",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant"
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"name" : "page",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Page",
+			"description" : "Page",
+			"fields" : [{
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "75458276-7818-4fff-a170-7b3e25cd99c2"
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application hosting page",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : ""
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant"
+				}, {
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Page name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					},
+					"validation_rules" : [{
+							"rule" : "maximum_length",
+							"order" : 1,
+							"severity" : "error",
+							"condition" : "true",
+							"parameters" : [{
+									"name" : "length",
+									"value" : "250"
+								}
+							]
+						}
+					]
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Page display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Page description",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "layout",
+					"display_name" : "Layout",
+					"description" : "Layout of Page",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "84237e46-b707-40ae-b030-1247fec2549d",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}, {
+					"name" : "views",
+					"display_name" : "Views",
+					"description" : "Views of Layout",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"name" : "view",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "View",
+			"description" : "View",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "View name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "View display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "source_object_type",
+					"display_name" : "Source object type",
+					"description" : "Source object type",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"association_type" : "link"
+					}
+				}, {
+					"name" : "query",
+					"display_name" : "Query",
+					"description" : "View query",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "page_size",
+					"display_name" : "Page size",
+					"description" : "View page size",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "fields",
+					"display_name" : "Fields",
+					"description" : "Fields of View",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "84237e46-b707-40ae-b030-1247fec2549d",
+			"name" : "layout",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Layout",
+			"description" : "Layout",
+			"fields" : [{
+					"name" : "rows",
+					"display_name" : "Rows",
+					"description" : "Rows of Layout",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "405d94ce-bffb-45a2-9cf1-1b36345477ab",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "405d94ce-bffb-45a2-9cf1-1b36345477ab",
+			"name" : "layout_row",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Layout row",
+			"description" : "Layout row",
+			"fields" : [{
+					"name" : "columns",
+					"display_name" : "Columns",
+					"description" : "Columns of Row",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "57d6a998-7eb6-4345-9964-aa82046cedb9",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "57d6a998-7eb6-4345-9964-aa82046cedb9",
+			"name" : "layout_column",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Layout column",
+			"description" : "Layout column",
+			"fields" : [{
+					"name" : "size",
+					"display_name" : "Size",
+					"description" : "Layout column size",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "containers",
+					"display_name" : "Containers",
+					"description" : "Containers of Column",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
+			"name" : "container",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Container",
+			"description" : "Container",
+			"fields" : [{
+					"name" : "tabs",
+					"display_name" : "Tabs",
+					"description" : "Tabs of Container",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
+						"association_type" : "embed"
+					},
+					"required" : false
+				}, {
+					"name" : "views",
+					"display_name" : "Views",
+					"description" : "Views of Container",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
+			"name" : "container_tab",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Container tab",
+			"description" : "Container tab",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Container tab name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Container tab display name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
+			"name" : "container_view",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Container view",
+			"description" : "Container view",
+			"fields" : [{
+					"name" : "view",
+					"display_name" : "View",
+					"description" : "View name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}, {
+					"name" : "tab",
+					"display_name" : "Tab",
+					"description" : "Tab name",
+					"data_type" : {
+						"multiplicity" : "one",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"association_type" : "embed"
+					}
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "38afea11-e925-4d4d-b014-335c84f008a4",
+			"name" : "object_types",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"display_name" : "Object Types",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"display_name" : "Column 1",
+								"size" : 12,
+								"containers" : [{
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "system_object_types",
+												"display_name" : "System object types"
+											}
+										],
+										"views" : [{
+												"display_name" : "System object types",
+												"view" : "system_object_types",
+												"tab" : "system_object_types"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "system_object_types",
+					"display_name" : "System object types",
+					"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+					"query" : "@._application=='{context.appId}'",
+					"page_size" : 10,
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}, {
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}, {
+							"display_name" : "Description",
+							"source_path" : "description"
+						}, {
+							"display_name" : "Application",
+							"source_path" : "_application.display_name"
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
+			"name" : "validation_rule_definitions",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"display_name" : "Validation rule definitions",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"display_name" : "Column 1",
+								"size" : 12,
+								"containers" : [{
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "validation_rules",
+												"display_name" : "Validation rules"
+											}
+										],
+										"views" : [{
+												"display_name" : "Validation rules",
+												"view" : "validation_rules",
+												"tab" : "validation_rules"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "validation_rules",
+					"display_name" : "Validation rules",
+					"source_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+					"query" : "",
+					"page_size" : 10,
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}, {
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}, {
+							"display_name" : "Description",
+							"source_path" : "description"
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "f721099f-5828-4af6-9820-8e017971b36d",
+			"name" : "pages",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"display_name" : "Pages",
+			"layout" : {
+				"rows" : [{
+						"columns" : [{
+								"display_name" : "Column 1",
+								"size" : 12,
+								"containers" : [{
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "modules",
+												"display_name" : "Modules"
+											}
+										],
+										"views" : [{
+												"display_name" : "Modules",
+												"view" : "modules",
+												"tab" : "modules"
+											}
+										]
+									}
+								]
+							}
+						],
+						"display_name" : ""
+					}
+				]
+			},
+			"views" : [{
+					"name" : "modules",
+					"display_name" : "Pages",
+					"source_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+					"query" : "",
+					"page_size" : "25",
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}, {
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}, {
+							"display_name" : "Scope",
+							"source_path" : "_scope"
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "6634166e-617c-4866-af4f-5db62808f215",
+			"name" : "project",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Project",
+			"description" : "Project object",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "6634166e-617c-4866-af4f-5db62808f215"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}, {
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}
+			],
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"name" : "task",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "Task",
+			"description" : "",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "d8c873c4-d103-448e-bcee-6ba9afcefb07"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "project",
+					"display_name" : "Project",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "6634166e-617c-4866-af4f-5db62808f215",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"default" : ""
+				}, {
+					"name" : "title",
+					"display_name" : "Title",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}, {
+					"name" : "task_type",
+					"display_name" : "Task type",
+					"description" : "Type of task",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidded" : false,
+					"read_only" : false,
+					"source" : [{
+							"display_name" : "Story",
+							"value" : "story",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Bug",
+							"value" : "bug",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "story"
+				}, {
+					"name" : "priority",
+					"display_name" : "Priority",
+					"description" : "Task priority",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : "",
+					"source" : [{
+							"display_name" : "High",
+							"value" : "10",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Medium",
+							"value" : "50",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Low",
+							"value" : "100",
+							"icon" : "",
+							"color" : ""
+						}
+					]
+				}
+			],
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "9729347b-af22-4df8-be38-f275e465c943",
+			"name" : "tasks",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"display_name" : "Tasks",
+			"description" : "",
+			"views" : [{
+					"name" : "tasks",
+					"display_name" : "Tasks",
+					"source_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+					"page_size" : "10",
+					"fields" : [{
+							"display_name" : "Title",
+							"source_path" : "title"
+						}, {
+							"display_name" : "Description",
+							"source_path" : "description"
+						}, {
+							"display_name" : "Priority",
+							"source_path" : "priority"
+						}
+					]
+				}
+			],
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column 1",
+								"containers" : [{
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "tasks",
+												"display_name" : "Tasks"
+											}
+										],
+										"views" : [{
+												"view" : "tasks",
+												"tab" : "tasks"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
+			"name" : "view_field",
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"display_name" : "View field",
+			"description" : "",
+			"fields" : [{
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"default" : ""
+				}, {
+					"name" : "source_path",
+					"display_name" : "Source field path",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
+			"name" : "Projects",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"display_name" : "Projects",
+			"description" : "",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "",
+								"containers" : [{
+										"views" : [{
+												"view" : "projects",
+												"tab" : "projects"
+											}
+										],
+										"display_name" : "Projects",
+										"tabs" : [{
+												"name" : "projects",
+												"display_name" : "Projects"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "projects",
+					"display_name" : "Projects",
+					"source_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
+					"page_size" : "10",
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}, {
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}
+					]
+				}
+			],
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_id" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"display_name" : "App creator",
+			"_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
+			"name" : "app_creator",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_id" : "9f888461-a4e9-4157-ae4e-15ec194ea3e3",
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add auto generated ID to all objects",
+			"description" : "Add auto generated ID (e.g. GUID) to all objects including object types. Use ID in link association types",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"task_type" : "story",
+			"priority" : "10"
+		}, {
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "xxx",
+			"description" : "sss",
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "a29e9d17-9c5f-4ca9-8ab1-5e48cbc759c1",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"task_type" : "story",
+			"priority" : "100"
+		}, {
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_id" : "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
+			"name" : "applications",
+			"display_name" : "Applications",
+			"description" : "Applications",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column1",
+								"containers" : [{
+										"views" : [{
+												"view" : "applications",
+												"tab" : "applications"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "applications",
+												"display_name" : "Applications"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "applications",
+					"display_name" : "Applications",
+					"source_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+					"query" : "@._id=='{context.appId}'",
+					"page_size" : "10",
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}, {
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}
+					]
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"name" : "account",
+			"display_name" : "Account",
+			"description" : "Account",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"default" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}
+			],
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "system",
+			"_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"_id" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"display_name" : "System",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+			"_id" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"name" : "app_builder",
+			"display_name" : "App builder",
+			"description" : "Application builder App",
+			"navigation" : {
+				"menu_items" : [{
+						"display_name" : "Applications",
+						"page" : "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "application"
+					}, {
+						"display_name" : "Subscription plans",
+						"page" : "ac4552d1-a96c-419e-93d0-59b995b72082",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Subscriptions",
+						"page" : "622e8f43-e9bf-4689-8e5b-771f38424d70",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "application"
+					}, {
+						"display_name" : "Object types",
+						"page" : "38afea11-e925-4d4d-b014-335c84f008a4",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Validation rule definitions",
+						"page" : "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Pages",
+						"page" : "f721099f-5828-4af6-9820-8e017971b36d",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}
+				],
+				"display_name" : "Default navigation"
+			},
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_scope" : "global"
+		}, {
+			"_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+			"_id" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"name" : "projects",
+			"display_name" : "Projects",
+			"description" : "Projects App",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_scope" : "global",
+			"navigation" : {
+				"_object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
+				"_id" : "",
+				"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+				"_tenant" : "",
+				"_scope" : "tenant",
+				"menu_items" : [{
+						"display_name" : "Projects",
+						"page" : "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Tasks",
+						"page" : "9729347b-af22-4df8-be38-f275e465c943",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}
+				],
+				"display_name" : "Default navigation"
+			}
+		}, {
+			"name" : "some_other_account",
+			"display_name" : "Some other account",
+			"_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"_id" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "yet_another_account",
+			"display_name" : "Yet another account",
+			"_object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+			"_id" : "37a658fc-dc2f-4362-a459-01a758bfe914",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+			"_id" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"name" : "todo",
+			"display_name" : "To-Do",
+			"description" : "To Do Lists",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "global",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"navigation" : {
+				"_object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
+				"_id" : "",
+				"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+				"_tenant" : "",
+				"_scope" : "tenant",
+				"menu_items" : [{
+						"display_name" : "To-Do lists",
+						"page" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}
+				],
+				"display_name" : "Default navigation"
+			}
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "696421ff-97de-4c43-911a-554a82ffc7ba",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "subscription_plan",
+			"display_name" : "Subscription plan",
+			"description" : "Application subscription plan",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "696421ff-97de-4c43-911a-554a82ffc7ba"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "application",
+					"display_name" : "Application",
+					"description" : "Application, which the subscription plan is for",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : true,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Description",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}
+			]
+		}, {
+			"_id" : "ac4552d1-a96c-419e-93d0-59b995b72082",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "subscription_plans",
+			"display_name" : "Subscription plans",
+			"description" : "Application subscription plans",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "subscription_plans",
+												"tab" : "subscription_plans"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "subscription_plans",
+												"display_name" : "Subscription plans"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "subscription_plans",
+					"display_name" : "Subscription plans",
+					"query" : "",
+					"page_size" : "5",
+					"fields" : [{
+							"display_name" : "Display name",
+							"source_path" : "display_name"
+						}, {
+							"display_name" : "Description",
+							"source_path" : "description"
+						}
+					],
+					"source_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba"
+				}
+			]
+		}, {
+			"_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
+			"_id" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"display_name" : "Free",
+			"description" : "Free plan"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "subscription",
+			"display_name" : "Subscription",
+			"description" : "Subscription object type",
+			"fields" : [{
+					"name" : "account",
+					"display_name" : "Account",
+					"description" : "Account that owns the subscription",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "subscription_plan",
+					"display_name" : "Plan",
+					"description" : "Subscription plan",
+					"data_type" : {
+						"object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "c9a2bbb9-2706-485f-9052-229364326d13"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_id" : "622e8f43-e9bf-4689-8e5b-771f38424d70",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "subscriptions",
+			"display_name" : "Subscriptions",
+			"description" : "Application subscriptions",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "subscriptions",
+												"tab" : "subscriptions"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "subscriptions",
+												"display_name" : "Subscriptions"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "subscriptions",
+					"display_name" : "Subscriptions",
+					"query" : "",
+					"page_size" : "25",
+					"fields" : [{
+							"display_name" : "Account",
+							"source_path" : "account.display_name"
+						}, {
+							"display_name" : "Plan",
+							"source_path" : "subscription_plan.display_name"
+						}
+					],
+					"source_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13"
+				}
+			]
+		}, {
+			"account" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"subscription_plan" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
+			"_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_id" : "d2b0a4e7-cf20-4b66-8d8a-0cc21fb28ec2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"account" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"subscription_plan" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
+			"_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_id" : "a64eee9a-dcb3-4b14-a778-3cfde1b6d88e",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "navigation_menu",
+			"display_name" : "Navigation menu",
+			"description" : "Application navigation menu",
+			"fields" : [{
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Menu display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "page",
+					"display_name" : "Page",
+					"description" : "Page",
+					"data_type" : {
+						"object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "navigation",
+			"display_name" : "Navigation",
+			"description" : "Application navigation",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "menu_items",
+					"display_name" : "Menu items",
+					"description" : "Navigation menu items",
+					"data_type" : {
+						"object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}
+			]
+		}, {
+			"_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
+			"_id" : "229eb680-254d-4af8-b926-e1e1de275c9b",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"display_name" : "Free",
+			"description" : "Free plan"
+		}, {
+			"account" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"subscription_plan" : "229eb680-254d-4af8-b926-e1e1de275c9b",
+			"_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_id" : "5a65b8f6-36fe-4eb2-b34f-0121fd74e2e6",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "b4e05929-6587-4011-b8ec-9087b812b62b",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"name" : "sub_task",
+			"description" : "Sub-task",
+			"display_name" : "Sub-task of a main task",
+			"fields" : [{
+					"name" : "title",
+					"display_name" : "Title",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "main_task",
+					"display_name" : "Main task",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "b4e05929-6587-4011-b8ec-9087b812b62b"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "tenant",
+			"name" : "todo_list",
+			"description" : "List of to-do items",
+			"display_name" : "To-do list",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name of To-Do list",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "tenant",
+			"name" : "todo_item",
+			"description" : "To-Do item",
+			"display_name" : "To-Do item",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "To-Do item name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "todo_list",
+					"display_name" : "To-Do list",
+					"description" : "To-Do list",
+					"data_type" : {
+						"object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_id" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "application",
+			"name" : "todo_lists",
+			"display_name" : "To-Do lists",
+			"description" : "To-Do lists",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : "12",
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "todo_lists",
+												"tab" : "todo_lists"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "todo_lists",
+												"display_name" : "To-Do lists"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : [{
+					"name" : "todo_lists",
+					"display_name" : "To-Do lists",
+					"query" : "",
+					"page_size" : "10",
+					"fields" : [{
+							"display_name" : "Name",
+							"source_path" : "name"
+						}
+					],
+					"source_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
+				}
+			]
+		}, {
+			"name" : "Work",
+			"_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+			"_id" : "04ab91cb-cfaa-4a29-a1d7-1629ecd2c553",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant"
+		}
+	]
+}
