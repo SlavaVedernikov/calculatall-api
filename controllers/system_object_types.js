@@ -486,21 +486,16 @@ function getViewObjectType(datamodel, object_type, view_fields)
 	{
 		var value_type = object_type;
 		var field = null;
-		var source_path = '';
+
 		//console.log(view_fields[i].source_path);
 		for(var j = 0; j < view_fields[i].source_path.length; j++)
 		{
 			field = getByName(value_type.fields, view_fields[i].source_path[j]);
 			
-			if(source_path != '')
-			{
-				source_path += '.';
-			}
-			
 			//console.log(field.name);
 			if(field)
 			{		
-				field.name = source_path;
+				field.name = view_fields[i].alias;
 				value_type = getObjectById(datamodel, field.data_type.object_type);	
 			}
 		}
