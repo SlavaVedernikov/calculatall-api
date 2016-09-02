@@ -58,26 +58,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -201,20 +203,22 @@
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Value",
 							"value" : "value",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "value"
+						}, {
 							"display_name" : "Field value",
 							"value" : "field value",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "field_value"
+						}
+					],
 					"default" : "value"
 				}
 			],
@@ -396,26 +400,28 @@
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Value",
 							"value" : "value",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "value"
+						}, {
 							"display_name" : "Field value",
 							"value" : "field value",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "field_value"
+						}, {
 							"display_name" : "Expression",
 							"value" : "expression",
 							"icon" : "",
-							"color" : ""
-						}]
+							"color" : "",
+							"key" : "expression"
+						}
+					]
 				}, {
 					"name" : "value",
 					"display_name" : "Value",
@@ -784,26 +790,28 @@
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Information",
 							"value" : "information",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "information"
+						}, {
 							"display_name" : "Warning",
 							"value" : "warning",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "warning"
+						}, {
 							"display_name" : "Error",
 							"value" : "error",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "error"
+						}
+					],
 					"default" : "error"
 				}, {
 					"name" : "condition",
@@ -936,20 +944,22 @@
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "One",
 							"value" : "one",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "one"
+						}, {
 							"display_name" : "Many",
 							"value" : "many",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "many"
+						}
+					],
 					"default" : "one"
 				}, {
 					"name" : "association_type",
@@ -958,159 +968,28 @@
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Embed",
 							"value" : "embed",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "embed"
+						}, {
 							"display_name" : "Link",
 							"value" : "link",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "link"
+						}
+					],
 					"default" : "embed"
 				}
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant"
-		}, {
-			"_id" : "c25f8365-d17e-4f0f-b727-c121b8bd6a1f",
-			"name" : "application_component",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Application Component",
-			"description" : "Application Component object type",
-			"fields" : [{
-					"name" : "_object_type",
-					"display_name" : "Object type",
-					"description" : "Object type",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidded" : true,
-					"read_only" : true,
-					"default" : "c25f8365-d17e-4f0f-b727-c121b8bd6a1f"
-				}, {
-					"name" : "_id",
-					"display_name" : "Object ID",
-					"description" : "Object ID",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidded" : true,
-					"read_only" : true
-				}, {
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Object name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					},
-					"validation_rules" : [{
-							"rule" : "maximum_length",
-							"order" : 1,
-							"severity" : "error",
-							"condition" : "true",
-							"parameters" : [{
-									"name" : "length",
-									"value" : "250"
-								}
-							]
-						}
-					]
-				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "Object display name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "description",
-					"display_name" : "Description",
-					"description" : "Object description",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					},
-					"validation_rules" : [{
-							"rule" : "maximum_length",
-							"order" : 1,
-							"severity" : "error",
-							"condition" : "true",
-							"parameters" : [{
-									"name" : "length",
-									"value" : "1000"
-								}
-							]
-						}
-					]
-				}, {
-					"name" : "availability_characteristics",
-					"display_name" : "Availability characteristics",
-					"description" : "Degree to which something is available for use",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					},
-					"validation_rules" : [{
-							"rule" : "maximum_length",
-							"order" : 1,
-							"severity" : "error",
-							"condition" : "true",
-							"parameters" : [{
-									"name" : "length",
-									"value" : "2000"
-								}
-							]
-						}
-					]
-				}, {
-					"name" : "functional_quality",
-					"display_name" : "Functional quality",
-					"description" : "What is the functional quality of the application?",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "value_lookup"
-					},
-					"source" : [{
-							"name" : "High",
-							"value" : "10",
-							"color" : "#ffffff",
-							"icon" : "icon_1"
-						}, {
-							"name" : "Medium",
-							"value" : "50",
-							"color" : "#ffffff",
-							"icon" : "icon_1"
-						}, {
-							"name" : "Low",
-							"value" : "100",
-							"color" : "#ffffff",
-							"icon" : "icon_1"
-						}
-					]
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
 		}, {
 			"_id" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 			"name" : "application",
@@ -1216,7 +1095,7 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"required" : true,
 					"hidded" : true,
@@ -1225,20 +1104,22 @@
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant"
 				}, {
 					"name" : "_application",
@@ -1322,7 +1203,7 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"required" : true,
 					"hidded" : true,
@@ -1331,20 +1212,22 @@
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant"
 				}, {
 					"name" : "name",
@@ -1958,7 +1841,7 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"required" : false,
 					"hidded" : false,
@@ -1967,16 +1850,173 @@
 							"display_name" : "Story",
 							"value" : "story",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "story"
+						}, {
 							"display_name" : "Bug",
-							"value" : "story",
+							"value" : "bug",
 							"icon" : "",
-							"color" : ""
+							"color" : "",
+							"key" : "bug"
+						}, {
+							"display_name" : "Improvement",
+							"value" : "improvement",
+							"icon" : "",
+							"color" : "",
+							"key" : "improvement"
+						}, {
+							"display_name" : "Technical debt",
+							"value" : "technical_debt",
+							"icon" : "",
+							"color" : "",
+							"key" : "technical_debt"
 						}
 					],
 					"default" : "story"
+				}, {
+					"name" : "business_value",
+					"display_name" : "Business value",
+					"description" : "Business value of task",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "lookup"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : "",
+					"source" : [{
+							"display_name" : "High",
+							"value" : "10",
+							"icon" : "",
+							"color" : "",
+							"key" : "high"
+						}, {
+							"display_name" : "Medium",
+							"value" : "50",
+							"icon" : "",
+							"color" : "",
+							"key" : "medium"
+						}, {
+							"display_name" : "Low",
+							"value" : "100",
+							"icon" : "",
+							"color" : "",
+							"key" : "low"
+						}
+					]
+				}, {
+					"name" : "complexity",
+					"display_name" : "Complexcity",
+					"description" : "Complexity of task",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "lookup"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : "",
+					"source" : [{
+							"display_name" : "Low",
+							"value" : "10",
+							"icon" : "",
+							"color" : "",
+							"key" : "low"
+						}, {
+							"display_name" : "Medium",
+							"value" : "50",
+							"icon" : "",
+							"color" : "",
+							"key" : "medium"
+						}, {
+							"display_name" : "High",
+							"value" : "100",
+							"icon" : "",
+							"color" : "",
+							"key" : "high"
+						}
+					]
+				}, {
+					"name" : "priority",
+					"display_name" : "Priority",
+					"description" : "Task priority",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "lookup"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : "",
+					"source" : [{
+							"display_name" : "High",
+							"value" : "10",
+							"icon" : "",
+							"color" : "",
+							"key" : "high"
+						}, {
+							"display_name" : "Medium",
+							"value" : "50",
+							"icon" : "",
+							"color" : "",
+							"key" : "medium"
+						}, {
+							"display_name" : "Low",
+							"value" : "100",
+							"icon" : "",
+							"color" : "",
+							"key" : "low"
+						}
+					]
+				}, {
+					"name" : "status",
+					"display_name" : "Status",
+					"description" : "Status of task",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "lookup"
+					},
+					"required" : true,
+					"hidded" : false,
+					"read_only" : false,
+					"default" : "",
+					"source" : [{
+							"display_name" : "Not started",
+							"value" : "not_started",
+							"icon" : "",
+							"color" : "",
+							"key" : "not_started"
+						}, {
+							"display_name" : "Analysing",
+							"value" : "analysing",
+							"icon" : "",
+							"color" : "",
+							"key" : "analysing"
+						}, {
+							"display_name" : "Developing",
+							"value" : "developing",
+							"icon" : "",
+							"color" : "",
+							"key" : "developing"
+						}, {
+							"display_name" : "Testing",
+							"value" : "testing",
+							"icon" : "",
+							"color" : "",
+							"key" : "testing"
+						}, {
+							"display_name" : "Completed",
+							"value" : "completed",
+							"icon" : "",
+							"color" : "",
+							"key" : "completed"
+						}
+					]
 				}
 			],
 			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
@@ -1997,8 +2037,17 @@
 							"display_name" : "Title",
 							"source_path" : "title"
 						}, {
-							"display_name" : "Description",
-							"source_path" : "description"
+							"display_name" : "Business value",
+							"source_path" : "business_value"
+						}, {
+							"display_name" : "Complexity",
+							"source_path" : "complexity"
+						}, {
+							"display_name" : "Priority",
+							"source_path" : "priority"
+						}, {
+							"display_name" : "Status",
+							"source_path" : "status"
 						}
 					]
 				}
@@ -2030,7 +2079,7 @@
 			},
 			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "application"
 		}, {
 			"_id" : "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
 			"name" : "view_field",
@@ -2066,7 +2115,7 @@
 			"_scope" : "tenant"
 		}, {
 			"_id" : "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
-			"name" : "Projects",
+			"name" : "projects",
 			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
 			"display_name" : "Projects",
 			"description" : "",
@@ -2129,16 +2178,12 @@
 			"description" : "Add auto generated ID (e.g. GUID) to all objects including object types. Use ID in link association types",
 			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
-			"title" : "xxx",
-			"description" : "sss",
-			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
-			"_id" : "a29e9d17-9c5f-4ca9-8ab1-5e48cbc759c1",
-			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "tenant",
+			"task_type" : "story",
+			"priority" : "high",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"status" : "completed"
 		}, {
 			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
 			"_id" : "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
@@ -2474,26 +2519,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2689,26 +2736,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2873,26 +2922,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -2965,26 +3016,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -3126,26 +3179,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -3231,26 +3286,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -3349,26 +3406,28 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "embed"
+						"association_type" : "lookup"
 					},
 					"source" : [{
 							"display_name" : "Global",
 							"value" : "global",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "global"
+						}, {
 							"display_name" : "Application",
 							"value" : "application",
 							"icon" : "",
-							"color" : ""
-						},
-						{
+							"color" : "",
+							"key" : "application"
+						}, {
 							"display_name" : "Tenant",
 							"value" : "tenant",
 							"icon" : "",
-							"color" : ""
-						}],
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
 					"default" : "tenant",
 					"required" : true,
 					"hidded" : true,
@@ -3429,6 +3488,762 @@
 			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "df447010-f3f3-48c9-a8e8-372b3db8bb44",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add Icon as a system object attribute",
+			"description" : "Icon would be used to graphically represent all object types and their instances",
+			"task_type" : "story",
+			"business_value" : "low",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "5817a916-61f6-4e98-a511-546e8e7770f4",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add Display text as a system object attribute",
+			"description" : "Display text would be used as a default textual representation of objects",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d3781490-8afe-442b-8a89-bab85236bb5e",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for default visualisations of a single object",
+			"description" : "The visualisation should support display, create and edit modes",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "high",
+			"status" : "completed",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "214eaafd-da15-46e2-8711-13212b8c7305",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for default visualisation of a list of objects  as a Table",
+			"description" : "It should be possible to configure object properties displayed",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "completed",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "2171eb43-d9a1-4b18-8921-4f9c63ed6f77",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for default visualisation of a list of objects as a Grid of cards",
+			"description" : "It should be possible to configure main and secondary fields of a card",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "7bfc811f-57a1-444f-9736-04ee2828bf5b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for default visualisation of a list of objects as a List",
+			"description" : "It should be possible to configure primary object property and secondary properties to display",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "c3653a74-1490-4dab-b81a-eedc0f13c6b3",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for read-only object properties",
+			"description" : "All visualisations that support edit mode should prevent changes of read-only object properties",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "developing",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "cc970c9d-fe6a-46c3-8fa3-662629ccdb55",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for calculated object properties",
+			"description" : "It should be possible to calculate object property using Javascript based expressions",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "9c9be8e9-953f-44c6-8e2a-e6122a86a51a",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for object type configuration fields",
+			"description" : "Configuration fields that would be used when configuring system object as data type for an attribute e.g. precision for decimals, datetime, time etc., units for weight, dimension, volume, length, distance etc.",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "29bae70a-34be-40c6-ae6d-1a935b9599e7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support unit conversion configuration with from/to calculation expressions",
+			"description" : "Use base unit for the rest of the conversion expressions e.g. cm can be aprimary/ base unit for length, so all conversion expressions would convert from and to base unit from other secondary units",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "4a839c22-9e13-4c7e-b2d1-1abe182ca9a4",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Object types must provide default visualisations (components) for viewing/edit/create/quick create etc.",
+			"description" : "This visualisations will be used at run-time while rendering attributes of type of these object types",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "c197c098-a9a0-4220-8df7-e65ce11a267e",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Support for Validation rules execution on client and server sides",
+			"description" : "Consider having a set of Data validation rules per command",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "6313a340-05e8-405d-9172-9e3e3224445d",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Allow for object type single inheritance",
+			"description" : "Object type can extend other object type and inherit all base object type fields. If the sub type defund a field with the sane name as the field that already exists in the immediate base type, the base type field will be superseded by the sub type field",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "e8be1f6c-a6a9-4fda-9e78-4016849087b0",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add a help icon against each object attribute in create/edit mode",
+			"description" : "Pressing help icon would display Description for a particular attribute",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "94741f7a-31d4-44a6-8781-376318579e02",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for data table column resizing",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "b2610781-c825-49b3-be78-eb8c4dff857b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for data table multi-column ordering",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "completed",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "6b8b5a52-07bc-448c-9b78-e8fa6a664ca2",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for hierarchy object types",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "ec7a6451-8902-4be9-add9-74a221c95ed7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for multi-dimensional variation schema of object properties",
+			"description" : "This would allow adding multiple attribute values (primitive or objects) for the same attribute e.g. units (where conversion does not work), languages, currencies, channels etc.",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "33268b7b-154a-4cde-bd49-203c217daa1c",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for visualisation widgets (components)",
+			"description" : "Data model will be separated from its visualisation. Visualisation will be represented as data model (metadata)",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "1f26a7b7-7a7f-4316-9a43-69a42e5ec0be",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Large text data type",
+			"description" : "Large text would be rendered in Text area",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "e03cda46-9243-4dbc-b66a-572f03b1bea2",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for data pivoting",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "f4673b88-9560-4868-b4d0-af084f696eec",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for calculated suggested attribute value",
+			"description" : "Suggested attribute value will be calculated with expressions and can be overwritten by user",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "7fbffa2d-61b3-41ed-989e-dafc40e5a695",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for multiple environments (sandboxes)",
+			"description" : "Each environments is a branch of master/production environment e.g. Development, QA, Pre-production, Production etc. Allow copying object types and data between downstream of environments i.e. Production to Preproduction to QA to Development. Allow publishing object types upstream of environments i.e. Development to QA to Preproduction to Production etc.",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "fc3945e1-076b-4ca8-b206-10fb09486a49",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for server side pagination to be used by API, list and grid vies etc.",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "low",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "972080d2-0921-4af4-897b-cd4623178d92",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Implement a repository pattern on the server side",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "29efdf65-94f4-4752-b49b-985437042a14",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for multiple application visualisation perspectives",
+			"description" : "One or more roles would have access to a perspective. One role may have access to multiple perspectives",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "bc677433-a725-4712-9996-9e6f3e6a9b84",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for cloning applications",
+			"description" : "All application design objects (e.g. object types, pages, roles etc.) would be cloned to create a new application",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "7ff3e609-6ee6-41e0-bebf-92d866c48197",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for extending application with extensions (plugins)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "95b439af-39e0-4095-af6f-1b2d403765f3",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for actions (triggers) and commands with workflows",
+			"description" : "Add support for expressing workflows in natural language (e.g. Gherkin). Consider Scheduled tasks as one of the triggers for workflows",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "bb801706-1994-42ee-b003-57145f2e74f4",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Events, notification queues and notification handlers",
+			"description" : "This should follow Event Driven Architecture (EDA) principles. Allow setting web hooks as per event notification handlers",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "21c41fa5-60d1-4e25-a6d1-f1db1634ab31",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Integration with external services",
+			"description" : "Possible integrations would be SMS, email, notification, social media, payment gateways etc.",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d67327b0-1097-49e0-91bf-c6eedaa5042f",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for look&feel customisations with themes",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "bc214834-f9d7-4865-a956-5a9515508b82",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for loading objects from custom Web API URI",
+			"description" : "Consider object/request/response mapping",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "35a3efe7-a0c0-454b-9773-f278fcd06392",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for exporting visualisation as embed scripts e.g. iFrame",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "507eca2f-5275-4824-b9dc-fe13710f2aef",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Object life cycle",
+			"description" : "States and state transitions with associated actions and access control",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "dd2681ab-9f2a-4a11-b30d-da795b9ac422",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for user UI based authentication",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "77e41aa0-356b-4b59-8a67-d8712ea937f3",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for API authentication (basic, token etc.)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "139f8f4b-2916-4f6e-84af-a141f67ad32e",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for user UI access control (i.e. authorisation)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "c36ef5c8-bf75-406a-bf57-77c7a44edd5f",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for API access control (i.e. authorisation)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "7d1cc6cc-f8e3-469b-b625-a52fa4e088b0",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for logging and monitoring",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "2c1cbd8e-02dc-461b-98da-ac7581748cf7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for enabling auditing at object type/object property levels",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "2d806191-4935-4c91-8093-eaee6d32fe03",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for search indexing and faceted search e.g. Elasticsearch",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d0737cbc-3045-4a1c-ad25-d18e8df3bfac",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for API documentation generation",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "low",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "1c0c9fb9-0d38-4c2e-8872-63de85321c09",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Internationalisation",
+			"description" : "UI and documentation Internationalisation i.e. multilingual support, localisation etc.",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "042046a6-4032-4455-b4c7-95960458f696",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Data import/export",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "dc8c525b-7eae-4dbd-a253-774914f9b487",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Drag-able  accordion groups to reorder array objects e.g. Fields",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "fea6a508-3f9f-4789-8a51-d8e22bab5103",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for parent-child visualisation",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "9f6c1ad1-ebc3-465f-9f63-25b6213b455b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Responsive table",
+			"description" : "Table  columns would get hidden from the right to left as the screen size reduces",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "6d2ae162-2a5c-4171-a427-c634107c6d22",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for custom Edit forms",
+			"description" : "Users should be able to customise form layout (e.g. rows, columns, tabs, containers etc.)",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "2d780d8e-c476-4b49-99c5-b0eaca5a9ed5",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Edit form (child view) along side the parent Table",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "e80336ff-7501-424e-818b-10e803be426d",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for hiding/unhiding table columns",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "completed",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "cc2cc077-f0c5-4a47-b543-fb3fa05f71fd",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for data filtering with 'smart' queries",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "48b8b989-02ae-46be-ba0b-0a4d31a59b55",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add UI notifications e.g. Success/Error as messages that slide in and out from the bottom or the top of the screen",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "completed",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "704c6a44-2c1a-45a2-908e-b5becffe5b45",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add progress indicators for grids and firms while they are loading",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
 		}
 	]
 }

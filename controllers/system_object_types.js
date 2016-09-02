@@ -478,6 +478,18 @@ function getByName(data, name){
 	}
 }
 
+function getByKey(data, key){		
+	for (var i = 0; i < data.length; i++) {
+		if(data[i].key == key) return data[i];
+	}
+}
+
+function getByValue(data, value){		
+	for (var i = 0; i < data.length; i++) {
+		if(data[i].value == value) return data[i];
+	}
+}
+
 function getViewObjectType(datamodel, object_type, view_fields)
 {
 	var result = {fields : []};
@@ -532,6 +544,10 @@ function getViewObject(datamodel, object, object_type, view_fields)
 				{
 					value = getObjectById(datamodel, value[view_fields[i].source_path[j]]);	
 				}
+				else if(field.data_type.association_type == 'lookup')
+				{
+					value = getByKey(field.source, value[view_fields[i].source_path[j]]).value;	
+				}
 				
 				value_type = getObjectById(datamodel, field.data_type.object_type);	
 			}
@@ -542,6 +558,82 @@ function getViewObject(datamodel, object, object_type, view_fields)
 	
 	return result;
 }
+
+exports.patchLookups = function(req, res) {
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	
+	var fileName = './data/system_object_types.json';
+	var datamodel = JSON.parse(
+	  fs.readFileSync(fileName)
+	);
+	
+	var system_object = getObjectByName(datamodel, 'system_object', 'system_object');
+	var object_type_string = getObjectByName(datamodel, 'system_object', 'string');
+	var object_type_integer = getObjectByName(datamodel, 'system_object', 'integer');
+	
+	for(var i = 0; i < datamodel.system_object_types.length; i++)
+	{
+		if(datamodel.system_object_types[i]._object_type == system_object._id &&
+			datamodel.system_object_types[i].fields != undefined &&
+			datamodel.system_object_types[i].fields.length > 0)
+		{
+			for(var j = 0; j < datamodel.system_object_types[i].fields.length; j++)
+			{
+				var data_type = getObjectById(datamodel, datamodel.system_object_types[i].fields[j].data_type.object_type);
+				
+				if(data_type != undefined)
+				{
+					if(datamodel.system_object_types[i].fields[j].source != undefined && datamodel.system_object_types[i].fields[j].source.length > 0)
+					{
+						//console.log('Field (' + datamodel.system_object_types[i].fields[j].name + ') association type (' + datamodel.system_object_types[i].fields[j].data_type.association_type + ') is reset to (lookup)');
+						datamodel.system_object_types[i].fields[j].data_type.association_type = 'lookup';
+						
+						for(var k = 0; k < datamodel.system_object_types[i].fields[j].source.length; k++)
+						{
+							if(data_type._id == object_type_integer._id)
+							{
+								//console.log(datamodel.system_object_types[i].fields[j].source[k].display_name + ' (key = ' + datamodel.system_object_types[i].fields[j].source[k].display_name.toLowerCase().replace(/ /g,"_") + ')');
+								datamodel.system_object_types[i].fields[j].source[k]['key'] = datamodel.system_object_types[i].fields[j].source[k].display_name.toLowerCase().replace(/ /g,"_");
+							}
+							else if(data_type._id == object_type_string._id)
+							{
+								//console.log(datamodel.system_object_types[i].fields[j].source[k].display_name + ' (key = ' + datamodel.system_object_types[i].fields[j].source[k].value + ')');
+								datamodel.system_object_types[i].fields[j].source[k]['key'] = datamodel.system_object_types[i].fields[j].source[k].value;
+							}
+							
+						}
+						
+						if(data_type._id == object_type_integer._id)
+						{
+							for(var l = 0; l < datamodel.system_object_types.length; l++)
+							{
+								if(datamodel.system_object_types[l]._object_type == datamodel.system_object_types[i]._id)
+								{			
+									var source = getByValue(datamodel.system_object_types[i].fields[j].source, datamodel.system_object_types[l][datamodel.system_object_types[i].fields[j].name])
+									//console.log('Object of type (' + datamodel.system_object_types[i].name + '), ' + datamodel.system_object_types[i].fields[j].name + ' = ' + source.key);
+									datamodel.system_object_types[l][datamodel.system_object_types[i].fields[j].name] = source.key;
+								}
+							}
+						}
+					}
+				} 
+			}
+		}
+	}
+	
+	var datamodelJSON = JSON.stringify(datamodel);
+	
+	fs.writeFile(fileName, datamodelJSON, function (err) {
+		if (err) 
+		{
+			return console.log(err);
+		}
+	});
+  	
+	res.send({ message: 'Lookups patched!' });
+}
+
 /*
 exports.patchApplicationId = function(req, res) {
 	var fs = require("fs");
