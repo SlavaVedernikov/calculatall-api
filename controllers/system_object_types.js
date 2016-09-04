@@ -325,7 +325,6 @@ exports.update = function(req, res) {
 	for(var i = 0; i < datamodel.system_object_types.length; i++)
 	{
 		if (datamodel.system_object_types[i]._object_type == object_type._id &&
-			//datamodel.system_object_types[i]._application == application._id &&
 			datamodel.system_object_types[i]._tenant == tenant._id &&
 			datamodel.system_object_types[i]._id == id)
 		{
