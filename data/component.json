@@ -1,0 +1,153 @@
+{
+"_id" : "9729347b-af22-4df8-be38-f275e465c943",
+"name" : "tasks",
+"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+"display_name" : "Tasks",
+"description" : "",
+"views" : ["6f329fc7-44a4-4533-b9de-c73cf78647de"],
+"layout" : {
+	"rows" : [{
+		"display_name" : "Row 1",
+		"columns" : [{
+				"size" : null,
+				"display_name" : "Column 1",
+				"containers" : [{
+					"display_name" : "Container 1",
+					"tabs" : [{
+						"name" : "tasks",
+						"display_name" : "Tasks"
+					}],
+					"components" : [{
+						"display_name" : "Tasks table",
+						"tab" : "tasks",
+						"component" : {
+							"id" : "03b9573d-d76b-43d0-b322-62df513f5e82",
+							"parameters" : {
+								"view" : "03b9573d-d76b-43d0-b322-62df513f5e82"
+								"page_size" : "10"
+								}
+						}
+					}]
+				}]
+			}]
+		}]
+	}
+}, {
+"_id" : "9729347b-af22-4df8-be38-f275e465c943",
+"name" : "tasks",
+"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+"display_name" : "Tasks",
+"description" : "",
+"layout" : {
+	"id" : "03b9573d-d76b-43d0-b322-62df513f5e8", /* Layout component */
+	"parameters" : {
+		"components" : [{
+			"id" : "03b9573d-d76b-43d0-b322-62df513f5e82", /* Row component*/,
+			"parameters" : {
+				"name" : "row_1",
+				"components" : [{
+					"id" : "03b9573d-d76b-43d0-b322-62df513f5e83", /* Column component*/,
+					"parameters" : {
+						"name" : "column_1",
+						"size" : 12,
+						"components" : [{
+							"id" : "03b9573d-d76b-43d0-b322-62df513f5e84", /* Tab container*/
+							"parameters" : {
+								"name" : "tab_container_1",
+								"components" : [{
+									"id" : "03b9573d-d76b-43d0-b322-62df513f5e84", /* Tab*/
+									"parameters" : {
+										"name" : "tab_1",
+										"display_name" : "Tasks",
+										"components" : [{
+											"id" : "03b9573d-d76b-43d0-b322-62df513f5e84", /* Table view*/
+											"parameters" : {
+												"name" : "table_view_1",
+												"view" : "03b9573d-d76b-43d0-b322-62df513f5e82"
+												"page_size" : "10"
+												}
+											}]
+										}
+									}]
+								}
+							}]
+						}
+					}]
+				}
+			}]
+		}
+	},
+"views" : ["6f329fc7-44a4-4533-b9de-c73cf78647de"]
+}, {
+	"_id" : "03b9573d-d76b-43d0-b322-62df513f5e82",
+	"name" : "data_table",
+	"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+	"display_name" : "Data table",
+	"description" : "Displays multiple data objects in tabular view",
+	"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+	"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+	"_scope" : "tenant",
+	"parameters" : [{
+			"name" : "view_id",
+			"display_name" : "Data source view",
+			"description" : "Data source view definition",
+			"data_type" : {
+				"multiplicity" : "one",
+				"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+				"association_type" : "link"
+			},
+			"is_internal" : false,
+			"value_type" : "value",
+			"value" : ""
+		}, {
+			"name" : "page_size",
+			"display_name" : "Page size",
+			"description" : "Number of records displayed per page",
+			"data_type" : {
+				"multiplicity" : "one",
+				"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+				"association_type" : "embed"
+			},
+			"is_internal" : false,
+			"value_type" : "value",
+			"value" : "10"
+		}],
+	"events" : [{
+		"name" : "row_picked",
+		"display_name" : "Data row picked",
+		"description" : "Fires when a single row of data is picked by pressing on it",
+		"parameters" : [{
+			"name" : "object_id",
+			"display_name" : "Object id",
+			"description" : "Object id of picked row",
+			"data_type" : {
+				"multiplicity" : "one",
+				"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+				"association_type" : "embed"
+			},
+			"is_internal" : false,
+			"value_type" : "value",
+			"value" : ""
+		},
+		{
+			"name" : "object_type_id",
+			"display_name" : "Object type id",
+			"description" : "Object type id of picked row",
+			"data_type" : {
+				"multiplicity" : "one",
+				"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+				"association_type" : "embed"
+			},
+			"is_internal" : false,
+			"value_type" : "value",
+			"value" : ""
+		}]
+	},
+	"commands" : [{
+		"name" : "refresh",
+		"display_name" : "Refresh data",
+		"description" : "Reloads table data from source view",
+		"parameters" : null
+		
+	}]
+}

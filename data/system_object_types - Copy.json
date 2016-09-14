@@ -15,7 +15,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_id",
@@ -27,7 +27,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -82,7 +82,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "name",
@@ -94,18 +94,18 @@
 						"association_type" : "embed"
 					}
 				}, {
-					"name" : "description",
-					"display_name" : "Description",
-					"description" : "System object description",
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "System object display name",
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
 					}
 				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "System object display name",
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "System object description",
 					"data_type" : {
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
@@ -239,7 +239,20 @@
 						"multiplicity" : "one",
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"association_type" : "embed"
-					}
+					},
+					"validation_rules" : [{
+							"display_name" : "New Validation rule",
+							"order" : 0,
+							"severity" : "error",
+							"condition" : "true",
+							"rule" : {
+								"id" : "03b9573d-d76b-43d0-b322-62df513f5e82",
+								"parameters" : {
+										"length" : 50
+									}
+							}
+						}
+					]
 				}, {
 					"name" : "display_name",
 					"display_name" : "Display name",
@@ -280,7 +293,7 @@
 					"default" : false,
 					"required" : true
 				}, {
-					"name" : "hidded",
+					"name" : "hidden",
 					"display_name" : "Hidden",
 					"description" : "Hidden",
 					"data_type" : {
@@ -377,15 +390,6 @@
 						"association_type" : "embed"
 					}
 				}, {
-					"name" : "data_type",
-					"display_name" : "Data type",
-					"description" : "Paremeter data type",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
-						"association_type" : "embed"
-					}
-				}, {
 					"name" : "is_internal",
 					"display_name" : "Is internal",
 					"description" : "Is parameter an internal",
@@ -395,34 +399,18 @@
 						"association_type" : "embed"
 					}
 				}, {
-					"name" : "value_type",
-					"display_name" : "Value type",
-					"description" : "Parameter value type",
+					"name" : "data_type",
+					"display_name" : "Data type",
+					"description" : "Parameter data type",
 					"data_type" : {
+						"object_type" : "fed333c3-eeef-4008-a940-c3a4f7c84669",
 						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "lookup"
+						"association_type" : "embed"
 					},
-					"source" : [{
-							"display_name" : "Value",
-							"value" : "value",
-							"icon" : "",
-							"color" : "",
-							"key" : "value"
-						}, {
-							"display_name" : "Field value",
-							"value" : "field value",
-							"icon" : "",
-							"color" : "",
-							"key" : "field_value"
-						}, {
-							"display_name" : "Expression",
-							"value" : "expression",
-							"icon" : "",
-							"color" : "",
-							"key" : "expression"
-						}
-					]
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
 				}, {
 					"name" : "value",
 					"display_name" : "Value",
@@ -482,7 +470,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7"
 				}, {
@@ -495,7 +483,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "name",
@@ -536,25 +524,16 @@
 					"source_query" : null,
 					"required" : true
 				}, {
-					"name" : "parameters",
-					"display_name" : "Parameters",
-					"description" : "Validation rule parameters",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "result",
-					"display_name" : "Result",
-					"description" : "Validation result",
+					"name" : "rule_function",
+					"display_name" : "Rule",
+					"description" : "Validation rule function",
 					"data_type" : {
 						"object_type" : "dbf16ab7-390f-4375-a4f5-14368b10b80d",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}
@@ -573,10 +552,10 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"supported_data_types" : ["16b8aa98-d9df-4899-84f0-d31652487abe", "42cbbb31-2bc3-42d4-a695-786920141a5f", "9498606b-28ad-4c6b-a73e-1b009e2ab734", "7e22d35d-0ed1-47c4-9f56-973335195176"],
-			"parameters" : null,
-			"result" : {
+			"rule_function" : {
 				"expression" : "IsNotEmpty($)",
-				"message" : "Field should not be empty"
+				"message" : "Field should not be empty",
+				"parameters" : null
 			}
 		}, {
 			"_id" : "4101fdc8-d472-4db2-bb6c-793baa908b8f",
@@ -584,39 +563,39 @@
 			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
 			"display_name" : "Minimum length",
 			"description" : "Validates minimum required length of the text value",
-			"parameters" : [{
-					"name" : "length",
-					"display_name" : "Length greater than or equal to",
-					"description" : "Minimum required length of the text value",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					},
-					"is_internal" : false,
-					"value_type" : "value",
-					"value" : "0"
-				}, {
-					"name" : "size",
-					"display_name" : "Size",
-					"description" : "Actual size of the text value",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					},
-					"is_internal" : true,
-					"value_type" : "expression",
-					"value" : "length($)"
-				}
-			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"supported_data_types" : ["16b8aa98-d9df-4899-84f0-d31652487abe"],
-			"result" : {
-				"expression" : "length($) >= {0}",
-				"message" : "Text length cannot be smaller than {0}. The actual length is {1}"
+			"rule_function" : {
+				"expression" : "getLength($) >= {length}",
+				"message" : "Text length cannot be smaller than {length}. The actual length is {size}",
+				"parameters" : [{
+						"name" : "length",
+						"display_name" : "Length greater than or equal to",
+						"description" : "Minimum required length of the text value",
+						"default" : "0",
+						"data_type" : {
+							"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false
+					}, {
+						"name" : "size",
+						"display_name" : "Size",
+						"description" : "Actual size of the text value",
+						"default" : "getLength($)",
+						"data_type" : {
+							"object_type" : "0c1ad435-60b3-45f5-a976-199f4983e41a",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : true
+					}
+				]
 			}
 		}, {
 			"_id" : "03b9573d-d76b-43d0-b322-62df513f5e82",
@@ -624,39 +603,39 @@
 			"_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
 			"display_name" : "Maximum length",
 			"description" : "Validates maximum allowed length of the text value",
-			"parameters" : [{
-					"name" : "length",
-					"display_name" : "Length less than or equal to",
-					"description" : "Maximum allowed length of the text value",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					},
-					"is_internal" : false,
-					"value_type" : "value",
-					"value" : "50"
-				}, {
-					"name" : "size",
-					"display_name" : "Size",
-					"description" : "Actual size of the text value",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					},
-					"is_internal" : true,
-					"value_type" : "expression",
-					"value" : "length($)"
-				}
-			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"supported_data_types" : ["16b8aa98-d9df-4899-84f0-d31652487abe"],
-			"result" : {
-				"expression" : "length($) <= {0}",
-				"message" : "Text length cannot be greater than {0}. The actual length is {1}"
+			"rule_function" : {
+				"expression" : "validator.getLength($) <= {length}",
+				"message" : "Text length cannot be greater than {length}. The actual length is {size}",
+				"parameters" : [{
+						"name" : "length",
+						"display_name" : "Length less than or equal to",
+						"description" : "Maximum allowed length of the text value",
+						"default" : "50",
+						"data_type" : {
+							"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false
+					}, {
+						"name" : "size",
+						"display_name" : "Size",
+						"description" : "Actual size of the text value",
+						"default" : "validator.getLength($)",
+						"required" : true,
+						"hidden" : true,
+						"data_type" : {
+							"object_type" : "0c1ad435-60b3-45f5-a976-199f4983e41a",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						}
+					}
+				]
 			}
 		}, {
 			"_id" : "436fa06c-849c-4973-a96f-9a79ac135ed7",
@@ -665,48 +644,49 @@
 			"display_name" : "Value is in list",
 			"description" : "Checks that the value of the field is identical to one of the values in the list",
 			"scope" : "field",
-			"parameters" : [{
-					"name" : "list",
-					"display_name" : "List",
-					"description" : "List of possible values",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "string"
-					},
-					"is_internal" : false,
-					"value_type" : "Value"
-				}, {
-					"name" : "is_multi_value",
-					"display_name" : "Multi-Value",
-					"description" : "Multiple values can be selected",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "boolean"
-					},
-					"is_internal" : false,
-					"value_type" : "Value",
-					"is_optional" : true,
-					"default_value" : false
-				}, {
-					"name" : "is_case_sensitive",
-					"display_name" : "Case Sensitive",
-					"description" : "Values are case sensitive",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "boolean"
-					},
-					"is_internal" : false,
-					"value_type" : "Value",
-					"is_optional" : true,
-					"default_value" : false
-				}
-			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
-			"result" : {
+			"rule_function" : {
 				"expression" : "IsIn($, {list}, {caseSensitive})",
-				"message" : "The value should be one of this {list}"
+				"message" : "The value should be one of this {list}",
+				"parameters" : [{
+						"name" : "list",
+						"display_name" : "List",
+						"description" : "List of possible values",
+						"data_type" : {
+							"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+							"multiplicity" : "many",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false
+					}, {
+						"name" : "is_multi_value",
+						"display_name" : "Multi-Value",
+						"description" : "Multiple values can be selected",
+						"data_type" : {
+							"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false,
+						"default" : "false"
+					}, {
+						"name" : "is_case_sensitive",
+						"display_name" : "Case Sensitive",
+						"description" : "Values are case sensitive",
+						"data_type" : {
+							"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false,
+						"default" : "false"
+					}
+				]
 			}
 		}, {
 			"_id" : "4e113ea8-faa2-482d-bee9-935a99c8c625",
@@ -715,48 +695,49 @@
 			"display_name" : "Value is in query list",
 			"description" : "Checks that the value of the field is identical to one of the values in the list retured by a query",
 			"scope" : "field",
-			"parameters" : [{
-					"name" : "list_query",
-					"display_name" : "List query",
-					"description" : "List query for possible values",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "lookup_query"
-					},
-					"is_internal" : false,
-					"value_type" : "Value"
-				}, {
-					"name" : "is_multi_value",
-					"display_name" : "Multi-Value",
-					"description" : "Multiple values can be selected",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "boolean"
-					},
-					"is_internal" : false,
-					"value_type" : "Value",
-					"is_optional" : true,
-					"default_value" : false
-				}, {
-					"name" : "is_case_sensitive",
-					"display_name" : "Case Sensitive",
-					"description" : "Values are case sensitive",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "boolean"
-					},
-					"is_internal" : false,
-					"value_type" : "Value",
-					"is_optional" : true,
-					"default_value" : false
-				}
-			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
-			"result" : {
+			"rule_function" : {
 				"expression" : "IsInQuery($, {list}, {caseSensitive})",
-				"message" : "The value should be one of this {list}"
+				"message" : "The value should be one of this {list}",
+				"parameters" : [{
+						"name" : "list_query",
+						"display_name" : "List query",
+						"description" : "List query for possible values",
+						"data_type" : {
+							"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false
+					}, {
+						"name" : "is_multi_value",
+						"display_name" : "Multi-Value",
+						"description" : "Multiple values can be selected",
+						"data_type" : {
+							"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false,
+						"default" : "false"
+					}, {
+						"name" : "is_case_sensitive",
+						"display_name" : "Case Sensitive",
+						"description" : "Values are case sensitive",
+						"data_type" : {
+							"object_type" : "9498606b-28ad-4c6b-a73e-1b009e2ab734",
+							"multiplicity" : "one",
+							"association_type" : "embed"
+						},
+						"required" : true,
+						"hidden" : false,
+						"default" : "false"
+					}
+				]
 			}
 		}, {
 			"_id" : "02eb5e15-61b0-4644-b75f-be84edc03cd9",
@@ -893,7 +874,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}
@@ -958,6 +939,12 @@
 							"color" : "",
 							"key" : "embed"
 						}, {
+							"display_name" : "Lookup",
+							"value" : "lookup",
+							"icon" : "",
+							"color" : "",
+							"key" : "lookup"
+						}, {
 							"display_name" : "Link",
 							"value" : "link",
 							"icon" : "",
@@ -1003,7 +990,7 @@
 						"association_type" : "embed"
 					},
 					"required" : false,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -1016,7 +1003,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "9cd5bb49-2534-4754-bc37-91a519ca0c21"
 				}, {
@@ -1029,7 +1016,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "display_name",
@@ -1059,7 +1046,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -1072,7 +1059,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"source" : [{
 							"display_name" : "Global",
@@ -1105,7 +1092,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : ""
 				}
@@ -1129,7 +1116,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_object_type",
@@ -1141,7 +1128,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "75458276-7818-4fff-a170-7b3e25cd99c2"
 				}, {
@@ -1154,7 +1141,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -1167,7 +1154,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : ""
 				}, {
@@ -1180,7 +1167,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"source" : [{
 							"display_name" : "Global",
@@ -1248,7 +1235,7 @@
 					"data_type" : {
 						"multiplicity" : "many",
 						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-						"association_type" : "embed"
+						"association_type" : "link"
 					},
 					"required" : true
 				}
@@ -1420,6 +1407,17 @@
 			"display_name" : "Container",
 			"description" : "Container",
 			"fields" : [{
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"default" : ""
+				}, {
 					"name" : "tabs",
 					"display_name" : "Tabs",
 					"description" : "Tabs of Container",
@@ -1440,15 +1438,17 @@
 					},
 					"required" : true
 				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "",
+					"name" : "components",
+					"display_name" : "Components",
+					"description" : "Container components",
 					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
+						"object_type" : "07c02c94-7af8-470b-ae2e-ef6d7baf70a2",
+						"multiplicity" : "many",
 						"association_type" : "embed"
 					},
 					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
 					"default" : ""
 				}
 			],
@@ -1525,7 +1525,7 @@
 								"display_name" : "Column 1",
 								"size" : 12,
 								"containers" : [{
-										"display_name" : "Container 1",
+										"display_name" : "Validation rules",
 										"tabs" : [{
 												"name" : "system_object_types",
 												"display_name" : "System object types"
@@ -1544,28 +1544,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "system_object_types",
-					"display_name" : "System object types",
-					"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-					"query" : "@._application=='{context.appId}'",
-					"page_size" : 10,
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}, {
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}, {
-							"display_name" : "Description",
-							"source_path" : "description"
-						}, {
-							"display_name" : "Application",
-							"source_path" : "_application.display_name"
-						}
-					]
-				}
-			],
+			"views" : ["6a8bf337-1eec-477e-b71a-1868744e3462"],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
@@ -1600,25 +1579,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "validation_rules",
-					"display_name" : "Validation rules",
-					"source_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
-					"query" : "",
-					"page_size" : 10,
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}, {
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}, {
-							"display_name" : "Description",
-							"source_path" : "description"
-						}
-					]
-				}
-			],
+			"views" : ["c819880b-20de-40b6-a942-3b1b7d20d689"],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
@@ -1635,14 +1596,14 @@
 								"containers" : [{
 										"display_name" : "Container 1",
 										"tabs" : [{
-												"name" : "modules",
-												"display_name" : "Modules"
+												"name" : "pages",
+												"display_name" : "Pages"
 											}
 										],
 										"views" : [{
-												"display_name" : "Modules",
-												"view" : "modules",
-												"tab" : "modules"
+												"display_name" : "Pages",
+												"view" : "pages",
+												"tab" : "pages"
 											}
 										]
 									}
@@ -1653,25 +1614,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "modules",
-					"display_name" : "Pages",
-					"source_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-					"query" : "",
-					"page_size" : "25",
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}, {
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}, {
-							"display_name" : "Scope",
-							"source_path" : "_scope"
-						}
-					]
-				}
-			],
+			"views" : ["dad15424-274e-49fe-869a-ddaca45083b2"],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
@@ -1691,7 +1634,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "6634166e-617c-4866-af4f-5db62808f215"
 				}, {
@@ -1704,7 +1647,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "display_name",
@@ -1749,7 +1692,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "d8c873c4-d103-448e-bcee-6ba9afcefb07"
 				}, {
@@ -1762,7 +1705,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "project",
@@ -1807,7 +1750,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : false,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"source" : [{
 							"display_name" : "Story",
@@ -1846,7 +1789,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : "",
 					"source" : [{
@@ -1879,7 +1822,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : "",
 					"source" : [{
@@ -1912,7 +1855,7 @@
 						"association_type" : "lookup"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : "",
 					"source" : [{
@@ -1942,10 +1885,10 @@
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
-						"association_type" : "lookup"
+						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : "",
 					"source" : [{
@@ -1991,35 +1934,12 @@
 			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
 			"display_name" : "Tasks",
 			"description" : "",
-			"views" : [{
-					"name" : "tasks",
-					"display_name" : "Tasks",
-					"source_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
-					"page_size" : "10",
-					"fields" : [{
-							"display_name" : "Title",
-							"source_path" : "title"
-						}, {
-							"display_name" : "Business value",
-							"source_path" : "business_value"
-						}, {
-							"display_name" : "Complexity",
-							"source_path" : "complexity"
-						}, {
-							"display_name" : "Priority",
-							"source_path" : "priority"
-						}, {
-							"display_name" : "Status",
-							"source_path" : "status"
-						}
-					]
-				}
-			],
+			"views" : ["6f329fc7-44a4-4533-b9de-c73cf78647de"],
 			"layout" : {
 				"rows" : [{
 						"display_name" : "Row 1",
 						"columns" : [{
-								"size" : "12",
+								"size" : null,
 								"display_name" : "Column 1",
 								"containers" : [{
 										"display_name" : "Container 1",
@@ -2107,21 +2027,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "projects",
-					"display_name" : "Projects",
-					"source_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
-					"page_size" : "10",
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}, {
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}
-					]
-				}
-			],
+			"views" : ["cfed64bf-e508-451c-aac4-372a05d3fefc"],
 			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
@@ -2178,22 +2084,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "applications",
-					"display_name" : "Applications",
-					"source_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
-					"query" : "@._id=='{context.appId}'",
-					"page_size" : "10",
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}, {
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}
-					]
-				}
-			],
+			"views" : ["cddee38b-d9ad-46be-a06e-a3d1ecaf2014"],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
@@ -2213,7 +2104,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2226,7 +2117,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2260,7 +2151,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}
@@ -2326,6 +2217,22 @@
 					}, {
 						"display_name" : "Pages",
 						"page" : "f721099f-5828-4af6-9820-8e017971b36d",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Components",
+						"page" : "7982b051-093d-4ab0-81e2-8f3d4659e411",
+						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
+						"_id" : "",
+						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+						"_tenant" : "",
+						"_scope" : "tenant"
+					}, {
+						"display_name" : "Views",
+						"page" : "7248148c-8619-44fa-9574-ce169fb46594",
 						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
 						"_id" : "",
 						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
@@ -2435,7 +2342,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "696421ff-97de-4c43-911a-554a82ffc7ba"
 				}, {
@@ -2448,7 +2355,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -2460,7 +2367,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
@@ -2473,7 +2380,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -2506,7 +2413,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "application",
@@ -2518,7 +2425,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : true,
 					"default" : ""
 				}, {
@@ -2531,7 +2438,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2544,7 +2451,7 @@
 						"association_type" : "embed"
 					},
 					"required" : false,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}
@@ -2583,22 +2490,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "subscription_plans",
-					"display_name" : "Subscription plans",
-					"query" : "",
-					"page_size" : "5",
-					"fields" : [{
-							"display_name" : "Display name",
-							"source_path" : "display_name"
-						}, {
-							"display_name" : "Description",
-							"source_path" : "description"
-						}
-					],
-					"source_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba"
-				}
-			]
+			"views" : ["14605893-5524-41cc-9b70-4c5b0ff0a973"]
 		}, {
 			"_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
 			"_id" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
@@ -2626,7 +2518,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2639,7 +2531,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2652,7 +2544,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "c9a2bbb9-2706-485f-9052-229364326d13"
 				}, {
@@ -2665,7 +2557,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -2677,7 +2569,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
@@ -2690,7 +2582,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -2723,7 +2615,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]
@@ -2761,22 +2653,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "subscriptions",
-					"display_name" : "Subscriptions",
-					"query" : "",
-					"page_size" : "25",
-					"fields" : [{
-							"display_name" : "Account",
-							"source_path" : "account.display_name"
-						}, {
-							"display_name" : "Plan",
-							"source_path" : "subscription_plan.display_name"
-						}
-					],
-					"source_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13"
-				}
-			]
+			"views" : ["36a2c2d7-3ae1-4be7-bb57-751f03ca72f3"]
 		}, {
 			"account" : "af0c47cb-5537-4baa-bebf-a025d8499513",
 			"subscription_plan" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
@@ -2812,7 +2689,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2825,7 +2702,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -2838,7 +2715,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e"
 				}, {
@@ -2851,7 +2728,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -2863,7 +2740,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
@@ -2876,7 +2753,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -2909,7 +2786,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]
@@ -2932,7 +2809,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a"
 				}, {
@@ -2945,7 +2822,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -2957,7 +2834,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
@@ -2970,7 +2847,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -3003,7 +2880,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "menu_items",
@@ -3015,7 +2892,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3028,7 +2905,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}
@@ -3069,7 +2946,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3082,7 +2959,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3095,7 +2972,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "b4e05929-6587-4011-b8ec-9087b812b62b"
 				}, {
@@ -3108,7 +2985,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -3120,7 +2997,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
 				}, {
@@ -3133,7 +3010,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -3166,7 +3043,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]
@@ -3189,7 +3066,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3202,7 +3079,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
 				}, {
@@ -3215,7 +3092,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -3227,7 +3104,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
 				}, {
@@ -3240,7 +3117,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -3273,7 +3150,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]
@@ -3296,7 +3173,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3309,7 +3186,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -3322,7 +3199,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3aa0a14d-a80f-49a7-8f39-af3ea90d1d6f"
 				}, {
@@ -3335,7 +3212,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -3347,7 +3224,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "761aa09f-84c8-4409-90d0-bbab14b223a6"
 				}, {
@@ -3360,7 +3237,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -3393,7 +3270,7 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]
@@ -3431,19 +3308,7 @@
 					}
 				]
 			},
-			"views" : [{
-					"name" : "todo_lists",
-					"display_name" : "To-Do lists",
-					"query" : "",
-					"page_size" : "10",
-					"fields" : [{
-							"display_name" : "Name",
-							"source_path" : "name"
-						}
-					],
-					"source_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7"
-				}
-			]
+			"views" : ["76c6073a-3b5a-4fec-b87f-b61fd3a29512"]
 		}, {
 			"name" : "Work",
 			"_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
@@ -3645,7 +3510,8 @@
 			"status" : "not_started",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
-			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"title" : "Add support for contextual help"
 		}, {
 			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
 			"_id" : "94741f7a-31d4-44a6-8781-376318579e02",
@@ -3875,7 +3741,7 @@
 			"_id" : "21c41fa5-60d1-4e25-a6d1-f1db1634ab31",
 			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"title" : "Add support for Integration with external services",
-			"description" : "Possible integrations would be SMS, email, notification, social media, payment gateways etc.",
+			"description" : "Possible integrations would be SMS, email, notification, social media, payment gateways etc. via Zapier Integration or other options",
 			"task_type" : "story",
 			"business_value" : "high",
 			"complexity" : "high",
@@ -3889,7 +3755,7 @@
 			"_id" : "d67327b0-1097-49e0-91bf-c6eedaa5042f",
 			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"title" : "Add support for look&feel customisations with themes",
-			"description" : "",
+			"description" : "Add support for creation of own styles without any knowledge of CSS",
 			"task_type" : "story",
 			"business_value" : "high",
 			"complexity" : "medium",
@@ -3945,7 +3811,7 @@
 			"_id" : "dd2681ab-9f2a-4a11-b30d-da795b9ac422",
 			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"title" : "Add support for user UI based authentication",
-			"description" : "",
+			"description" : "Add support for self-registration and email validation, password reset, and user profile updates",
 			"task_type" : "story",
 			"business_value" : "high",
 			"complexity" : "high",
@@ -4057,7 +3923,7 @@
 			"_id" : "1c0c9fb9-0d38-4c2e-8872-63de85321c09",
 			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"title" : "Add support for Internationalisation",
-			"description" : "UI and documentation Internationalisation i.e. multilingual support, localisation etc.",
+			"description" : "UI and documentation Internationalisation i.e. multilingual support, localisation etc.\n\nLocalisation for account/application/tenant level with configurable time zone, date and time, and number and currency formats.\n\nAdd support for UTF-8 compatibility to store double byte characters such as Chinese, Arabic, etc.",
 			"task_type" : "story",
 			"business_value" : "medium",
 			"complexity" : "high",
@@ -4071,11 +3937,11 @@
 			"_id" : "042046a6-4032-4455-b4c7-95960458f696",
 			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"title" : "Add support for Data import/export",
-			"description" : "",
+			"description" : "Data import and export engine that would move data in or out of the systemand your any cloud storage service (such as Dropbox, Google Drive, Microsoft OneDrive, Box, Amazon S3) or a web based repository (such as FTP, SFTP, HTTP, etc.). Data transfers can be scheduled to run automatically.\n\nAdd support for incremental data updates",
 			"task_type" : "story",
 			"business_value" : "high",
-			"complexity" : "medium",
-			"priority" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
 			"status" : "not_started",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
@@ -4222,20 +4088,20 @@
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
-			"name" : "validation_result",
-			"description" : "Validation result",
-			"display_name" : "Validation result",
+			"name" : "validation_function",
+			"description" : "Validation function",
+			"display_name" : "Validation function",
 			"fields" : [{
 					"name" : "expression",
 					"display_name" : "Expression",
 					"description" : "Validation expression",
 					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"object_type" : "0c1ad435-60b3-45f5-a976-199f4983e41a",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -4248,7 +4114,683 @@
 						"association_type" : "embed"
 					},
 					"required" : false,
-					"hidded" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "parameters",
+					"display_name" : "Parameters",
+					"description" : "Validation rule parameters",
+					"data_type" : {
+						"multiplicity" : "many",
+						"object_type" : "19746085-4c08-4cd6-895c-73405a1e6ea2",
+						"association_type" : "embed"
+					}
+				}
+			]
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "5b0640eb-e48f-4083-97e1-fa5df11ae6d4",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add supported_association_types attribute to system_object",
+			"description" : "add system fields only on creation of object types that support link association\n\nUse supported_association_types attribute as a source for association_type attribute of data_type field when a particular object type is used as data type",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "fb0d7d46-0089-4c00-ae8a-1666d4ed9f43",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for inline editing for table views",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "1d71ecfc-b45c-49b1-82a4-01fc2c8c6980",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for uplodable data sources e.g. Excel, CSV etc.",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d12d9d93-8d7c-45d7-965d-18f9659370b2",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Data Harvesting Prevention",
+			"description" : "Add CAPTCHA human verification technology to search forms (smart queries) to prevent data harvesting bots from scraping data",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "cc80210c-e976-4885-afa2-6981481e4b1b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add Search Engine Optimimisation (SEO) support to pages",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "b33c5cff-06e0-464b-b36a-90365666419b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for graphical visualisation e.g graphs, maps etc.",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d90b0680-7d71-42a3-a2c6-131645be0587",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for user activities analytics",
+			"description" : "Capture user activities and produce reports etc.",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "e997bbc0-fd01-484d-ba68-7fee402b65e7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for file and data caching with CDN (Content Delivery Network)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "5f4dfd39-9f79-4359-8d50-68b823aa589a",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for image data type",
+			"description" : "Add support for Image resizer that can be configured to create thumbnail or other custom uniformly-sized version of each uploaded image",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "76318ec7-4ed7-4dc4-96cc-230aa716cd7e",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Geocoding",
+			"description" : "Add latitude and longitude to data objects, so that data can be plotted on the map",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "7c1ca711-45c7-4936-b659-d25c60ce64fe",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for one button press for reordering  item in lists",
+			"description" : "There should be only one button to move list items up and one to move them down",
+			"task_type" : "improvement",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "51c4c76f-99f5-4121-875e-162fb2aa77b7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for text sensitivity constraint for text fields",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d45ab535-5bdf-472f-b78c-effe93af2db9",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for authentication with ID Services",
+			"description" : "Support Google, Twitter, Facebook, Hotmail (live), Open ID etc.",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "b7530590-cbc3-4db5-83de-c0ba140ac465",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for SAML Single Sign-On",
+			"description" : "Support Active Directory, Azure AD, Salesforce, OneLogin, PingOne, and other SAML 2.0 ID providers\n\nImplement internal SAML 2.0 ID provider to power internal Single Sign-On across multiple applications per account",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "eda419ae-2f97-4bd9-a9a6-d3224a7a325c",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Business value, complexity and priority are stored as integers (0) when no value is provided",
+			"description" : "",
+			"task_type" : "bug",
+			"business_value" : "low",
+			"complexity" : "high",
+			"priority" : "low",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "9b961595-199c-4e02-9b7b-2f627effa0c0",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Web/Mobile forms",
+			"description" : "Embedded or via link etc.\nPublicly accessible or with authentication\nEmail notifications\nInvitations",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "a585ed86-f8be-47c4-8362-414089dbe217",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for Integration Plug-ins (e.g. MS Office, Wordpress, Magento etc)",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "high",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "e9584518-3006-492f-900d-f7280a71ddb3",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Separate views from the pages",
+			"description" : "Add views as many links from a page object (or even a component object inside a container)",
+			"task_type" : "improvement",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "f2822220-ce2c-4f5f-b2cb-ad647d270b07",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Display application name as the page title",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "developing",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"name" : "system_object_types",
+			"display_name" : "System object types",
+			"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"query" : "@._application=='{context.appId}'",
+			"page_size" : 10,
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}, {
+					"display_name" : "Description",
+					"source_path" : "description"
+				}, {
+					"display_name" : "Application",
+					"source_path" : "_application.display_name"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "6a8bf337-1eec-477e-b71a-1868744e3462",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "validation_rules",
+			"display_name" : "Validation rules",
+			"source_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
+			"query" : "",
+			"page_size" : 10,
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}, {
+					"display_name" : "Description",
+					"source_path" : "description"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "c819880b-20de-40b6-a942-3b1b7d20d689",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "pages",
+			"display_name" : "Pages",
+			"source_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"query" : "",
+			"page_size" : "25",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}, {
+					"display_name" : "Scope",
+					"source_path" : "_scope"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "dad15424-274e-49fe-869a-ddaca45083b2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "tasks",
+			"display_name" : "Tasks",
+			"source_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"page_size" : 10,
+			"fields" : [{
+					"display_name" : "Title",
+					"source_path" : "title"
+				}, {
+					"display_name" : "Task type",
+					"source_path" : "task_type"
+				}, {
+					"display_name" : "Business value",
+					"source_path" : "business_value"
+				}, {
+					"display_name" : "Complexity",
+					"source_path" : "complexity"
+				}, {
+					"display_name" : "Priority",
+					"source_path" : "priority"
+				}, {
+					"display_name" : "Status",
+					"source_path" : "status"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "6f329fc7-44a4-4533-b9de-c73cf78647de",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "projects",
+			"display_name" : "Projects",
+			"source_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
+			"page_size" : "10",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "cfed64bf-e508-451c-aac4-372a05d3fefc",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "applications",
+			"display_name" : "Applications",
+			"source_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+			"query" : "@._id=='{context.appId}'",
+			"page_size" : "10",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "cddee38b-d9ad-46be-a06e-a3d1ecaf2014",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "subscription_plans",
+			"display_name" : "Subscription plans",
+			"query" : "",
+			"page_size" : "5",
+			"fields" : [{
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}, {
+					"display_name" : "Description",
+					"source_path" : "description"
+				}
+			],
+			"source_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "14605893-5524-41cc-9b70-4c5b0ff0a973",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "subscriptions",
+			"display_name" : "Subscriptions",
+			"query" : "",
+			"page_size" : "25",
+			"fields" : [{
+					"display_name" : "Account",
+					"source_path" : "account.display_name"
+				}, {
+					"display_name" : "Plan",
+					"source_path" : "subscription_plan.display_name"
+				}
+			],
+			"source_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "36a2c2d7-3ae1-4be7-bb57-751f03ca72f3",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "components",
+			"display_name" : "Components",
+			"source_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+			"query" : "",
+			"page_size" : "10",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "4a5e0e3c-8aaa-4389-a6be-fb5620f929d9",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "views",
+			"display_name" : "Views",
+			"source_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"query" : "",
+			"page_size" : "10",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}, {
+					"display_name" : "Display name",
+					"source_path" : "display_name"
+				}
+			],
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "todo_lists",
+			"display_name" : "To-Do lists",
+			"query" : "",
+			"page_size" : "10",
+			"fields" : [{
+					"display_name" : "Name",
+					"source_path" : "name"
+				}
+			],
+			"source_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
+			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+			"_id" : "76c6073a-3b5a-4fec-b87f-b61fd3a29512",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
+			"_scope" : "application"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "be07ca5f-1871-492d-a734-4a04628c03a7",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for dynamic creation of new objects for object properties of embed link association types",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "a40fca54-72c8-44b0-9317-52cc0d4237a4",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Remove page_size property from the view object type and objects",
+			"description" : "",
+			"task_type" : "improvement",
+			"business_value" : "medium",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "9761d000-1ff9-4310-b6f5-a87d74b2a10e",
+			"project" : "",
+			"title" : "Add confirmation alert before deleting items",
+			"description" : "",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "0f7a684a-2bda-4e19-85d2-5b4938bcbd5b",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Add support for soft deletes",
+			"description" : "Define at object type level if soft delete should be enforced for its instances \nIf yes instances are soft deleted when delete command is invoked.",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "80508d22-6729-4a62-b9a9-dccdd53aaa59",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Make sure that data table gets back to it's original state after form modal is dismissed",
+			"description" : "At the moment when a modal window is dismissed after creating a new object or modifying existing table goes back to the first page after it's reloaded.\nmake sure it goes to the last viewed page",
+			"task_type" : "story",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "a534d4c8-be0c-415e-9d5d-a0e8d3f524f9",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Make sure that form modal window is not dismissed when pressing outside of it",
+			"description" : "",
+			"task_type" : "improvement",
+			"business_value" : "high",
+			"complexity" : "low",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "component_definition",
+			"description" : "UI component definition",
+			"display_name" : "Component definition",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Component name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Component description",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "parameters",
+					"display_name" : "Parameters",
+					"description" : "Parameters",
+					"data_type" : {
+						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "events",
+					"display_name" : "Events",
+					"description" : "Events emitted by component",
+					"data_type" : {
+						"object_type" : "74046178-6d15-4e50-a35c-a000f3e29911",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "commands",
+					"display_name" : "Commands",
+					"description" : "Commands exposed by components",
+					"data_type" : {
+						"object_type" : "a15ae033-e3d4-4b40-9df5-3beb4e880e45",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
 				}, {
@@ -4261,9 +4803,9 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
-					"default" : "dbf16ab7-390f-4375-a4f5-14368b10b80d"
+					"default" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6"
 				}, {
 					"name" : "_id",
 					"display_name" : "Object ID",
@@ -4274,7 +4816,7 @@
 						"association_type" : "embed"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_application",
@@ -4286,7 +4828,7 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
 					"read_only" : true,
 					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
@@ -4299,7 +4841,612 @@
 						"association_type" : "link"
 					},
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : "",
+							"key" : "global"
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : "",
+							"key" : "application"
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "74046178-6d15-4e50-a35c-a000f3e29911",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "event",
+			"description" : "Event emitted by an object",
+			"display_name" : "Event",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Even name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Event display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Event description",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "parameters",
+					"display_name" : "Parameters",
+					"description" : "Parameters",
+					"data_type" : {
+						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "74046178-6d15-4e50-a35c-a000f3e29911"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : "",
+							"key" : "global"
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : "",
+							"key" : "application"
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "a15ae033-e3d4-4b40-9df5-3beb4e880e45",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "command",
+			"description" : "Command emitted by an object",
+			"display_name" : "Command",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Command name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Command display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Command description",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "parameters",
+					"display_name" : "Parameters",
+					"description" : "Parameters",
+					"data_type" : {
+						"object_type" : "5cb7a197-05e3-4f2a-9bfd-5d0fcf8a629f",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "a15ae033-e3d4-4b40-9df5-3beb4e880e45"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"icon" : "",
+							"color" : "",
+							"key" : "global"
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"icon" : "",
+							"color" : "",
+							"key" : "application"
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"icon" : "",
+							"color" : "",
+							"key" : "tenant"
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_id" : "7982b051-093d-4ab0-81e2-8f3d4659e411",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "components",
+			"display_name" : "Components",
+			"description" : "Components",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : 12,
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "components",
+												"tab" : "components"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "components",
+												"display_name" : "Components"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : ["4a5e0e3c-8aaa-4389-a6be-fb5620f929d9"]
+		}, {
+			"_id" : "7248148c-8619-44fa-9574-ce169fb46594",
+			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "views",
+			"display_name" : "Views",
+			"description" : "Views",
+			"layout" : {
+				"rows" : [{
+						"display_name" : "Row 1",
+						"columns" : [{
+								"size" : 12,
+								"display_name" : "Column 1",
+								"containers" : [{
+										"views" : [{
+												"view" : "views",
+												"tab" : "views"
+											}
+										],
+										"display_name" : "Container 1",
+										"tabs" : [{
+												"name" : "views",
+												"display_name" : "Views"
+											}
+										]
+									}
+								]
+							}
+						]
+					}
+				]
+			},
+			"views" : ["dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"]
+		}, {
+			"name" : "data_table",
+			"display_name" : "Data table",
+			"description" : "Displays multiple data objects in tabular view",
+			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+			"_id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application",
+			"parameters" : [{
+					"name" : "view_id",
+					"display_name" : "Data source view",
+					"description" : "Data source view",
+					"data_type" : {
+						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"is_internal" : false,
+					"value_type" : "value",
+					"value" : ""
+				}, {
+					"name" : "page_size",
+					"display_name" : "Page size",
+					"description" : "Number of records displayed per page",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"is_internal" : false,
+					"value_type" : "value",
+					"value" : ""
+				}
+			],
+			"events" : [{
+					"name" : "row_picked",
+					"display_name" : "Data row picked",
+					"description" : "Fires when a single row of data is picked by pressing on it",
+					"_object_type" : "74046178-6d15-4e50-a35c-a000f3e29911",
+					"_id" : "",
+					"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+					"_tenant" : "",
+					"_scope" : "tenant",
+					"parameters" : [{
+							"name" : "object_id",
+							"display_name" : "Object id",
+							"description" : "Object id of picked row",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"is_internal" : false,
+							"value_type" : "value",
+							"value" : ""
+						}, {
+							"name" : "object_type_id",
+							"display_name" : "Object type id",
+							"description" : "Object type id of picked row",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"is_internal" : false,
+							"value_type" : "value",
+							"value" : ""
+						}
+					]
+				}
+			],
+			"commands" : [{
+					"name" : "refresh",
+					"display_name" : "Refresh data",
+					"description" : "Reloads table data from source view",
+					"_object_type" : "a15ae033-e3d4-4b40-9df5-3beb4e880e45",
+					"_id" : "",
+					"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+					"_tenant" : "",
+					"_scope" : "tenant"
+				}
+			]
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "bf6d774b-7f24-49d3-856b-72677689cb23",
+			"project" : "",
+			"title" : "Refactor scope lookup source so that is doesn't need to be duplicated in each object type",
+			"description" : "",
+			"task_type" : "improvement",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "07c02c94-7af8-470b-ae2e-ef6d7baf70a2",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "component",
+			"description" : "Component",
+			"display_name" : "Component instance",
+			"fields" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Component instance name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "display_name",
+					"display_name" : "Display name",
+					"description" : "Component instance display name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "description",
+					"display_name" : "Description",
+					"description" : "Component instance description",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "component",
+					"display_name" : "Component",
+					"description" : "Component definition",
+					"data_type" : {
+						"object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+						"multiplicity" : "one",
+						"association_type" : "delegate"
+					},
+					"required" : true,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "07c02c94-7af8-470b-ae2e-ef6d7baf70a2"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
 					"read_only" : true
 				}, {
 					"name" : "_scope",
@@ -4329,7 +5476,115 @@
 					],
 					"default" : "tenant",
 					"required" : true,
-					"hidded" : true,
+					"hidden" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "80099da6-52c8-4020-acb8-cea092df2596",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Accordion of attributes does not render correctly when deleting one of the groups",
+			"description" : "When deleting accordion groups, that underlying array data is correct, but accordion shows wrong item details, while the header is correct",
+			"task_type" : "bug",
+			"business_value" : "high",
+			"complexity" : "medium",
+			"priority" : "high",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "0c1ad435-60b3-45f5-a976-199f4983e41a",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "expression",
+			"description" : "Expression that evaluates as Javascript",
+			"display_name" : "Expression",
+			"fields" : [{
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "0c1ad435-60b3-45f5-a976-199f4983e41a"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidden" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"key" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"key" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"key" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidden" : true,
 					"read_only" : true
 				}
 			]

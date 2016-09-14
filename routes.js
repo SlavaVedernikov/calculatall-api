@@ -15,10 +15,19 @@ module.exports = function(app){
 	app.disable('etag');
 	app.get('/uuid', system_object_types.getId);
 	
+	app.get('/:owner/:application/:tenant/templates/:id', system_object_types.getTemplateById);
+	
+	//app.get('/patchViews', system_object_types.patchViews);
+	
+	
 	app.get('/:owner/:application/:tenant/object_types', system_object_types.findAllObjectTypes);
 	app.get('/:owner/:application/:tenant/object_types/:id', system_object_types.findObjectTypeById);
+	//app.get('/:owner/:application/:tenant/object_types/:id/delegate', system_object_types.getObjectTypeDelegate);
+	
     app.get('/:owner/:application/:tenant/:object_type', system_object_types.findAll);
     app.get('/:owner/:application/:tenant/:object_type/:id', system_object_types.findById);
+	app.get('/:owner/:application/:tenant/:object_type/:id/delegate', system_object_types.getDelegate);
+
     app.post('/:owner/:application/:tenant/:object_type', system_object_types.add);
     app.put('/:owner/:application/:tenant/:object_type/:id', system_object_types.update);
     app.delete('/:owner/:application/:tenant/:object_type/:id', system_object_types.delete);
