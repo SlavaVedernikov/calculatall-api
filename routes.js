@@ -17,12 +17,10 @@ module.exports = function(app){
 	
 	app.get('/:owner/:application/:tenant/templates/:id', system_object_types.getTemplateById);
 	
-	//app.get('/patchViews', system_object_types.patchViews);
-	
+	app.get('/:owner/:application/:tenant/page_1/:id/layout', system_object_types.getPageLayout);
 	
 	app.get('/:owner/:application/:tenant/object_types', system_object_types.findAllObjectTypes);
 	app.get('/:owner/:application/:tenant/object_types/:id', system_object_types.findObjectTypeById);
-	//app.get('/:owner/:application/:tenant/object_types/:id/delegate', system_object_types.getObjectTypeDelegate);
 	
     app.get('/:owner/:application/:tenant/:object_type', system_object_types.findAll);
     app.get('/:owner/:application/:tenant/:object_type/:id', system_object_types.findById);

@@ -1,8 +1,75 @@
 exports.getTemplateById = function(req, res) {
 	//var data = {template: '<table-view view="getByName(page.views, component.view)"></table-view>'};
-	var data = '<table-view view="getByName(page.views, component.view)"></table-view>';
+	var data = '<?xml version="1.0"?><table-view ng-if="page" view="getByName(page.views, \'views\')"></table-view>';
 	res.send(data);
 };
+
+exports.getPageLayout = function(req, res) {
+	var xmlbuilder = require('xmlbuilder');
+	var fs = require("fs");
+	var JSONPath = require('JSONPath');
+	var util = require('util');
+	
+	var datamodel = JSON.parse(
+	  fs.readFileSync('./data/system_object_types.json')
+	);
+	
+	
+	var object_type = getObjectByName(datamodel, 'system_object', 'page_1');
+	var id = req.params.id;
+	
+	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
+	
+	var application = getObjectByName(datamodel, 'application', req.params.application);
+	
+	var pathQuery = "@._object_type=='" + object_type._id + "'  && (@._scope=='global'|| (@._application=='" + application._id + "' && (@._scope=='application' || (@._scope=='tenant' && @._tenant=='" + tenant._id + "'))))";
+		
+	pathQuery += " && (@._id=='" + id + "')";
+		
+	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
+	
+	data = data[0];
+  	
+	var layoutRoot = getObjectById(datamodel, data.layout.id);
+	
+	var xml = xmlbuilder.begin().ele(layoutRoot.name);
+	addComponents(datamodel, xml, data.layout);
+	
+	res.send(xml.end({ pretty: true}));
+	
+};
+
+function getComponentParameters(component)
+{
+	var result = {};
+	
+	Object.keys(component.parameters).forEach(function(key, index) {
+		if(key != 'components')
+		{
+			result[key] = component.parameters[key];
+		}
+	});
+
+	return result;
+}
+
+function addComponents(datamodel, xml, component)
+{
+	if(component.parameters && component.parameters.components && component.parameters.components.length)
+	{
+		for(var i = 0; i < component.parameters.components.length; i++)
+		{
+			var component_item = component.parameters.components[i];
+			var component_object = getObjectById(datamodel, component_item.id);
+			var component_parameters = getComponentParameters(component_item);
+			
+			var ele = xml.ele(component_object.name, component_parameters);
+			ele.att('index', i);
+			
+			addComponents(datamodel, ele, component_item);
+		}
+	}
+}
 
 exports.getId = function(req, res) {
 	var uuid = require('node-uuid');
@@ -35,7 +102,7 @@ exports.findAllObjectTypes = function(req, res) {
 		pathQuery += " && (" + query + ")";
 	}
 	
-	console.log(pathQuery);
+	//console.log(pathQuery);
 	
 	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	
@@ -69,8 +136,8 @@ exports.findObjectTypeById = function(req, res){
 	var view = req.query.view;
 	var view_fields = getViewFields(view);
 	
-	console.log('view: ' + view);
-	console.log(view_fields);
+	//console.log('view: ' + view);
+	//console.log(view_fields);
 	
 	if(view_fields && view_fields.length > 0)
 	{
@@ -84,36 +151,7 @@ exports.findObjectTypeById = function(req, res){
 	}
 	
 };
-/*
-exports.getObjectTypeDelegate = function(req, res) {
-	var fs = require("fs");
-	var JSONPath = require('JSONPath');
-	
-	var datamodel = JSON.parse(
-	  fs.readFileSync('./data/system_object_types.json')
-	);
-	
-	var id = req.params.id;
-	
-	var application = getObjectByName(datamodel, 'application', req.params.application);
-	var systemObjectType = getObjectByName(datamodel, 'system_object', 'system_object');
-	var systemApplication = getObjectByName(datamodel, 'application', 'app_builder');
-	
-	var pathQuery = "((@._object_type=='" + systemObjectType._id + "' && @._application=='" + systemApplication._id + "' && @._tenant=='" + systemApplication._tenant + "')";
-	
-	pathQuery += " || (@._object_type=='" + systemObjectType._id + "' && @._application=='" + application._id + "' && @._tenant=='" + application._tenant + "'))";
-		
-	pathQuery += " && @._id=='" + id + "'";
-		
-	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
-	
-	var object_type = data[0];
-  	
-	var object_type = getObjectTypeDelegate(datamodel, object_type);
-	
-	res.send(object_type);
-}
-*/
+
 exports.findAll = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
@@ -170,7 +208,7 @@ exports.findAll = function(req, res) {
 		
 	}
 	
-	console.log(pathQuery);
+	//console.log(pathQuery);
 	
 	data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 
@@ -233,12 +271,15 @@ exports.findById = function(req, res){
 	
 	var application = getObjectByName(datamodel, 'application', req.params.application);
 	
-	var pathQuery = "@._object_type=='" + object_type._id + "'  && (@._scope=='global'|| (@._application=='" + application._id + "' && (@._scope=='application' || (@._scope=='tenant' && @._tenant=='" + tenant._id + "'))))";
+	var pathQuery = "(@._object_type=='" + object_type._id + "'  && (@._scope=='global'|| (@._application=='" + application._id + "' && (@._scope=='application' || (@._scope=='tenant' && @._tenant=='" + tenant._id + "')))))";
 		
 	pathQuery += " && (@._id=='" + id + "')";
-		
+	
+	console.log(pathQuery);
+	
 	var data = JSONPath({json: datamodel, path: "$.system_object_types[?(" + pathQuery + ")]"});
 	
+	console.log(data);
 	data = data[0];
   	
 	if(expand != undefined && expand != '')
@@ -461,14 +502,14 @@ exports.update = function(req, res) {
 	var id = req.params.id;
 
 	var newObject = req.body;
-	console.log(newObject);
+	//console.log(newObject);
 	for(var i = 0; i < datamodel.system_object_types.length; i++)
 	{
 		if (datamodel.system_object_types[i]._object_type == object_type._id &&
 			datamodel.system_object_types[i]._tenant == tenant._id &&
 			datamodel.system_object_types[i]._id == id)
 		{
-			console.log('New objects saved...');
+			//console.log('New objects saved...');
 			datamodel.system_object_types[i] = newObject;
 			break;
 		}
@@ -581,12 +622,12 @@ function getObjectByName(datamodel, objectType, name)
 	
 	
 	pathQuery = "(@._object_type=='" + object_type._id + "' && @.name=='" + name + "')";
-	console.log('getObjectByName -> pathQuery: ' + pathQuery);
+	//console.log('getObjectByName -> pathQuery: ' + pathQuery);
 	
 	var result;
 	var queryResultSet = JSONPath({json: datamodel, path: "$.system_object_types[?" + pathQuery + "]"});
 	
-	console.log('queryResultSet.length: ' + queryResultSet.length);
+	//console.log('queryResultSet.length: ' + queryResultSet.length);
 	if(queryResultSet.length == 1)
 	{
 		result = queryResultSet[0];
@@ -597,7 +638,7 @@ function getObjectByName(datamodel, objectType, name)
 
 function getObjectByType(datamodel, objectType)
 {
-	console.log('getObjectByName -> objectType: ' + objectType);
+	//console.log('getObjectByName -> objectType: ' + objectType);
 	var JSONPath = require('JSONPath');
 	
 	var pathQuery = "(@.name=='system_object')";
@@ -611,7 +652,7 @@ function getObjectByType(datamodel, objectType)
 	}
 	
 	pathQuery = "(@._object_type=='" + system_object_type._id + "' && @.name=='" + objectType + "')";
-	console.log(pathQuery);
+	//console.log(pathQuery);
 	
 	var object_type;
 	var objectTypeQueryResultSet = JSONPath({json: datamodel, path: "$.system_object_types[?" + pathQuery + "]"});
@@ -624,19 +665,19 @@ function getObjectByType(datamodel, objectType)
 	
 	pathQuery = "(@._object_type=='" + object_type._id + "')";
 
-	console.log('getObjectByName -> pathQuery: ' + pathQuery);
+	//console.log('getObjectByName -> pathQuery: ' + pathQuery);
 	
 	var result;
 	var queryResultSet = JSONPath({json: datamodel, path: "$.system_object_types[?" + pathQuery + "]"});
 	
-	console.log('queryResultSet.length: ' + queryResultSet.length);
-	console.log('queryResultSet: ' + queryResultSet);
+	//console.log('queryResultSet.length: ' + queryResultSet.length);
+	//console.log('queryResultSet: ' + queryResultSet);
 	if(queryResultSet.length > 0)
 	{
 		result = queryResultSet;
 	}
 	
-	console.log('result: ' + result);
+	//console.log('result: ' + result);
 	return result;
 }
 
@@ -706,34 +747,7 @@ function getDelegate(object_type, data)
 	
 	return result;
 }
-/*
-function getObjectTypeDelegate(datamodel, object_type)
-{
-	var JSONPath = require('JSONPath');
-	
-	var result = {};
-	
-	if(object_type.name == 'validation_rule_definition')
-	{
-		var parameter_object_type = getObjectByName(datamodel, 'system_object', 'attribute');
-		var validation_function_object_type = getObjectByName(datamodel, 'system_object', 'validation_function');
-		
-		var parameter_object_type_fields = parameter_object_type.fields.filter(function(field) {
-			return field.name != 'is_internal';
-		});
-		
-		var validation_function_object_type_fields = validation_function_object_type.fields.filter(function(field) {
-			return field.name == 'parameters';
-		});
-		
-		validation_function_object_type_fields[0].data_type.object_type = { fields : parameter_object_type_fields}
-		
-		result.fields = validation_function_object_type_fields;
-	}
-	
-	return result;
-}
-*/
+
 function getViewObjectType(datamodel, object_type, view_fields)
 {
 	var result = {fields : []};
@@ -772,7 +786,7 @@ function getExpandedObject(datamodel, object, object_type, expand_fields)
 		var value = null;
 		
 		var expand_field = expand_fields[i];
-		console.log('expand_field: ' + expand_field);
+		//console.log('expand_field: ' + expand_field);
 		var field = getByName(object_type.fields, expand_field);
 		//console.log(field.name);
 		if(field)
@@ -796,7 +810,7 @@ function getExpandedObject(datamodel, object, object_type, expand_fields)
 			}
 		}
 		
-		console.log('value: ' + value);
+		//console.log('value: ' + value);
 		if(value != null)
 		{
 			result[expand_field] = value;
@@ -821,12 +835,12 @@ function getViewObject(datamodel, object, object_type, view_fields)
 		//console.log(view_fields[i].source_path);
 		for(var j = 0; j < view_fields[i].source_path.length; j++)
 		{
-			console.log('view_fields[i].source_path[j]: ' + view_fields[i].source_path[j]);
+			//console.log('view_fields[i].source_path[j]: ' + view_fields[i].source_path[j]);
 			var field = getByName(value_type.fields, view_fields[i].source_path[j]);
 			//console.log(field.name);
 			if(field)
 			{
-				console.log('field.name: ' + field.name);
+				//console.log('field.name: ' + field.name);
 				if(field.data_type.association_type == 'embed')
 				{
 					value = value[view_fields[i].source_path[j]];
@@ -857,18 +871,18 @@ function getViewObject(datamodel, object, object_type, view_fields)
 			}
 			else
 			{
-				console.log('Field is undefined');
+				//console.log('Field is undefined');
 				value = null;
 				break;
 			}
 		}
-		console.log('value: ' + value);
+		//console.log('value: ' + value);
 		result[view_fields[i].alias] = value;
 	}
 	
 	return result;
 }
-
+/*
 exports.patchViews = function(req, res) {
 	var fs = require("fs");
 	var JSONPath = require('JSONPath');
@@ -882,7 +896,7 @@ exports.patchViews = function(req, res) {
 	var view_object_type = getObjectByName(datamodel, 'system_object', 'view');
 	var pages = getObjectByType(datamodel, 'page');
 	
-	console.log('pages.length :'  + pages.length);
+	//console.log('pages.length :'  + pages.length);
 	
 	for(var i = 0; i < pages.length; i++)
 	{
@@ -919,7 +933,7 @@ exports.patchViews = function(req, res) {
   	
 	res.send({ message: 'Views patched!' });
 }
-
+*/
 /*
 exports.patchLookups = function(req, res) {
 	var fs = require("fs");

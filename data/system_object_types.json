@@ -5105,7 +5105,7 @@
 			},
 			"views" : ["dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"]
 		}, {
-			"name" : "data_table",
+			"name" : "table-view1",
 			"display_name" : "Data table",
 			"description" : "Displays multiple data objects in tabular view",
 			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
@@ -5114,24 +5114,24 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application",
 			"parameters" : [{
-					"name" : "view_id",
-					"display_name" : "Data source view",
-					"description" : "Data source view",
-					"data_type" : {
-						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-						"multiplicity" : "one",
-						"association_type" : "link"
-					},
-					"hidden" : false,
-					"default" : ""
-				}, {
-					"name" : "page_size",
+					"name" : "pagesize",
 					"display_name" : "Page size",
 					"description" : "Number of records displayed per page",
 					"data_type" : {
 						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
 						"multiplicity" : "one",
 						"association_type" : "embed"
+					},
+					"hidden" : false,
+					"default" : ""
+				}, {
+					"name" : "viewid",
+					"display_name" : "Data source view",
+					"description" : "Data source view",
+					"data_type" : {
+						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
+						"multiplicity" : "one",
+						"association_type" : "link"
 					},
 					"hidden" : false,
 					"default" : ""
@@ -5362,19 +5362,6 @@
 					"read_only" : false,
 					"default" : ""
 				}, {
-					"name" : "views",
-					"display_name" : "Views",
-					"description" : "Page views",
-					"data_type" : {
-						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-						"multiplicity" : "many",
-						"association_type" : "link"
-					},
-					"required" : true,
-					"hidden" : false,
-					"read_only" : false,
-					"default" : ""
-				}, {
 					"name" : "_object_type",
 					"display_name" : "Object type",
 					"description" : "Object type",
@@ -5493,19 +5480,6 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"parameters" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Row name",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidden" : false,
-					"read_only" : false,
-					"default" : ""
-				}, {
 					"name" : "components",
 					"display_name" : "Components",
 					"description" : "Components",
@@ -5530,15 +5504,15 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"parameters" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Column name",
+					"name" : "size",
+					"display_name" : "Size",
+					"description" : "Size",
 					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"required" : true,
+					"required" : false,
 					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
@@ -5558,7 +5532,7 @@
 				}
 			]
 		}, {
-			"name" : "tab_container",
+			"name" : "uib-tabset",
 			"display_name" : "Tab container",
 			"description" : "Tab container",
 			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
@@ -5567,9 +5541,9 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"parameters" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Tab container name",
+					"name" : "active",
+					"display_name" : "Tab activator",
+					"description" : "Tab activator",
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
@@ -5595,7 +5569,7 @@
 				}
 			]
 		}, {
-			"name" : "tab",
+			"name" : "uib-tab",
 			"display_name" : "Tab",
 			"description" : "Tab component",
 			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
@@ -5604,22 +5578,9 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
 			"parameters" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Tab name",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidden" : false,
-					"read_only" : false,
-					"default" : ""
-				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "Tab display name",
+					"name" : "heading",
+					"display_name" : "Heading",
+					"description" : "Tab heading",
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
@@ -5706,27 +5667,30 @@
 				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
 				"parameters" : {
 					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Views"
+							}
+						}, {
 							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
 							"parameters" : {
-								"name" : "row_1",
 								"components" : [{
 										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
 										"parameters" : {
-											"name" : "column_1",
+											"size" : 12,
 											"components" : [{
 													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
 													"parameters" : {
-														"name" : "tab_container_1",
+														"active" : "active",
 														"components" : [{
 																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
 																"parameters" : {
-																	"name" : "views",
-																	"display_name" : "Views",
+																	"heading" : "Views",
 																	"components" : [{
 																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
 																			"parameters" : {
-																				"page_size" : 10,
-																				"view_id" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"
+																				"pagesize" : 10,
+																				"viewid" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"
 																			}
 																		}
 																	]
@@ -5744,12 +5708,49 @@
 					]
 				}
 			},
-			"views" : [],
 			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
 			"_id" : "1c67ef96-e2cc-4821-8093-a6f733cc9f92",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
+			"_scope" : "application"
+		}, {
+			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
+			"_id" : "d8e26a49-c3b7-47b0-9199-6b7661edb6ed",
+			"project" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
+			"title" : "Make sure that App builder page work only if application that is being built is specified via app query string parameter",
+			"description" : "",
+			"task_type" : "bug",
+			"business_value" : "medium",
+			"complexity" : "medium",
+			"priority" : "medium",
+			"status" : "not_started",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f"
+		}, {
+			"name" : "page-header",
+			"display_name" : "Page header",
+			"description" : "Page header",
+			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+			"_id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"parameters" : [{
+					"name" : "heading",
+					"display_name" : "Heading",
+					"description" : "Heading",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}
+			]
 		}
 	]
 }
