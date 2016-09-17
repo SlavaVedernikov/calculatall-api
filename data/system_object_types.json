@@ -970,149 +970,6 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application"
 		}, {
-			"_id" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"name" : "page",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Page",
-			"description" : "Page",
-			"fields" : [{
-					"name" : "_id",
-					"display_name" : "Object ID",
-					"description" : "Object ID",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidden" : true,
-					"read_only" : true
-				}, {
-					"name" : "_object_type",
-					"display_name" : "Object type",
-					"description" : "Object type",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : true,
-					"hidden" : true,
-					"read_only" : true,
-					"default" : "75458276-7818-4fff-a170-7b3e25cd99c2"
-				}, {
-					"name" : "_application",
-					"display_name" : "Application",
-					"description" : "Application hosting page",
-					"data_type" : {
-						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
-						"multiplicity" : "one",
-						"association_type" : "link"
-					},
-					"required" : true,
-					"hidden" : false,
-					"read_only" : false,
-					"default" : ""
-				}, {
-					"name" : "_tenant",
-					"display_name" : "Tenant",
-					"description" : "Tenant that owns the Object",
-					"data_type" : {
-						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
-						"multiplicity" : "one",
-						"association_type" : "link"
-					},
-					"required" : true,
-					"hidden" : true,
-					"read_only" : true,
-					"default" : ""
-				}, {
-					"name" : "_scope",
-					"display_name" : "Scope",
-					"description" : "Scope of the Object",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "lookup"
-					},
-					"required" : true,
-					"hidden" : true,
-					"read_only" : true,
-					"source" : [{
-							"display_name" : "Global",
-							"value" : "global",
-							"icon" : "",
-							"color" : "",
-							"key" : "global"
-						}, {
-							"display_name" : "Application",
-							"value" : "application",
-							"icon" : "",
-							"color" : "",
-							"key" : "application"
-						}, {
-							"display_name" : "Tenant",
-							"value" : "tenant",
-							"icon" : "",
-							"color" : "",
-							"key" : "tenant"
-						}
-					],
-					"default" : "tenant"
-				}, {
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Page name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					},
-					"validation_rules" : null
-				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "Page display name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "description",
-					"display_name" : "Description",
-					"description" : "Page description",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "layout",
-					"display_name" : "Layout",
-					"description" : "Layout of Page",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "84237e46-b707-40ae-b030-1247fec2549d",
-						"association_type" : "embed"
-					},
-					"required" : true
-				}, {
-					"name" : "views",
-					"display_name" : "Views",
-					"description" : "Views of Layout",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-						"association_type" : "link"
-					},
-					"required" : true
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
-		}, {
 			"_id" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
 			"name" : "view",
 			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
@@ -1155,15 +1012,6 @@
 						"association_type" : "embed"
 					}
 				}, {
-					"name" : "page_size",
-					"display_name" : "Page size",
-					"description" : "View page size",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					}
-				}, {
 					"name" : "fields",
 					"display_name" : "Fields",
 					"description" : "Fields of View",
@@ -1173,307 +1021,94 @@
 						"association_type" : "embed"
 					},
 					"required" : true
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "84237e46-b707-40ae-b030-1247fec2549d",
-			"name" : "layout",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Layout",
-			"description" : "Layout",
-			"fields" : [{
-					"name" : "rows",
-					"display_name" : "Rows",
-					"description" : "Rows of Layout",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "405d94ce-bffb-45a2-9cf1-1b36345477ab",
-						"association_type" : "embed"
-					}
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "405d94ce-bffb-45a2-9cf1-1b36345477ab",
-			"name" : "layout_row",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Layout row",
-			"description" : "Layout row",
-			"fields" : [{
-					"name" : "columns",
-					"display_name" : "Columns",
-					"description" : "Columns of Row",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "57d6a998-7eb6-4345-9964-aa82046cedb9",
-						"association_type" : "embed"
-					}
 				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "",
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "4852640a-d1bb-4216-a662-06ce2cf00e0c"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"required" : false,
-					"default" : ""
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "57d6a998-7eb6-4345-9964-aa82046cedb9",
-			"name" : "layout_column",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Layout column",
-			"description" : "Layout column",
-			"fields" : [{
-					"name" : "size",
-					"display_name" : "Size",
-					"description" : "Layout column size",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
 					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 						"multiplicity" : "one",
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
-						"association_type" : "embed"
-					}
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
 				}, {
-					"name" : "containers",
-					"display_name" : "Containers",
-					"description" : "Containers of Column",
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
 					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
-						"association_type" : "embed"
-					}
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
 				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "",
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
 					"data_type" : {
 						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
-					"required" : false,
-					"default" : ""
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"key" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"key" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"key" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
 				}
 			],
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "0ad106f8-6b2b-4d55-a91a-32c8a5f46077",
-			"name" : "container",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Container",
-			"description" : "Container",
-			"fields" : [{
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "",
-					"data_type" : {
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"multiplicity" : "one",
-						"association_type" : "embed"
-					},
-					"required" : false,
-					"default" : ""
-				}, {
-					"name" : "tabs",
-					"display_name" : "Tabs",
-					"description" : "Tabs of Container",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
-						"association_type" : "embed"
-					},
-					"required" : false
-				}, {
-					"name" : "views",
-					"display_name" : "Views",
-					"description" : "Views of Container",
-					"data_type" : {
-						"multiplicity" : "many",
-						"object_type" : "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
-						"association_type" : "embed"
-					},
-					"required" : true
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "522ebc3c-d6c1-4394-ba07-64f4528fd6e8",
-			"name" : "container_tab",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Container tab",
-			"description" : "Container tab",
-			"fields" : [{
-					"name" : "name",
-					"display_name" : "Name",
-					"description" : "Container tab name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "display_name",
-					"display_name" : "Display name",
-					"description" : "Container tab display name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "b0def7e2-5f10-4ecc-a3c6-6f1d152a45c5",
-			"name" : "container_view",
-			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
-			"display_name" : "Container view",
-			"description" : "Container view",
-			"fields" : [{
-					"name" : "view",
-					"display_name" : "View",
-					"description" : "View name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}, {
-					"name" : "tab",
-					"display_name" : "Tab",
-					"description" : "Tab name",
-					"data_type" : {
-						"multiplicity" : "one",
-						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
-						"association_type" : "embed"
-					}
-				}
-			],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant"
-		}, {
-			"_id" : "38afea11-e925-4d4d-b014-335c84f008a4",
-			"name" : "object_types",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"display_name" : "Object Types",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"display_name" : "Column 1",
-								"size" : 12,
-								"containers" : [{
-										"display_name" : "Validation rules",
-										"tabs" : [{
-												"name" : "system_object_types",
-												"display_name" : "System object types"
-											}
-										],
-										"views" : [{
-												"display_name" : "System object types",
-												"view" : "system_object_types",
-												"tab" : "system_object_types"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["6a8bf337-1eec-477e-b71a-1868744e3462"],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
-		}, {
-			"_id" : "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
-			"name" : "validation_rule_definitions",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"display_name" : "Validation rule definitions",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"display_name" : "Column 1",
-								"size" : 12,
-								"containers" : [{
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "validation_rules",
-												"display_name" : "Validation rules"
-											}
-										],
-										"views" : [{
-												"display_name" : "Validation rules",
-												"view" : "validation_rules",
-												"tab" : "validation_rules"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["c819880b-20de-40b6-a942-3b1b7d20d689"],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
-		}, {
-			"_id" : "f721099f-5828-4af6-9820-8e017971b36d",
-			"name" : "pages",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"display_name" : "Pages",
-			"layout" : {
-				"rows" : [{
-						"columns" : [{
-								"display_name" : "Column 1",
-								"size" : 12,
-								"containers" : [{
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "pages",
-												"display_name" : "Pages"
-											}
-										],
-										"views" : [{
-												"display_name" : "Pages",
-												"view" : "pages",
-												"tab" : "pages"
-											}
-										]
-									}
-								]
-							}
-						],
-						"display_name" : ""
-					}
-				]
-			},
-			"views" : ["dad15424-274e-49fe-869a-ddaca45083b2"],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"_id" : "6634166e-617c-4866-af4f-5db62808f215",
 			"name" : "project",
@@ -1785,41 +1420,6 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant"
 		}, {
-			"_id" : "9729347b-af22-4df8-be38-f275e465c943",
-			"name" : "tasks",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"display_name" : "Tasks",
-			"description" : "",
-			"views" : ["6f329fc7-44a4-4533-b9de-c73cf78647de"],
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : null,
-								"display_name" : "Column 1",
-								"containers" : [{
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "tasks",
-												"display_name" : "Tasks"
-											}
-										],
-										"views" : [{
-												"view" : "tasks",
-												"tab" : "tasks"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
-		}, {
 			"_id" : "f5eecf29-8fba-4d29-b24a-2e253d0813e8",
 			"name" : "view_field",
 			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
@@ -1853,41 +1453,6 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant"
 		}, {
-			"_id" : "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
-			"name" : "projects",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"display_name" : "Projects",
-			"description" : "",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "",
-						"columns" : [{
-								"size" : "12",
-								"display_name" : "",
-								"containers" : [{
-										"views" : [{
-												"view" : "projects",
-												"tab" : "projects"
-											}
-										],
-										"display_name" : "Projects",
-										"tabs" : [{
-												"name" : "projects",
-												"display_name" : "Projects"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["cfed64bf-e508-451c-aac4-372a05d3fefc"],
-			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
-		}, {
 			"_id" : "2a13349a-c6d0-4820-aa40-6b625878a8ab",
 			"display_name" : "App creator",
 			"_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
@@ -1909,41 +1474,6 @@
 			"business_value" : "high",
 			"complexity" : "medium",
 			"status" : "completed"
-		}, {
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_id" : "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
-			"name" : "applications",
-			"display_name" : "Applications",
-			"description" : "Applications",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : "12",
-								"display_name" : "Column1",
-								"containers" : [{
-										"views" : [{
-												"view" : "applications",
-												"tab" : "applications"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "applications",
-												"display_name" : "Applications"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["cddee38b-d9ad-46be-a06e-a3d1ecaf2014"],
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
 		}, {
 			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
 			"_id" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
@@ -2032,76 +1562,28 @@
 			"navigation" : {
 				"menu_items" : [{
 						"display_name" : "Applications",
-						"page" : "c88ac157-6191-4b4d-9ee3-e636d263eaa6",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "application"
+						"page" : "dd9bc2a2-2290-4a91-8e30-a6b17cf2461e"
 					}, {
 						"display_name" : "Subscription plans",
-						"page" : "ac4552d1-a96c-419e-93d0-59b995b72082",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "780280b1-d3d7-4999-b9a9-8c87b5fef49e"
 					}, {
 						"display_name" : "Subscriptions",
-						"page" : "622e8f43-e9bf-4689-8e5b-771f38424d70",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "application"
+						"page" : "adad5182-83f9-4bb0-98d8-7383a8a34ea8"
 					}, {
 						"display_name" : "Object types",
-						"page" : "38afea11-e925-4d4d-b014-335c84f008a4",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "6f602430-a84c-49b7-8abf-171f6831e4e1"
 					}, {
 						"display_name" : "Validation rule definitions",
-						"page" : "f7e21fc2-48bd-4753-9b78-4f6bcb14705c",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "c661a5bd-3d98-43ad-b6b6-9f6fd4732cae"
 					}, {
 						"display_name" : "Pages",
-						"page" : "f721099f-5828-4af6-9820-8e017971b36d",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "018577ec-8b3c-4265-861c-2a1d38463efc"
 					}, {
 						"display_name" : "Components",
-						"page" : "7982b051-093d-4ab0-81e2-8f3d4659e411",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "21005ff6-f6b4-4ed4-8073-6c984fb7443d"
 					}, {
 						"display_name" : "Views",
-						"page" : "7248148c-8619-44fa-9574-ce169fb46594",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
-					}, {
-						"display_name" : "Pages 1",
-						"page" : "5cc9e753-5d03-4529-a8fa-085d68bf5a2f",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "1c67ef96-e2cc-4821-8093-a6f733cc9f92"
 					}
 				],
 				"display_name" : "Default navigation"
@@ -2119,27 +1601,12 @@
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_scope" : "global",
 			"navigation" : {
-				"_object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
-				"_id" : "",
-				"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-				"_tenant" : "",
-				"_scope" : "tenant",
 				"menu_items" : [{
 						"display_name" : "Projects",
-						"page" : "1eabba3b-dc4d-4ab2-bc7b-fabfc9f4352d",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "a8d01e62-3476-48bd-ae4c-c29bd21b6a03"
 					}, {
 						"display_name" : "Tasks",
-						"page" : "9729347b-af22-4df8-be38-f275e465c943",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "e0fb1838-e52f-45a0-b43a-e37df0ba29d8"
 					}
 				],
 				"display_name" : "Default navigation"
@@ -2170,19 +1637,9 @@
 			"_scope" : "global",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"navigation" : {
-				"_object_type" : "eb58bacc-00a9-4d5f-8653-7e05d06c691a",
-				"_id" : "",
-				"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-				"_tenant" : "",
-				"_scope" : "tenant",
 				"menu_items" : [{
 						"display_name" : "To-Do lists",
-						"page" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
-						"_object_type" : "72c4ef42-79bc-485f-b15d-bc88cbe2c10e",
-						"_id" : "",
-						"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-						"_tenant" : "",
-						"_scope" : "tenant"
+						"page" : "dd9bc2a2-2290-4a91-8e30-a6b17cf2461e"
 					}
 				],
 				"display_name" : "Default navigation"
@@ -2321,41 +1778,6 @@
 				}
 			]
 		}, {
-			"_id" : "ac4552d1-a96c-419e-93d0-59b995b72082",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application",
-			"name" : "subscription_plans",
-			"display_name" : "Subscription plans",
-			"description" : "Application subscription plans",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : "12",
-								"display_name" : "Column 1",
-								"containers" : [{
-										"views" : [{
-												"view" : "subscription_plans",
-												"tab" : "subscription_plans"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "subscription_plans",
-												"display_name" : "Subscription plans"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["14605893-5524-41cc-9b70-4c5b0ff0a973"]
-		}, {
 			"_object_type" : "696421ff-97de-4c43-911a-554a82ffc7ba",
 			"_id" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
@@ -2484,41 +1906,6 @@
 				}
 			]
 		}, {
-			"_id" : "622e8f43-e9bf-4689-8e5b-771f38424d70",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application",
-			"name" : "subscriptions",
-			"display_name" : "Subscriptions",
-			"description" : "Application subscriptions",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : "12",
-								"display_name" : "Column 1",
-								"containers" : [{
-										"views" : [{
-												"view" : "subscriptions",
-												"tab" : "subscriptions"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "subscriptions",
-												"display_name" : "Subscriptions"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["36a2c2d7-3ae1-4be7-bb57-751f03ca72f3"]
-		}, {
 			"account" : "af0c47cb-5537-4baa-bebf-a025d8499513",
 			"subscription_plan" : "f5af75b4-04f0-4c55-aa4c-f14b5f59e763",
 			"_object_type" : "c9a2bbb9-2706-485f-9052-229364326d13",
@@ -2561,7 +1948,7 @@
 					"display_name" : "Page",
 					"description" : "Page",
 					"data_type" : {
-						"object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+						"object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
 						"multiplicity" : "one",
 						"association_type" : "link"
 					},
@@ -3138,41 +2525,6 @@
 					"read_only" : true
 				}
 			]
-		}, {
-			"_id" : "0b9751f5-c6b5-4c05-922a-30b9f2440dee",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
-			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
-			"_scope" : "application",
-			"name" : "todo_lists",
-			"display_name" : "To-Do lists",
-			"description" : "To-Do lists",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : "12",
-								"display_name" : "Column 1",
-								"containers" : [{
-										"views" : [{
-												"view" : "todo_lists",
-												"tab" : "todo_lists"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "todo_lists",
-												"display_name" : "To-Do lists"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["76c6073a-3b5a-4fec-b87f-b61fd3a29512"]
 		}, {
 			"name" : "Work",
 			"_object_type" : "e4b5868d-07b1-424a-84e1-2f04fef1c5b7",
@@ -4263,7 +3615,6 @@
 			"display_name" : "System object types",
 			"source_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
 			"query" : "@._application=='{context.appId}'",
-			"page_size" : 10,
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4282,13 +3633,12 @@
 			"_id" : "6a8bf337-1eec-477e-b71a-1868744e3462",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "validation_rules",
 			"display_name" : "Validation rules",
 			"source_object_type" : "7e1410fe-fa99-4c73-b818-d6630b27b4c7",
 			"query" : "",
-			"page_size" : 10,
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4308,9 +3658,8 @@
 		}, {
 			"name" : "pages",
 			"display_name" : "Pages",
-			"source_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
+			"source_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
 			"query" : "",
-			"page_size" : "25",
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4326,12 +3675,11 @@
 			"_id" : "dad15424-274e-49fe-869a-ddaca45083b2",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "tasks",
 			"display_name" : "Tasks",
 			"source_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
-			"page_size" : 10,
 			"fields" : [{
 					"display_name" : "Title",
 					"source_path" : "title"
@@ -4361,7 +3709,6 @@
 			"name" : "projects",
 			"display_name" : "Projects",
 			"source_object_type" : "6634166e-617c-4866-af4f-5db62808f215",
-			"page_size" : "10",
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4380,7 +3727,6 @@
 			"display_name" : "Applications",
 			"source_object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
 			"query" : "@._id=='{context.appId}'",
-			"page_size" : "10",
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4393,12 +3739,11 @@
 			"_id" : "cddee38b-d9ad-46be-a06e-a3d1ecaf2014",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "subscription_plans",
 			"display_name" : "Subscription plans",
 			"query" : "",
-			"page_size" : "5",
 			"fields" : [{
 					"display_name" : "Display name",
 					"source_path" : "display_name"
@@ -4412,12 +3757,11 @@
 			"_id" : "14605893-5524-41cc-9b70-4c5b0ff0a973",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "subscriptions",
 			"display_name" : "Subscriptions",
 			"query" : "",
-			"page_size" : "25",
 			"fields" : [{
 					"display_name" : "Account",
 					"source_path" : "account.display_name"
@@ -4431,13 +3775,12 @@
 			"_id" : "36a2c2d7-3ae1-4be7-bb57-751f03ca72f3",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "components",
 			"display_name" : "Components",
 			"source_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
 			"query" : "",
-			"page_size" : "10",
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4456,25 +3799,29 @@
 			"display_name" : "Views",
 			"source_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
 			"query" : "",
-			"page_size" : "10",
 			"fields" : [{
+					"display_name" : "ID",
+					"source_path" : "_id"
+				}, {
 					"display_name" : "Name",
 					"source_path" : "name"
 				}, {
 					"display_name" : "Display name",
 					"source_path" : "display_name"
+				}, {
+					"display_name" : "Scope",
+					"source_path" : "_scope"
 				}
 			],
 			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
 			"_id" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application"
+			"_scope" : "global"
 		}, {
 			"name" : "todo_lists",
 			"display_name" : "To-Do lists",
 			"query" : "",
-			"page_size" : "10",
 			"fields" : [{
 					"display_name" : "Name",
 					"source_path" : "name"
@@ -4662,7 +4009,7 @@
 					"display_name" : "Object type",
 					"description" : "Object type",
 					"data_type" : {
-						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"object_type" : "1c84d86c-4e54-435e-8fe8-262921fad476",
 						"multiplicity" : "one",
 						"association_type" : "link"
 					},
@@ -5035,78 +4382,8 @@
 				}
 			]
 		}, {
-			"_id" : "7982b051-093d-4ab0-81e2-8f3d4659e411",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant",
-			"name" : "components",
-			"display_name" : "Components",
-			"description" : "Components",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : 12,
-								"display_name" : "Column 1",
-								"containers" : [{
-										"views" : [{
-												"view" : "components",
-												"tab" : "components"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "components",
-												"display_name" : "Components"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["4a5e0e3c-8aaa-4389-a6be-fb5620f929d9"]
-		}, {
-			"_id" : "7248148c-8619-44fa-9574-ce169fb46594",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant",
-			"name" : "views",
-			"display_name" : "Views",
-			"description" : "Views",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : 12,
-								"display_name" : "Column 1",
-								"containers" : [{
-										"views" : [{
-												"view" : "views",
-												"tab" : "views"
-											}
-										],
-										"display_name" : "Container 1",
-										"tabs" : [{
-												"name" : "views",
-												"display_name" : "Views"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"]
-		}, {
-			"name" : "table-view1",
-			"display_name" : "Data table",
+			"name" : "table-view",
+			"display_name" : "Data table view",
 			"description" : "Displays multiple data objects in tabular view",
 			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
 			"_id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
@@ -5114,15 +4391,17 @@
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "application",
 			"parameters" : [{
-					"name" : "pagesize",
-					"display_name" : "Page size",
-					"description" : "Number of records displayed per page",
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name",
 					"data_type" : {
-						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
 						"multiplicity" : "one",
 						"association_type" : "embed"
 					},
+					"required" : false,
 					"hidden" : false,
+					"read_only" : false,
 					"default" : ""
 				}, {
 					"name" : "viewid",
@@ -5132,6 +4411,17 @@
 						"object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
 						"multiplicity" : "one",
 						"association_type" : "link"
+					},
+					"hidden" : false,
+					"default" : ""
+				}, {
+					"name" : "pagesize",
+					"display_name" : "Page size",
+					"description" : "Number of records displayed per page",
+					"data_type" : {
+						"object_type" : "42cbbb31-2bc3-42d4-a695-786920141a5f",
+						"multiplicity" : "one",
+						"association_type" : "embed"
 					},
 					"hidden" : false,
 					"default" : ""
@@ -5147,7 +4437,7 @@
 					"_tenant" : "",
 					"_scope" : "tenant",
 					"parameters" : [{
-							"name" : "object_id",
+							"name" : "objectid",
 							"display_name" : "Object id",
 							"description" : "Object id of picked row",
 							"data_type" : {
@@ -5158,7 +4448,7 @@
 							"hidden" : false,
 							"default" : ""
 						}, {
-							"name" : "object_type_id",
+							"name" : "objecttypeid",
 							"display_name" : "Object type id",
 							"description" : "Object type id of picked row",
 							"data_type" : {
@@ -5306,9 +4596,9 @@
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
 			"_scope" : "tenant",
-			"name" : "page_1",
-			"display_name" : "Page 1",
-			"description" : "Page V1",
+			"name" : "page",
+			"display_name" : "Page",
+			"description" : "Page object type",
 			"fields" : [{
 					"name" : "name",
 					"display_name" : "Name",
@@ -5606,60 +4896,6 @@
 				}
 			]
 		}, {
-			"_id" : "5cc9e753-5d03-4529-a8fa-085d68bf5a2f",
-			"_object_type" : "75458276-7818-4fff-a170-7b3e25cd99c2",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "tenant",
-			"name" : "pages_1",
-			"display_name" : "Pages 1",
-			"description" : "Pages 1",
-			"layout" : {
-				"rows" : [{
-						"display_name" : "Row 1",
-						"columns" : [{
-								"size" : 12,
-								"display_name" : "Column 1",
-								"containers" : [{
-										"display_name" : "Container 1",
-										"views" : [{
-												"view" : "pages_1",
-												"tab" : "pages_1"
-											}
-										],
-										"tabs" : [{
-												"name" : "pages_1",
-												"display_name" : "Pages 1"
-											}
-										]
-									}
-								]
-							}
-						]
-					}
-				]
-			},
-			"views" : ["45d3a17d-8c23-4920-bad3-3660b584a5d1"]
-		}, {
-			"name" : "pages_1",
-			"display_name" : "Pages 1",
-			"query" : "",
-			"page_size" : 10,
-			"fields" : [{
-					"display_name" : "Name",
-					"source_path" : "name"
-				}, {
-					"display_name" : "Display name",
-					"source_path" : "display_name"
-				}
-			],
-			"source_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
-			"_object_type" : "c8bed3ae-38cf-43b0-983e-a984e74cd41e",
-			"_id" : "45d3a17d-8c23-4920-bad3-3660b584a5d1",
-			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
-			"_scope" : "application",
-			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
-		}, {
 			"name" : "views",
 			"display_name" : "Views",
 			"description" : "Views page",
@@ -5677,7 +4913,7 @@
 								"components" : [{
 										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
 										"parameters" : {
-											"size" : 12,
+											"size" : 6,
 											"components" : [{
 													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
 													"parameters" : {
@@ -5690,7 +4926,90 @@
 																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
 																			"parameters" : {
 																				"pagesize" : 10,
-																				"viewid" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a"
+																				"viewid" : "dd4ce799-3d6b-4cbc-a0fc-0a2598241f4a",
+																				"name" : "table_view_1"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}, {
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 6,
+											"components" : [{
+													"id" : "a38f9ae5-7e3e-4c11-ab49-d29e51183143",
+													"parameters" : {
+														"name" : "form_view_1",
+														"objecttypeid" : "",
+														"objectid" : "",
+														"eventsubscriptions" : [{
+																"source" : "table_view_1",
+																"event_name" : "row_picked",
+																"command_name" : "load_object",
+																"parameter_mappings" : [{
+																		"source" : "objecttypeid",
+																		"destination" : "objecttypeid"
+																	}, {
+																		"source" : "objectid",
+																		"destination" : "objectid"
+																	}
+																]
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "1c67ef96-e2cc-4821-8093-a6f733cc9f92",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "applications",
+			"display_name" : "Applications",
+			"description" : "Applications page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Applications"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Applications",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "cddee38b-d9ad-46be-a06e-a3d1ecaf2014"
 																			}
 																		}
 																	]
@@ -5709,9 +5028,495 @@
 				}
 			},
 			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
-			"_id" : "1c67ef96-e2cc-4821-8093-a6f733cc9f92",
+			"_id" : "dd9bc2a2-2290-4a91-8e30-a6b17cf2461e",
 			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
 			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "subscription_plans",
+			"display_name" : "Subscription plans",
+			"description" : "Subscription plans page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Subscription plans"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Subscription plans",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "14605893-5524-41cc-9b70-4c5b0ff0a973"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "780280b1-d3d7-4999-b9a9-8c87b5fef49e",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "subscriptions",
+			"display_name" : "Subscriptions",
+			"description" : "Subscriptions page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Subscriptions"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Subscriptions",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "36a2c2d7-3ae1-4be7-bb57-751f03ca72f3"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "adad5182-83f9-4bb0-98d8-7383a8a34ea8",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "object_types",
+			"display_name" : "Object types",
+			"description" : "Object types page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Object types"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Object types",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "6a8bf337-1eec-477e-b71a-1868744e3462"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "6f602430-a84c-49b7-8abf-171f6831e4e1",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "validation_rule_definitions",
+			"display_name" : "Validation rule definitions",
+			"description" : "Validation rule definitions page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Validation rule definitions"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Validation rule definitions",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "c819880b-20de-40b6-a942-3b1b7d20d689"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "c661a5bd-3d98-43ad-b6b6-9f6fd4732cae",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "pages",
+			"display_name" : "Pages",
+			"description" : "Pages page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Pages"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Pages",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "dad15424-274e-49fe-869a-ddaca45083b2"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "018577ec-8b3c-4265-861c-2a1d38463efc",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "global"
+		}, {
+			"name" : "components",
+			"display_name" : "Components",
+			"description" : "Components page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Components"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Components",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "4a5e0e3c-8aaa-4389-a6be-fb5620f929d9"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "21005ff6-f6b4-4ed4-8073-6c984fb7443d",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "projects",
+			"display_name" : "Projects",
+			"description" : "Projects page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Projects"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Projects",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "cfed64bf-e508-451c-aac4-372a05d3fefc"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "a8d01e62-3476-48bd-ae4c-c29bd21b6a03",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "tasks",
+			"display_name" : "Tasks",
+			"description" : "Tasks page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "Tasks"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "Tasks",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "6f329fc7-44a4-4533-b9de-c73cf78647de"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "e0fb1838-e52f-45a0-b43a-e37df0ba29d8",
+			"_application" : "bfed23a2-f1bf-4896-9fff-e59114e3af5f",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "application"
+		}, {
+			"name" : "to_do_lists",
+			"display_name" : "To-Do lists",
+			"description" : "To-Do lists page",
+			"layout" : {
+				"id" : "a8141387-61a6-430f-b4ce-09f0600e4484",
+				"parameters" : {
+					"components" : [{
+							"id" : "b66133b2-7e45-4c6d-bdfb-8e5e44a056bf",
+							"parameters" : {
+								"heading" : "To-Do lists"
+							}
+						}, {
+							"id" : "26825f58-8c2d-4d6c-90f6-2487f46a3e3e",
+							"parameters" : {
+								"components" : [{
+										"id" : "f1800a2b-15ac-4002-971d-ff28c9c37a9f",
+										"parameters" : {
+											"size" : 12,
+											"components" : [{
+													"id" : "571fff43-8846-464f-9458-9e39d7fa2c3d",
+													"parameters" : {
+														"active" : "active",
+														"components" : [{
+																"id" : "3c073b32-fcb0-4b43-b77e-b879703e5e03",
+																"parameters" : {
+																	"heading" : "To-Do lists",
+																	"components" : [{
+																			"id" : "7eb3f73b-19d1-48fd-b610-a9dd156d8cd5",
+																			"parameters" : {
+																				"pagesize" : 10,
+																				"viewid" : "76c6073a-3b5a-4fec-b87f-b61fd3a29512"
+																			}
+																		}
+																	]
+																}
+															}
+														]
+													}
+												}
+											]
+										}
+									}
+								]
+							}
+						}
+					]
+				}
+			},
+			"_object_type" : "4852640a-d1bb-4216-a662-06ce2cf00e0c",
+			"_id" : "dd9bc2a2-2290-4a91-8e30-a6b17cf2461e",
+			"_application" : "761aa09f-84c8-4409-90d0-bbab14b223a6",
+			"_tenant" : "af0c47cb-5537-4baa-bebf-a025d8499513",
 			"_scope" : "application"
 		}, {
 			"_object_type" : "d8c873c4-d103-448e-bcee-6ba9afcefb07",
@@ -5749,6 +5554,413 @@
 					"hidden" : false,
 					"read_only" : false,
 					"default" : ""
+				}
+			]
+		}, {
+			"name" : "form-view",
+			"display_name" : "Form view",
+			"description" : "Form view component",
+			"_object_type" : "086f2d3a-4e71-4dcc-8ec3-a0348bbfb2f6",
+			"_id" : "a38f9ae5-7e3e-4c11-ab49-d29e51183143",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"parameters" : [{
+					"name" : "name",
+					"display_name" : "Name",
+					"description" : "Name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "objecttypeid",
+					"display_name" : "Object type ID",
+					"description" : "Object type ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "objectid",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "event_subscriptions",
+					"display_name" : "Event subscriptions",
+					"description" : "Event subscriptions",
+					"data_type" : {
+						"object_type" : "1c84d86c-4e54-435e-8fe8-262921fad476",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}
+			],
+			"events" : [{
+					"name" : "object_created",
+					"display_name" : "Object created",
+					"description" : "New object created",
+					"_object_type" : "74046178-6d15-4e50-a35c-a000f3e29911",
+					"_id" : "",
+					"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+					"_tenant" : "",
+					"_scope" : "tenant",
+					"parameters" : [{
+							"name" : "objecttypeid",
+							"display_name" : "Object type ID",
+							"description" : "Object type ID",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"required" : false,
+							"hidden" : false,
+							"read_only" : false,
+							"default" : ""
+						}, {
+							"name" : "objectid",
+							"display_name" : "Object ID",
+							"description" : "Object ID",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"required" : false,
+							"hidden" : false,
+							"read_only" : false,
+							"default" : ""
+						}
+					]
+				}
+			],
+			"commands" : [{
+					"name" : "load_object",
+					"display_name" : "Load object",
+					"description" : "Load object",
+					"_object_type" : "a15ae033-e3d4-4b40-9df5-3beb4e880e45",
+					"_id" : "",
+					"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+					"_tenant" : "",
+					"_scope" : "tenant",
+					"parameters" : [{
+							"name" : "objecttypeid",
+							"display_name" : "Object type ID",
+							"description" : "Object type ID",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"required" : false,
+							"hidden" : false,
+							"read_only" : false,
+							"default" : ""
+						}, {
+							"name" : "objectid",
+							"display_name" : "Object ID",
+							"description" : "Object ID",
+							"data_type" : {
+								"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+								"multiplicity" : "one",
+								"association_type" : "embed"
+							},
+							"required" : false,
+							"hidden" : false,
+							"read_only" : false,
+							"default" : ""
+						}
+					]
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "7063e389-920c-4564-896a-bff29520b88c",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "parameter_mapping",
+			"display_name" : "Parameter mapping",
+			"description" : "Parameter mapping",
+			"fields" : [{
+					"name" : "source",
+					"display_name" : "Source parameter",
+					"description" : "Source parameter",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "destination",
+					"display_name" : "Destination parameter",
+					"description" : "Destination parameter",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "7063e389-920c-4564-896a-bff29520b88c"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"key" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"key" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"key" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}
+			]
+		}, {
+			"_object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+			"_id" : "1c84d86c-4e54-435e-8fe8-262921fad476",
+			"_application" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab",
+			"_tenant" : "e2a44387-06a6-4738-939f-8fb6eb5165e7",
+			"_scope" : "tenant",
+			"name" : "event_subscription",
+			"display_name" : "Event subscription",
+			"description" : "Event subscription",
+			"fields" : [{
+					"name" : "source",
+					"display_name" : "Event source",
+					"description" : "Event source",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "event_name",
+					"display_name" : "Event name",
+					"description" : "Event name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "command_name",
+					"display_name" : "Command name",
+					"description" : "Command name",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "parameter_mappings",
+					"display_name" : "Parameter mappings",
+					"description" : "Parameter mappings",
+					"data_type" : {
+						"object_type" : "7063e389-920c-4564-896a-bff29520b88c",
+						"multiplicity" : "many",
+						"association_type" : "embed"
+					},
+					"required" : false,
+					"hidden" : false,
+					"read_only" : false,
+					"default" : ""
+				}, {
+					"name" : "_object_type",
+					"display_name" : "Object type",
+					"description" : "Object type",
+					"data_type" : {
+						"object_type" : "7e22d35d-0ed1-47c4-9f56-973335195176",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "1c84d86c-4e54-435e-8fe8-262921fad476"
+				}, {
+					"name" : "_id",
+					"display_name" : "Object ID",
+					"description" : "Object ID",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_application",
+					"display_name" : "Application",
+					"description" : "Application that owns the Object",
+					"data_type" : {
+						"object_type" : "9cd5bb49-2534-4754-bc37-91a519ca0c21",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true,
+					"default" : "3309424d-b1f7-41cc-97cc-66b8cbf40cab"
+				}, {
+					"name" : "_tenant",
+					"display_name" : "Tenant",
+					"description" : "Tenant that owns the Object",
+					"data_type" : {
+						"object_type" : "71e3d58b-c9e6-43aa-9b76-ec85c35e36ae",
+						"multiplicity" : "one",
+						"association_type" : "link"
+					},
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
+				}, {
+					"name" : "_scope",
+					"display_name" : "Scope",
+					"description" : "Scope of the Object",
+					"data_type" : {
+						"object_type" : "16b8aa98-d9df-4899-84f0-d31652487abe",
+						"multiplicity" : "one",
+						"association_type" : "embed"
+					},
+					"source" : [{
+							"display_name" : "Global",
+							"value" : "global",
+							"key" : "global",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Application",
+							"value" : "application",
+							"key" : "application",
+							"icon" : "",
+							"color" : ""
+						}, {
+							"display_name" : "Tenant",
+							"value" : "tenant",
+							"key" : "tenant",
+							"icon" : "",
+							"color" : ""
+						}
+					],
+					"default" : "tenant",
+					"required" : true,
+					"hidded" : true,
+					"read_only" : true
 				}
 			]
 		}

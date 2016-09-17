@@ -15,7 +15,7 @@ exports.getPageLayout = function(req, res) {
 	);
 	
 	
-	var object_type = getObjectByName(datamodel, 'system_object', 'page_1');
+	var object_type = getObjectByName(datamodel, 'system_object', 'page');
 	var id = req.params.id;
 	
 	var tenant = getObjectByName(datamodel, 'account', req.params.tenant);
@@ -41,12 +41,22 @@ exports.getPageLayout = function(req, res) {
 
 function getComponentParameters(component)
 {
+	var util = require('util');
+
 	var result = {};
 	
 	Object.keys(component.parameters).forEach(function(key, index) {
 		if(key != 'components')
 		{
-			result[key] = component.parameters[key];
+			if(util.isArray(component.parameters[key]) || typeof component.parameters[key] === "Object")
+			{
+				result[key] = JSON.stringify(component.parameters[key]).replace(/\"/g, "'");
+			}
+			else
+			{
+				result[key] = component.parameters[key];
+			}
+			
 		}
 	});
 
@@ -757,12 +767,12 @@ function getViewObjectType(datamodel, object_type, view_fields)
 		var value_type = object_type;
 		var field = null;
 
-		//console.log(view_fields[i].source_path);
+		console.log(view_fields[i].source_path);
 		for(var j = 0; j < view_fields[i].source_path.length; j++)
 		{
 			field = getByName(value_type.fields, view_fields[i].source_path[j]);
 			
-			//console.log(field.name);
+			console.log(field.name);
 			if(field)
 			{		
 				field.name = view_fields[i].alias;

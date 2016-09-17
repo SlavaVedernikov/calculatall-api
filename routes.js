@@ -17,7 +17,7 @@ module.exports = function(app){
 	
 	app.get('/:owner/:application/:tenant/templates/:id', system_object_types.getTemplateById);
 	
-	app.get('/:owner/:application/:tenant/page_1/:id/layout', system_object_types.getPageLayout);
+	app.get('/:owner/:application/:tenant/page/:id/layout', system_object_types.getPageLayout);
 	
 	app.get('/:owner/:application/:tenant/object_types', system_object_types.findAllObjectTypes);
 	app.get('/:owner/:application/:tenant/object_types/:id', system_object_types.findObjectTypeById);
